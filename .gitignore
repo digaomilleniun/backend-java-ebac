@@ -73,4 +73,8 @@ testem.log
 .DS_Store
 Thumbs.db
 
+.idea/*
+.idea/**
+*.iml
+*/.idea
 
