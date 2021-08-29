@@ -5,6 +5,8 @@ import cadastro.domain.Produto;
 
 /**
  * @author rodrigo.pires
+ *
+ * Classe que representa a cricação de objetos Produto
  */
 public class ProdutoFabrica implements FabricaPersistente {
 

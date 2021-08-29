@@ -11,12 +11,16 @@ import java.util.Map;
 
 /**
  * @author rodrigo.pires
+ *
+ * Classe genérica que implementa interface genérica com os métodos de CRUD
  */
 public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T> {
 
     //protected Map<Class, Map<Long, T>> map = new HashMap<>();
 
-    //Necessário utilizar Singleton para ter apenas um MAP no sistema
+    /**
+     * Necessário utilizar Singleton para ter apenas um MAP no sistema
+     */
     private SingletonMap singletonMap;
 
     public abstract Class<T> getTipoClasse();
@@ -25,9 +29,6 @@ public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T
 
     public GenericDAO() {
         this.singletonMap = SingletonMap.getInstance();
-//        if ( this.map == null) {
-//            this.map = new HashMap<>();
-//        }
     }
 
     @Override

@@ -7,6 +7,8 @@ import java.util.Collection;
 
 /**
  * @author rodrigo.pires
+ *
+ * Interface que representa os dados de Cliente
  */
 public interface IClienteDAO extends IGenericDAO<Cliente> {
 

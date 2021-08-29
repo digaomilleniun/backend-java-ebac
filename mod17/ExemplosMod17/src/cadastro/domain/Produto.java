@@ -2,6 +2,8 @@ package cadastro.domain;
 
 /**
  * @author rodrigo.pires
+ *
+ * Classe que representa os dados de produto
  */
 public class Produto implements Persistente{
 

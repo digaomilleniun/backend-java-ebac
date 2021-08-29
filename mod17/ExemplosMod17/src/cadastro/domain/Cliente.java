@@ -4,6 +4,8 @@ import java.util.Objects;
 
 /**
  * @author rodrigo.pires
+ *
+ * Classe que representa os dados de cliente
  */
 public class Cliente implements Persistente{
 

@@ -8,6 +8,8 @@ import java.util.Collection;
 
 /**
  * @author rodrigo.pires
+ *
+ * Interface que representa os dados de Produto
  */
 public interface IProdutoDAO extends IGenericDAO<Produto> {
 
