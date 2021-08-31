@@ -1,5 +1,7 @@
 package cadastro.domain;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
 import java.util.Objects;
 
 /**
