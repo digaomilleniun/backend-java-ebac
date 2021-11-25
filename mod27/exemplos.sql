@@ -114,3 +114,8 @@ select distinct(nome) from tb_pessoa;
 select * from tb_pessoa where nome in ('Rodrigo', 'Luana');
 
 select * from tb_pessoa where idade between 10 and 30;
+
+
+
+
+
