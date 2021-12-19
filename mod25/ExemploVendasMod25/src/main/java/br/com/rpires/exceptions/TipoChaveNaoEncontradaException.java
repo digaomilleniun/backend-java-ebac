@@ -1,4 +1,4 @@
-package br.com.rpires.reflections.anotacao.cadastro.exception;
+package br.com.rpires.exceptions;
 
 /**
  * @author rodrigo.pires

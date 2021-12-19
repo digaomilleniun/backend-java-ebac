@@ -1,18 +1,21 @@
-package br.com.rpires.reflections.anotacao.cadastro.dao.generic;
+/**
+ * 
+ */
+package br.com.rpires.services.generic;
 
-import br.com.rpires.reflections.anotacao.cadastro.domain.Persistente;
-import br.com.rpires.reflections.anotacao.cadastro.exception.TipoChaveNaoEncontradaException;
-
+import java.io.Serializable;
 import java.util.Collection;
+
+import br.com.rpires.dao.Persistente;
+import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 
 /**
  * @author rodrigo.pires
  *
- * Interface genérica para métodos de CRUD(Create, Read, Update and Delete)
  */
-public interface IGenericDAO <T extends Persistente> {
-
-    /**
+public interface IGenericService <T extends Persistente, E extends Serializable> {
+	
+	/**
      * Método para cadastrar novos registro no banco de dados
      *
      * @param entity a ser cadastrado
@@ -25,7 +28,7 @@ public interface IGenericDAO <T extends Persistente> {
      *
      * @param valor chave única do dado a ser excluído
      */
-    public void excluir(Long valor);
+    public void excluir(E valor);
 
     /**
      *Método para alterar um registro no bando de dados.
@@ -40,7 +43,7 @@ public interface IGenericDAO <T extends Persistente> {
      * @param valor chave única do dado a ser consultado
      * @return
      */
-    public T consultar(Long valor);
+    public T consultar(E valor);
 
     /**
      * Método que irá retornar todos os registros do banco de dados de uma determinado dado ou tabela
@@ -48,4 +51,5 @@ public interface IGenericDAO <T extends Persistente> {
      * @return Registros encontrados
      */
     public Collection<T> buscarTodos();
+
 }

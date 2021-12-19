@@ -4,7 +4,7 @@
 package br.com.rpires.services;
 
 import br.com.rpires.domain.Cliente;
-import br.com.rpires.reflections.anotacao.cadastro.exception.TipoChaveNaoEncontradaException;
+import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 
 /**
  * @author rodrigo.pires
@@ -12,7 +12,7 @@ import br.com.rpires.reflections.anotacao.cadastro.exception.TipoChaveNaoEncontr
  */
 public interface IClienteService {
 
-	Boolean salvar(Cliente cliente) throws TipoChaveNaoEncontradaException;
+	Boolean cadastrar(Cliente cliente) throws TipoChaveNaoEncontradaException;
 
 	Cliente buscarPorCPF(Long cpf);
 

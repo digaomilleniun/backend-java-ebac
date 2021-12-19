@@ -3,14 +3,18 @@
  */
 package br.com.rpires;
 
+import static org.junit.Assert.assertTrue;
+
+import java.util.Collection;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.rpires.dao.ClienteDaoMock;
+import br.com.rpires.dao.ClienteDAO;
 import br.com.rpires.dao.IClienteDAO;
 import br.com.rpires.domain.Cliente;
-import br.com.rpires.reflections.anotacao.cadastro.exception.TipoChaveNaoEncontradaException;
+import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 
 /**
  * @author rodrigo.pires
@@ -23,7 +27,7 @@ public class ClienteDAOTest {
 	private Cliente cliente;
 	
 	public ClienteDAOTest() {
-		clienteDao = new ClienteDaoMock();
+		clienteDao = new ClienteDAO();
 	}
 	
 	@Before
@@ -42,14 +46,13 @@ public class ClienteDAOTest {
 	@Test
 	public void pesquisarCliente() {
 		Cliente clienteConsultado = clienteDao.consultar(cliente.getCpf());
-		
 		Assert.assertNotNull(clienteConsultado);
 	}
 	
 	@Test
 	public void salvarCliente() throws TipoChaveNaoEncontradaException {
+		cliente.setCpf(56565656565L);
 		Boolean retorno = clienteDao.cadastrar(cliente);
-		
 		Assert.assertTrue(retorno);
 	}
 	
@@ -63,7 +66,13 @@ public class ClienteDAOTest {
 	public void alterarCliente() throws TipoChaveNaoEncontradaException {
 		cliente.setNome("Rodrigo Pires");
 		clienteDao.alterar(cliente);
-		
 		Assert.assertEquals("Rodrigo Pires", cliente.getNome());
+	}
+	
+	@Test
+	public void buscarTodos() {
+		Collection<Cliente> list = clienteDao.buscarTodos();
+		assertTrue(list != null);
+		assertTrue(list.size() == 2);
 	}
 }

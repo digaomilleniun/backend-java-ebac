@@ -1,4 +1,4 @@
-package br.com.rpires.reflections.anotacao.cadastro.domain;
+package br.com.rpires.dao;
 
 /**
  * @author rodrigo.pires

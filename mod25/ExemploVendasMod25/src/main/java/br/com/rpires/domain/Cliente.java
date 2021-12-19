@@ -3,7 +3,8 @@
  */
 package br.com.rpires.domain;
 
-import br.com.rpires.reflections.anotacao.cadastro.domain.Persistente;
+import anotacao.TipoChave;
+import br.com.rpires.dao.Persistente;
 
 /**
  * @author rodrigo.pires
@@ -12,11 +13,18 @@ import br.com.rpires.reflections.anotacao.cadastro.domain.Persistente;
 public class Cliente implements Persistente {
 	
 	private String nome;
+	
+	@TipoChave("getCpf")
     private Long cpf;
+    
     private Long tel;
+    
     private String end;
+    
     private Integer numero;
+    
     private String cidade;
+    
     private String estado;
     
 	public String getNome() {

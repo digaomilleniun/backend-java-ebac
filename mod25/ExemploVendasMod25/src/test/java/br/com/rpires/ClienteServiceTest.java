@@ -10,7 +10,7 @@ import org.junit.Test;
 import br.com.rpires.dao.ClienteDaoMock;
 import br.com.rpires.dao.IClienteDAO;
 import br.com.rpires.domain.Cliente;
-import br.com.rpires.reflections.anotacao.cadastro.exception.TipoChaveNaoEncontradaException;
+import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 import br.com.rpires.services.ClienteService;
 import br.com.rpires.services.IClienteService;
 
@@ -50,7 +50,7 @@ public class ClienteServiceTest {
 	
 	@Test
 	public void salvarCliente() throws TipoChaveNaoEncontradaException {
-		Boolean retorno = clienteService.salvar(cliente);
+		Boolean retorno = clienteService.cadastrar(cliente);
 		
 		Assert.assertTrue(retorno);
 	}

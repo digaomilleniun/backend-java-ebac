@@ -1,4 +1,4 @@
-package br.com.rpires.reflections.anotacao.cadastro.dao.generic;
+package br.com.rpires.dao.generic;
 
 import java.util.HashMap;
 import java.util.Map;
