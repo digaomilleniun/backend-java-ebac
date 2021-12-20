@@ -19,7 +19,7 @@ import br.com.rpires.dao.Persistente;
 public class Venda implements Persistente {
 	
 	public enum Status {
-		CONCLUIDA, CANCELADA;
+		INICIADA, CONCLUIDA, CANCELADA;
 	}
 
 	@TipoChave("getCodigo")
@@ -60,6 +60,7 @@ public class Venda implements Persistente {
 	}
 
 	public void adicionarProduto(Produto produto, Integer quantidade) {
+		validarStatus();
 		Optional<ProdutoQuantidade> op = 
 				produtos.stream().filter(filter -> filter.getProduto().getCodigo().equals(produto.getCodigo())).findAny();
 		if (op.isPresent()) {
@@ -74,20 +75,46 @@ public class Venda implements Persistente {
 		}
 		recalcularValorTotalVenda();
 	}
+
+	private void validarStatus() {
+		if (this.status == Status.CONCLUIDA) {
+			throw new UnsupportedOperationException("IMPOSSÍVEL ALTERAR VENDA FINALIZADA");
+		}
+	}
 	
 	public void removerProduto(Produto produto, Integer quantidade) {
+		validarStatus();
 		Optional<ProdutoQuantidade> op = 
 				produtos.stream().filter(filter -> filter.getProduto().getCodigo().equals(produto.getCodigo())).findAny();
 		
 		if (op.isPresent()) {
 			ProdutoQuantidade produtpQtd = op.get();
-			produtpQtd.remover(quantidade);
-			recalcularValorTotalVenda();
+			if (produtpQtd.getQuantidade()>quantidade) {
+				produtpQtd.remover(quantidade);
+				recalcularValorTotalVenda();
+			} else {
+				produtos.remove(op.get());
+				recalcularValorTotalVenda();
+			}
+			
 		}
 	}
 	
+	public void removerTodosProdutos() {
+		validarStatus();
+		produtos.clear();
+		valorTotal = BigDecimal.ZERO;
+	}
+	
+	public Integer getQuantidadeTotalProdutos() {
+		// Soma a quantidade getQuantidade() de todos os objetos ProdutoQuantidade
+		int result = produtos.stream()
+		  .reduce(0, (partialCountResult, prod) -> partialCountResult + prod.getQuantidade(), Integer::sum);
+		return result;
+	}
+	
 	private void recalcularValorTotalVenda() {
-		//TODO corrigir calculo
+		validarStatus();
 		BigDecimal valorTotal = BigDecimal.ZERO;
 		for (ProdutoQuantidade prod : this.produtos) {
 			valorTotal = valorTotal.add(prod.getValorTotal());
