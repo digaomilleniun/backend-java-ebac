@@ -360,8 +360,12 @@ public class VendaDAOTest {
 		}
 	}
 	
-	protected Connection getConnection() {
-		return ConnectionFactory.getConnection();
+	protected Connection getConnection() throws DAOException {
+		try {
+			return ConnectionFactory.getConnection();
+		} catch (SQLException e) {
+			throw new DAOException("ERRO ABRINDO CONEXAO COM BANCO DE DADOS ", e);
+		}
 	}
 
 }

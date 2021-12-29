@@ -147,7 +147,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
     @Override
     public T consultar(E valor) throws MaisDeUmRegistroException, TableException, DAOException {
     	try {
-    		validarMaisDeUmRegistro();
+    		validarMaisDeUmRegistro(valor);
     		Connection connection = getConnection();
 			PreparedStatement stm = connection.prepareStatement("SELECT * FROM " + getTableName() + " WHERE " + getNomeCampoChave(getTipoClasse()) + " = ?");
 			setParametrosQuerySelect(stm, valor);
@@ -238,13 +238,14 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		}
 	}
 
-	private Long validarMaisDeUmRegistro() throws MaisDeUmRegistroException, TableException {
+	private Long validarMaisDeUmRegistro(E valor) throws MaisDeUmRegistroException, TableException, TipoChaveNaoEncontradaException, DAOException {
     	Connection connection = getConnection();
 		PreparedStatement stm = null;
 		ResultSet rs = null;
 		Long count = null;
 		try {
-			stm = connection.prepareStatement("SELECT count(*) FROM " + getTableName());
+			stm = connection.prepareStatement("SELECT count(*) FROM " + getTableName() + " WHERE " + getNomeCampoChave(getTipoClasse()) + " = ?");
+			setParametrosQuerySelect(stm, valor);
 			rs = stm.executeQuery();
 			if (rs.next()) {
 				count = rs.getLong(1);
@@ -270,7 +271,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 			if (stm != null && !stm.isClosed()) {
 				stm.close();
 			}
-			if (connection != null && !stm.isClosed()) {
+			if (connection != null && !connection.isClosed()) {
 				connection.close();
 			}
 		} catch (SQLException e1) {
@@ -291,11 +292,14 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 	@Override
     public Collection<T> buscarTodos() throws DAOException {
 		List<T> list = new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement stm = null;
+		ResultSet rs = null;
         try {
 		
-			Connection connection = getConnection();
-			PreparedStatement stm = connection.prepareStatement("SELECT * FROM " + getTableName());
-			ResultSet rs = stm.executeQuery();
+			connection = getConnection();
+			stm = connection.prepareStatement("SELECT * FROM " + getTableName());
+			rs = stm.executeQuery();
 		    while (rs.next()) {
 		    	T entity = getTipoClasse().getConstructor(null).newInstance(null);
 		    	Field[] fields = entity.getClass().getDeclaredFields();
@@ -322,11 +326,17 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 	    
 		} catch (SQLException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | TableException e) {
 			throw new DAOException("ERRO LISTANDO OBJETOS ", e);
-		} 
+		} finally {
+			closeConnection(connection, stm, rs);
+		}
 		return list;
     }
 	
-	protected Connection getConnection() {
-		return ConnectionFactory.getConnection();
+	protected Connection getConnection() throws DAOException {
+		try {
+			return ConnectionFactory.getConnection();
+		} catch (SQLException e) {
+			throw new DAOException("ERRO ABRINDO CONEXAO COM O BANCO DE DADOS ", e);
+		}
 	}
 }

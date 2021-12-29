@@ -27,8 +27,6 @@ public class ClienteDAOTest {
 	
 	private IClienteDAO clienteDao;
 
-	private Cliente cliente;
-	
 	public ClienteDAOTest() {
 		clienteDao = new ClienteDAO();
 	}

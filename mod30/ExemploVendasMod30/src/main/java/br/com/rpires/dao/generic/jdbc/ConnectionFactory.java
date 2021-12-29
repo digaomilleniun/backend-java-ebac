@@ -19,11 +19,16 @@ public class ConnectionFactory {
 		
 	}
 	
-	public static Connection getConnection() {
+	public static Connection getConnection() throws SQLException {
 		if (connection == null) {
 			connection = initConnection();
+			return connection;
+		} else if (connection.isClosed()) {
+			connection = initConnection();
+			return connection;
+		} else {
+			return connection;
 		}
-		return connection;
 	}
 	
 	private static Connection initConnection() {

@@ -39,7 +39,8 @@ create table tb_produto_quantidade(
 	quantidade int not null,
 	valor_total numeric(10,2) not null,
 	constraint pk_id_prod_venda primary key(id),
-	constraint fk_id_prod_venda foreign key(id_produto_fk) references tb_produto(id)
+	constraint fk_id_prod_venda foreign key(id_produto_fk) references tb_produto(id),
+	constraint fk_id_prod_venda_venda foreign key(id_venda_fk) references tb_venda(id)
 );
 
 create sequence sq_cliente
