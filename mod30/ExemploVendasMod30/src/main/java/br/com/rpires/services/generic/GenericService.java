@@ -8,6 +8,7 @@ import java.util.Collection;
 
 import br.com.rpires.dao.Persistente;
 import br.com.rpires.dao.generic.IGenericDAO;
+import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.MaisDeUmRegistroException;
 import br.com.rpires.exceptions.TableException;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
@@ -26,22 +27,22 @@ public abstract class GenericService<T extends Persistente, E extends Serializab
 	}
 
 	@Override
-	public Boolean cadastrar(T entity) throws TipoChaveNaoEncontradaException {
+	public Boolean cadastrar(T entity) throws TipoChaveNaoEncontradaException, DAOException {
 		return this.dao.cadastrar(entity);
 	}
 
 	@Override
-	public void excluir(E valor) {
+	public void excluir(E valor) throws DAOException {
 		this.dao.excluir(valor);
 	}
 
 	@Override
-	public void alterar(T entity) throws TipoChaveNaoEncontradaException {
+	public void alterar(T entity) throws TipoChaveNaoEncontradaException, DAOException {
 		this.dao.alterar(entity);
 	}
 
 	@Override
-	public T consultar(E valor) {
+	public T consultar(E valor) throws DAOException {
 		try {
 			return this.dao.consultar(valor);
 		} catch (MaisDeUmRegistroException | TableException e) {
@@ -53,7 +54,7 @@ public abstract class GenericService<T extends Persistente, E extends Serializab
 	}
 
 	@Override
-	public Collection<T> buscarTodos() {
+	public Collection<T> buscarTodos() throws DAOException {
 		return this.dao.buscarTodos();
 	}
 

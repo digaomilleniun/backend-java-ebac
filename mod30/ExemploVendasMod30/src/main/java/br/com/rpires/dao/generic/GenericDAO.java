@@ -12,16 +12,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 
 import anotacao.ColunaTabela;
 import anotacao.Tabela;
 import anotacao.TipoChave;
 import br.com.rpires.dao.Persistente;
 import br.com.rpires.dao.generic.jdbc.ConnectionFactory;
+import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.MaisDeUmRegistroException;
 import br.com.rpires.exceptions.TableException;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
@@ -84,7 +82,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
     }
 
     @Override
-    public Boolean cadastrar(T entity) throws TipoChaveNaoEncontradaException {
+    public Boolean cadastrar(T entity) throws TipoChaveNaoEncontradaException, DAOException {
     	Connection connection = null;
     	PreparedStatement stm = null;
     	try {
@@ -94,18 +92,17 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 			int rowsAffected = stm.executeUpdate();
 
 			if(rowsAffected > 0) {
-//				try (ResultSet rs = stm.getGeneratedKeys()){
-//					if (rs.next()) {
-//						Persistente per = (Persistente) entity;
-//						per.setId(rs.getLong(1));
-//					}
-//				}
+				try (ResultSet rs = stm.getGeneratedKeys()){
+					if (rs.next()) {
+						Persistente per = (Persistente) entity;
+						per.setId(rs.getLong(1));
+					}
+				}
 				return true;
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DAOException("ERRO CADASTRANDO OBJETO ", e);
 		} finally {
 			closeConnection(connection, stm, null);
 		}
@@ -114,7 +111,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 
 
     @Override
-    public void excluir(E valor) {
+    public void excluir(E valor) throws DAOException {
     	Connection connection = getConnection();
 		PreparedStatement stm = null;
 		try {
@@ -123,8 +120,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 			int rowsAffected = stm.executeUpdate();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DAOException("ERRO EXCLUINDO OBJETO ", e);
 		} finally {
 			closeConnection(connection, stm, null);
 		}
@@ -132,7 +128,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
     }
 
     @Override
-    public void alterar(T entity) throws TipoChaveNaoEncontradaException {
+    public void alterar(T entity) throws TipoChaveNaoEncontradaException, DAOException {
 
     	Connection connection = getConnection();
 		PreparedStatement stm = null;
@@ -141,8 +137,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 			setParametrosQueryAtualizacao(stm, entity);
 			int rowsAffected = stm.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DAOException("ERRO ALTERANDO OBJETO ", e);
 		} finally {
 			closeConnection(connection, stm, null);
 		}
@@ -150,7 +145,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
     }
 
     @Override
-    public T consultar(E valor) throws MaisDeUmRegistroException, TableException {
+    public T consultar(E valor) throws MaisDeUmRegistroException, TableException, DAOException {
     	try {
     		validarMaisDeUmRegistro();
     		Connection connection = getConnection();
@@ -171,11 +166,9 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		                    setValueByType(entity, method, classField, rs, dbName);
 		                    
 		                } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-		                    e.printStackTrace();
-		                    //throw new TipoChaveNaoEncontradaException("Chave principal do objeto " + entity.getClass() + " não encontrada", e);
+		                	throw new DAOException("ERRO CONSULTANDO OBJETO ", e);
 		                } catch (TipoElementoNaoConhecidoException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+		                	throw new DAOException("ERRO CONSULTANDO OBJETO ", e);
 						}
 		        	}
 		        }
@@ -183,15 +176,9 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		    }
 		    
 		} catch (SQLException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | TipoChaveNaoEncontradaException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DAOException("ERRO CONSULTANDO OBJETO ", e);
 		} 
     	return null;
-//    	
-//        //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
-//        Map<E, T> mapaInterno = getMapa();
-//        
-//        return mapaInterno.get(valor);
     }
     
     public String getNomeCampoChave(Class clazz) throws TipoChaveNaoEncontradaException {
@@ -275,7 +262,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		return count;
     }
 
-	private void closeConnection(Connection connection, PreparedStatement stm, ResultSet rs) {
+	protected void closeConnection(Connection connection, PreparedStatement stm, ResultSet rs) {
 		try {
 			if (rs != null && !rs.isClosed()) {
 				rs.close();
@@ -302,7 +289,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 	}
 
 	@Override
-    public Collection<T> buscarTodos() {
+    public Collection<T> buscarTodos() throws DAOException {
 		List<T> list = new ArrayList<>();
         try {
 		
@@ -323,11 +310,9 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		                    setValueByType(entity, method, classField, rs, dbName);
 		                    
 		                } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-		                    e.printStackTrace();
-		                    //throw new TipoChaveNaoEncontradaException("Chave principal do objeto " + entity.getClass() + " não encontrada", e);
+		                	throw new DAOException("ERRO LISTANDO OBJETOS ", e);
 		                } catch (TipoElementoNaoConhecidoException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+		                	throw new DAOException("ERRO LISTANDO OBJETOS ", e);
 						}
 		        	}
 		        }
@@ -336,13 +321,12 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		    }
 	    
 		} catch (SQLException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | TableException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DAOException("ERRO LISTANDO OBJETOS ", e);
 		} 
 		return list;
     }
 	
-	private Connection getConnection() {
+	protected Connection getConnection() {
 		return ConnectionFactory.getConnection();
 	}
 }

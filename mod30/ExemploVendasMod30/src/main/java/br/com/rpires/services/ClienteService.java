@@ -5,6 +5,7 @@ package br.com.rpires.services;
 
 import br.com.rpires.dao.IClienteDAO;
 import br.com.rpires.domain.Cliente;
+import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.MaisDeUmRegistroException;
 import br.com.rpires.exceptions.TableException;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
@@ -29,7 +30,7 @@ public class ClienteService extends GenericService<Cliente, Long> implements ICl
 //	}
 
 	@Override
-	public Cliente buscarPorCPF(Long cpf) {
+	public Cliente buscarPorCPF(Long cpf) throws DAOException {
 		try {
 			return this.dao.consultar(cpf);
 		} catch (MaisDeUmRegistroException | TableException e) {

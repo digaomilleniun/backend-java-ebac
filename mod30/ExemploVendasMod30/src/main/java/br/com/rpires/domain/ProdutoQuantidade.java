@@ -5,16 +5,26 @@ package br.com.rpires.domain;
 
 import java.math.BigDecimal;
 
+import anotacao.ColunaTabela;
+import anotacao.Tabela;
+
 /**
  * @author rodrigo.pires
  *
  */
+@Tabela("TB_PRODUTO_QUANTIDADE")
 public class ProdutoQuantidade {
+	
+	@ColunaTabela(dbName = "id", setJavaName = "setId")
+	private Long id;
 
+	//@ColunaTabela(dbName = "id", setJavaName = "setId")
 	private Produto produto;
 	
+	@ColunaTabela(dbName = "quantidade", setJavaName = "setQuantidade")
 	private Integer quantidade;
 	
+	@ColunaTabela(dbName = "valor_total", setJavaName = "setValorTotal")
 	private BigDecimal valorTotal;
 	
 	public ProdutoQuantidade() {
@@ -44,6 +54,15 @@ public class ProdutoQuantidade {
 
 	public void setValorTotal(BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
+	}
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void adicionar(Integer quantidade) {
