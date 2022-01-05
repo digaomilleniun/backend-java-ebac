@@ -3,11 +3,15 @@
  */
 package br.com.rpires.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -32,6 +36,9 @@ public class Curso {
 	
 	@Column(name = "DESCRICAO", length = 100, nullable = false)
 	private String descricao;
+	
+	@OneToMany(mappedBy = "curso")
+	private List<Matricula> matriculas;
 
 	public Long getId() {
 		return id;
@@ -64,6 +71,15 @@ public class Curso {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	public List<Matricula> getMatriculas() {
+		return matriculas;
+	}
+
+	public void setMatriculas(List<Matricula> matriculas) {
+		this.matriculas = matriculas;
+	}
+	
 	
 	
 }

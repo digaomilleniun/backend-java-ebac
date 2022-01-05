@@ -4,9 +4,12 @@ import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -34,6 +37,12 @@ public class Matricula {
 	
 	@Column(name = "status", nullable = false)
 	private String status;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_curso_fk", 
+		foreignKey = @ForeignKey(name = "fk_curso_matricula"), 
+		referencedColumnName = "id", nullable = false)
+	private Curso curso;
 
 	public Long getId() {
 		return id;
@@ -73,6 +82,14 @@ public class Matricula {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 	
 	
