@@ -1,0 +1,28 @@
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	
+	<persistence-unit name="ExemploJPA" transaction-type="RESOURCE_LOCAL">
+		
+		<provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+		
+		<class>br.com.rpires.domain.Curso</class>
+		
+		
+		<properties>
+		 	<property name="hibernate.transaction.jta.platform" 
+		 		value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
+		 	
+		 	<property name="hibernate.ogm.datastore.database" value="ebac" />
+		 	<property name="hibernate.ogm.mongodb.authentication_database" value="ebac" />
+		 	<property name="hibernate.ogm.datastore.host" value="127.0.0.1" />
+		 	<property name="hibernate.ogm.datastore.username" value="teste"/>
+            <property name="hibernate.ogm.datastore.password" value="teste"/>
+		 	<property name="hibernate.ogm.datastore.provider" value="MONGODB" />
+		 	<property name="hibernate.ogm.datastore.port" value="27017" />
+		 	<property name="hibernate.ogm.datastore.create_database" value="true" />
+	 	</properties>
+        
+	</persistence-unit>
+	
+</persistence>

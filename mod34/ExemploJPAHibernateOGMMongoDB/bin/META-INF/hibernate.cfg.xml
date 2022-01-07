@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+    <!-- <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property> -->
+    <!-- <property name="hibernate.connection.url">127.0.0.1</property>
+    <property name="hibernate.connection.username">username</property>
+    <property name="hibernate.connection.password">password</property>
+    <property name="hibernate.ogm.datastore.grid_dialect">org.hibernate.ogm.datastore.mongodb.MongoDBDialect</property> -->
+    
+    <property name="hibernate.ogm.datastore.database" >ebac</property>
+ 	<property name="hibernate.ogm.datastore.host">127.0.0.1</property>
+ 	<property name="hibernate.ogm.datastore.provider" >MONGODB</property>
+ 	<property name="hibernate.ogm.datastore.port" >27017</property>
+ 	<property name="hibernate.ogm.datastore.create_database">true</property>
+  </session-factory>
+</hibernate-configuration>
+
+
