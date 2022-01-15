@@ -24,7 +24,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import anotacao.ColunaTabela;
 import br.com.rpires.dao.Persistente;
 
 /**
@@ -72,7 +71,7 @@ public class VendaJpa implements Persistente {
 	@OneToMany(mappedBy = "venda", cascade = CascadeType.ALL/*, fetch = FetchType.EAGER*/)
 	private Set<ProdutoQuantidadeJpa> produtos;
 	
-	@ColunaTabela(dbName = "valor_total", setJavaName = "setValorTotal")
+	@Column(name = "VALOR_TOTAL", nullable = false)
 	private BigDecimal valorTotal;
 	
 	@Column(name = "DATA_VENDA", nullable = false)
