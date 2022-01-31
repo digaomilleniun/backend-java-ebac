@@ -24,6 +24,16 @@ services:
     networks:
       - postgres-ebac-network
 
+  ebac-mysql-compose:
+    image: mysql/mysql-server:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: "admin"
+      MYSQL_DATABASE: 'vendas_online'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'admin'
+    ports:
+      - "3306:3306"
+
 networks: 
   postgres-ebac-network:
     driver: bridge
