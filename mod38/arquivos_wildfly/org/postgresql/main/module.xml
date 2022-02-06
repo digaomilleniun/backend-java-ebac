@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?> 
+ 
+<module xmlns="urn:jboss:module:1.1" name="org.postgresql"> 
+ 
+    <resources> 
+    <!--the name of your driver --> 
+        <resource-root path="postgresql-42.3.1.jar"/> 
+    </resources> 
+ 
+    <dependencies> 
+        <module name="javax.api"/> 
+        <module name="javax.transaction.api"/> 
+    </dependencies> 
+</module> 
