@@ -24,11 +24,22 @@
         </h:outputStylesheet>
 	</h:head>
 	<h:body>
+		<h:form id="menu">
+			<p:menubar>
+				<p:submenu label="Cadastro" icon="pi pi-fw pi-user">
+					<p:menuitem value="Cliente" icon="pi pi-fw pi-user-plus" action="#{indexController.redirectCliente()}"/>
+					<p:menuitem value="Produto" icon="pi pi-fw pi-inbox" action="#{indexController.redirectProduto()}"/>
+				</p:submenu>
+				<p:submenu label="Venda" icon="pi pi-fw pi-shopping-cart">
+					<p:menuitem value="Venda" icon="pi pi-fw pi-shopping-cart" action="#{indexController.redirectVenda()}"/>
+				</p:submenu>
+			</p:menubar>
+		</h:form>
 		<p:outputPanel>
 			<h3>Clientes cadastrados</h3>
 			<div class="ui-g">
 				<div class="ui-g-2" />
-				<div class="ui-g-8">
+				<div class="ui-g-12">
 					<h:form id="customers">
 						<p:growl id="growl" sticky="true" />
 
@@ -87,19 +98,23 @@
 							<p:message for="Nome" />
 							
 							<p:outputLabel for="cpf" value="CPF" />
-							<p:inputText id="cpf" value="#{clienteController.cliente.cpf}"
-								size="11" maxlength="11" required="true" />
+							<p:inputMask id="cpf" value="#{clienteController.cpfMask}"
+								size="11" maxlength="14" required="true"
+								mask="999.999.999-99" validateMask="true" />
 							<p:message for="cpf" />
 	
 							<p:outputLabel for="tel" value="Telefone" />
-							<p:inputText id="tel"
-								value="#{clienteController.cliente.tel}" required="true">
-							</p:inputText>
+							<p:inputMask id="tel"
+								value="#{clienteController.telMask}" required="true"
+								mask="(99) 99999-9999" validateMask="true">
+							</p:inputMask>
 							<p:message for="tel" />
 
 							<p:outputLabel for="email" value="E-Mail" />
 							<p:inputText id="email"
-								value="#{clienteController.cliente.email}" required="true">
+								value="#{clienteController.cliente.email}" required="true"
+								validatorMessage="#{clienteController.cliente.email} não é válido">
+								<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
 							</p:inputText>
 							<p:message for="email" />
 							
@@ -112,6 +127,7 @@
 							<p:outputLabel for="numero" value="Numero" />
 							<p:inputText id="numero"
 								value="#{clienteController.cliente.numero}" required="true">
+								<p:keyFilter mask="num" />
 							</p:inputText>
 							<p:message for="numero" />
 							
@@ -127,6 +143,9 @@
 							</p:inputText>
 							<p:message for="estado" />
 
+							<p:commandLink id="ajax" action="#{clienteController.voltarTelaInicial()}" style="margin-right:20px;" ajax="false" immediate="true">
+					            <h:outputText value="Voltar"/>
+					        </p:commandLink>
 							<p:commandButton update="@form :customers:customerList"
 								value="Cadastrar" action="#{clienteController.add}"
 								rendered="#{!clienteController.isUpdate}">

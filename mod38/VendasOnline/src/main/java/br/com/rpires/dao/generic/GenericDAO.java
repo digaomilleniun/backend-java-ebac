@@ -26,10 +26,10 @@ public class GenericDAO <T extends Persistente, E extends Serializable> implemen
 //	
 //	protected EntityManager entityManager;
 	
-	private Class<T> persistenteClass;
+	protected Class<T> persistenteClass;
 	
 	@PersistenceContext
-    private EntityManager entityManager;
+    protected EntityManager entityManager;
 	
 	public GenericDAO(Class<T> persistenteClass) {
 		this.persistenteClass = persistenteClass;

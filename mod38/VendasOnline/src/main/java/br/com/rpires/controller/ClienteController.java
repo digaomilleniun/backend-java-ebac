@@ -15,6 +15,7 @@ import javax.inject.Named;
 
 import br.com.rpires.domain.Cliente;
 import br.com.rpires.service.IClienteService;
+import br.com.rpires.utils.ReplaceUtils;
 
 /**
  * @author rodrigo.pires
@@ -34,6 +35,10 @@ public class ClienteController implements Serializable {
 	private IClienteService clienteService;
 	
 	private Boolean isUpdate;
+	
+	private String cpfMask;
+	
+	private String telMask;
 	
 	@PostConstruct
     public void init() {
@@ -78,6 +83,8 @@ public class ClienteController implements Serializable {
 	
 	public void add() {
 		try {
+			removerCaracteresInvalidos();
+			limparCampos();
 			clienteService.cadastrar(cliente);
 			this.clientes = clienteService.buscarTodos();
 			this.cliente = new Cliente();
@@ -88,8 +95,22 @@ public class ClienteController implements Serializable {
         
     }
 
-    public void update() {
+    private void removerCaracteresInvalidos() {
+    	Long cpf = Long.valueOf(ReplaceUtils.replace(getCpfMask(), ".", "-"));
+    	this.cliente.setCpf(cpf);
+    	
+    	Long tel = Long.valueOf(ReplaceUtils.replace(getTelMask(), "(", ")", " ", "-"));
+    	this.cliente.setTel(tel);
+	}
+    
+    private void limparCampos() {
+    	setCpfMask(null);
+    	setTelMask(null);
+    }
+
+	public void update() {
     	try {
+    		removerCaracteresInvalidos();
 			clienteService.alterar(this.cliente);
 			cancel();
 			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Cliente Atualiado com sucesso"));
@@ -98,6 +119,10 @@ public class ClienteController implements Serializable {
 		}
         
     }
+	
+	public String voltarTelaInicial() {
+		return "/index.xhtml"; 
+	}
 
 	public Cliente getCliente() {
 		return cliente;
@@ -122,6 +147,23 @@ public class ClienteController implements Serializable {
 	public void setIsUpdate(Boolean isUpdate) {
 		this.isUpdate = isUpdate;
 	}
+
+	public String getCpfMask() {
+		return cpfMask;
+	}
+
+	public void setCpfMask(String cpfMask) {
+		this.cpfMask = cpfMask;
+	}
+
+	public String getTelMask() {
+		return telMask;
+	}
+
+	public void setTelMask(String telMask) {
+		this.telMask = telMask;
+	}
+	
 	
 
 }

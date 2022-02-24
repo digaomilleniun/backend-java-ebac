@@ -1,0 +1,264 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<h:outputStylesheet>
+            th, td {
+                text-align: center;
+            }
+
+            h3 {
+                margin-top: 0;
+                text-align: center;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                box-sizing: border-box;
+                -webkit-box-sizing:border-box;
+                -moz-box-sizing: border-box;
+            }
+            
+        </h:outputStylesheet>
+	</h:head>
+	<h:body>
+		<h:form id="menu">
+			<p:menubar>
+				<p:submenu label="Cadastro" icon="pi pi-fw pi-user">
+					<p:menuitem value="Cliente" icon="pi pi-fw pi-user-plus" action="#{indexController.redirectCliente()}"/>
+					<p:menuitem value="Produto" icon="pi pi-fw pi-inbox" action="#{indexController.redirectProduto()}"/>
+				</p:submenu>
+				<p:submenu label="Venda" icon="pi pi-fw pi-shopping-cart">
+					<p:menuitem value="Venda" icon="pi pi-fw pi-shopping-cart" action="#{indexController.redirectVenda()}"/>
+				</p:submenu>
+			</p:menubar>
+		</h:form>
+		<p:outputPanel>
+			<h3>Vendas cadastradas</h3>
+			<div class="ui-g">
+				<div class="ui-g-2" />
+				<div class="ui-g-12">
+					<h:form id="vendas">
+						<p:growl id="growl" sticky="true" />
+
+						<p:dataTable id="vendaList" var="vend"
+							value="#{vendaController.vendas}">
+							<p:column headerText="Id">
+								<h:outputText value="#{vend.id}" />
+							</p:column>
+							
+							<p:column headerText="Codigo">
+								<h:outputText id="codigoInput" value="#{vend.codigo}" />
+							</p:column>
+
+							<p:column headerText="Nome cliente">
+								<h:outputText id="nomeInput" value="#{vend.cliente.nome}" />
+							</p:column>
+
+							<p:column headerText="Data da venda">
+								<h:outputText id="dataInput" value="#{vend.dataVenda}" />
+							</p:column>
+
+							<p:column headerText="Valor Total">
+								R$ <h:outputText id="valorInput" value="#{vend.valorTotal}" />
+							</p:column>
+							
+							<p:column headerText="Status">
+								<h:outputText id="statusInput" value="#{vend.status}" />
+							</p:column>
+
+							<p:column>
+								<p:commandButton update="vendaList add" value="Editar"
+									icon="ui-icon-closethick"
+									action="#{vendaController.edit(vend)}"
+									styleClass="ui-icon-pencil"
+									rendered="#{vend.status.name().equals('INICIADA')}">
+								</p:commandButton>
+							</p:column>
+							<p:column>
+								<p:commandButton update="vendaList add" value="Cancelar"
+									icon="ui-icon-closethick"
+									action="#{vendaController.delete(vend)}"
+									styleClass="ui-priority-primary"
+									rendered="#{vend.status.name().equals('INICIADA')}">
+									<p:confirm header="Atenção" message="Tem certeza que deseja cancelar esta venda?" icon="pi pi-exclamation-triangle"/>
+								</p:commandButton>
+							</p:column>
+							<p:column>
+								<p:commandButton update="vendaList add" value="Finalizar"
+									icon="ui-icon-closethick"
+									action="#{vendaController.finalizar(vend)}"
+									styleClass="ui-priority-primary"
+									rendered="#{vend.status.name().equals('INICIADA')}">
+									<p:confirm header="Atenção" message="Tem certeza que deseja finalizar esta venda?" icon="pi pi-exclamation-triangle"/>
+								</p:commandButton>
+							</p:column>
+						</p:dataTable>
+						<br />
+						<p:confirmDialog id="confirmDialog" global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350px">
+				            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+				            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" />
+				        </p:confirmDialog>
+					</h:form>
+				</div>
+				<div class="ui-g-2"></div>
+			</div>
+			<h3>Criar novo venda</h3>
+			<div class="ui-g">
+				<div class="ui-g-2"></div>
+				<div class="ui-g-8">
+					<h:form id="add">
+						<div class="ui-fluid p-grid p-formgrid">
+							<div class="ui-fluid p-grid p-formgrid">
+							
+								<div class="p-field p-col-12 p-md-4">
+									<p:outputLabel for="Codigo" value="Codigo" />
+									<p:inputText id="Codigo"
+										value="#{vendaController.venda.codigo}" required="true" />
+									<p:message for="Codigo" />
+								</div>
+								
+								<div class="p-field p-col-12 p-md-4">
+									<p:outputLabel for="cliente" value="Cliente" />
+									<p:autoComplete id="cliente" value="#{vendaController.venda.cliente}"
+		                                completeMethod="#{vendaController.filtrarClientes}" scrollHeight="250"
+		                                var="cliente" itemLabel="#{cliente.nome}" itemValue="#{cliente}"
+		                                converter="clienteConverter" forceSelection="true"/>
+	                            </div>
+	                            
+								<div class="p-field p-col-12 p-md-4">
+									<p:outputLabel for="data" value="Data da venda" />
+									<p:datePicker id="data" value="#{vendaController.dataVenda}" />
+									<p:message for="data" />
+								</div>
+		
+								<div class="p-field p-col-12 p-md-12">
+									<p:commandLink id="ajax" action="#{vendaController.voltarTelaInicial()}" style="margin-right:20px;" ajax="false" immediate="true">
+							            <h:outputText value="Voltar"/>
+							        </p:commandLink>
+									<p:commandButton update="@form :vendas"
+										value="Cadastrar" action="#{vendaController.add}"
+										rendered="#{!vendaController.isUpdate}">
+									</p:commandButton>
+									<p:commandButton update="@form :vendas:vendaList"
+										value="Atualizar" action="#{vendaController.update}"
+										rendered="#{vendaController.isUpdate}">
+									</p:commandButton>
+									<p:commandButton update="@form :vendas:vendaList"
+										value="Cancelar" action="#{vendaController.cancel}"
+										immediate="true">
+										<f:ajax render="add" resetValues="true"/>
+									</p:commandButton>
+								</div>
+							</div>
+						</div>
+						<br/><br/>
+						<p:panel header="Produtos">
+							<div class="p-field p-col-12 p-md-4">
+								<p:outputLabel for="produto" value="Produto" />
+								<p:autoComplete id="produto" value="#{vendaController.produtoSelecionado}"
+		                               completeMethod="#{vendaController.filtrarProdutos}" scrollHeight="250"
+		                               var="produto" itemLabel="#{produto.nome}" itemValue="#{produto}"
+		                               converter="produtoConverter" forceSelection="true"
+		                               emptyMessage="Não encontramos nenhum registro com este nome"/>
+		                               
+				                <p:outputLabel for="vertical" value="Quantidade"/>
+				                <p:spinner id="vertical" value="#{vendaController.quantidadeProduto}" buttons="vertical"
+				                           upButtonStyleClass="ui-button-secondary" downButtonStyleClass="ui-button-secondary"/>
+				                           
+				                <p:commandButton update="@form :add:produtos"
+											value="Adicionar" action="#{vendaController.adicionarProduto}">
+								</p:commandButton>
+								<p:commandButton update="@form :add:produtos"
+											value="Remover" action="#{vendaController.removerProduto}">
+								</p:commandButton>
+	                        </div>
+		                            
+							<p:dataTable id="produtos" var="prod" value="#{vendaController.produtos}" editable="true"
+	                     		style="margin-bottom:20px">
+	                     		
+	                     		<!-- <p:ajax event="rowEdit" listener="#{vendaController.onRowEdit}" update="@form "/>
+	            				<p:ajax  -->event="rowEditCancel" listener="#{vendaController.onRowCancel}" update="@form "/>
+	                     		
+	                     		<p:column headerText="Codigo">
+					                <h:outputText value="#{prod.produto.codigo}" />
+					            </p:column>
+					            
+					            <p:column headerText="Nome">
+					                <h:outputText value="#{prod.produto.nome}" />
+					            </p:column>
+					            
+					            <p:column headerText="Quantidade">
+					                <h:outputText value="#{prod.quantidade}" />
+					            </p:column>
+					            
+					            <!-- <p:column headerText="Quantidade">
+					                <p:cellEditor>
+					                    <f:facet name="output">
+					                        <h:outputText value="#{prod.quantidade}"/>
+					                    </f:facet>
+					                    <f:facet name="input">
+					                        <p:inputText id="quantidadeInput" value="#{prod.quantidade}" style="width:100%"/>
+					                        <p:outputLabel for="vertical" value="Quantidade"/>
+							                <p:spinner id="vertical" value="#{vendaController.quantidadeProduto}" buttons="vertical"
+							                           upButtonStyleClass="ui-button-secondary" downButtonStyleClass="ui-button-secondary"/>
+					                    </f:facet>
+					                </p:cellEditor>
+					            </p:column> -->
+					            
+					            <p:column headerText="Valor Unitário">
+					                <h:outputText value="#{prod.produto.valor}" />
+					            </p:column>
+					            
+					            <p:column headerText="Valor Total">
+					                <h:outputText value="#{prod.valorTotal}" />
+					            </p:column>
+					            	
+					            <!-- <p:column style="width:6rem">
+					                <p:rowEditor editTitle="Editar" cancelTitle="Cancelar" saveTitle="Salvar"/>
+					            </p:column> -->
+					            <p:column>
+									<p:commandButton update="@form :add:produtos" value="Delete"
+										icon="ui-icon-closethick"
+										action="#{vendaController.removerProduto(prod)}"
+										styleClass="ui-priority-primary">
+										<p:confirm header="Atenção" message="Tem certeza que deseja excluir este produto" icon="pi pi-exclamation-triangle"/>
+									</p:commandButton>
+								</p:column>
+								
+								<p:columnGroup type="footer">
+									<p:row>
+										<p:column colspan="4" style="text-align:right" footerText="Total:"/>
+										<p:column>
+					                        <f:facet name="footer">
+					                            <h:outputText value="#{vendaController.valorTotal}">
+					                                <f:convertNumber type="currency" currencySymbol="R$"/>
+					                            </h:outputText>
+					                        </f:facet>
+	                    				</p:column>
+									</p:row>
+								</p:columnGroup>
+	                     		
+	                     	</p:dataTable>
+                     	</p:panel>
+                     	<br />
+						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+				            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+				            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" />
+				        </p:confirmDialog>
+						
+					</h:form>
+					
+					
+					
+					
+					
+				</div>
+				<div class="ui-g-2"></div>
+			</div>
+		</p:outputPanel>
+	</h:body>
+</f:view>
+</html>
