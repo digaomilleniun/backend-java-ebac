@@ -12,8 +12,16 @@
 			<groupId>org.jboss.spec</groupId>
 			<artifactId>jboss-javaee-all-7.0</artifactId>
 			<version>1.1.1.Final</version>
-			<scope>provided</scope>
+			<!-- <scope>provided</scope> -->
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax/javaee-web-api -->
+		<dependency>
+		    <groupId>javax</groupId>
+		    <artifactId>javaee-web-api</artifactId>
+		    <version>8.0.1</version>
+		    <scope>provided</scope>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>

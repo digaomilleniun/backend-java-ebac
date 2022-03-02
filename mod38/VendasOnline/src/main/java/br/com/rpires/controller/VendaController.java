@@ -128,10 +128,6 @@ public class VendaController implements Serializable {
 	public void add() {
 		try {
 			venda.setDataVenda(dataVenda.atStartOfDay(ZoneId.systemDefault()).toInstant());
-//			venda.setProdutos(new HashSet<>());
-//			this.produtos.forEach(prod -> {
-//				venda.adicionarProduto(prod.getProduto(), prod.getQuantidade());
-//			});
 			vendaService.cadastrar(venda);
 			this.vendas = vendaService.buscarTodos();
 			cancel();
@@ -142,35 +138,6 @@ public class VendaController implements Serializable {
 	
 	public void update() {
     	try {
-    		
-//    		this.produtos.forEach(prod -> {
-//    			Optional<ProdutoQuantidade> prodOp = 
-//    					this.venda.getProdutos().stream().filter(prodF -> prodF.getProduto().getCodigo().equals(prod.getProduto().getCodigo())).findFirst();
-//    			
-//    			if (prodOp.isPresent()) {
-//    				if (!prod.getQuantidade().equals(prodOp.get().getQuantidade())) {
-//    					Integer quantidade = prodOp.get().getQuantidade() - prod.getQuantidade();
-//    					if (prod.getQuantidade() > prodOp.get().getQuantidade()) {
-//    						prodOp.get().adicionar(quantidade);
-//    					} else {
-//    						prodOp.get().remover(quantidade);
-//    					}
-//    				}
-//    			} else {
-//    				venda.adicionarProduto(prod.getProduto(), prod.getQuantidade());
-//    			}
-//    		});
-//    		venda.recalcularValorTotalVenda();
-			
-    		
-//    		this.produtos.forEach(prod -> {
-//    			Optional<ProdutoQuantidade> prodOp = 
-//    					this.venda.getProdutos().stream().filter(prodF -> prodF.getProduto().getCodigo().equals(this.produtoSelecionado.getCodigo())).findFirst();
-//    			if (prodOp.isPresent()) {
-//    				
-//    			}
-//				venda.adicionarProduto(prod.getProduto(), prod.getQuantidade());
-//			});
     		vendaService.alterar(this.venda);
     		this.vendas = vendaService.buscarTodos();
 			cancel();
@@ -198,22 +165,6 @@ public class VendaController implements Serializable {
 		this.venda.recalcularValorTotalVenda();
 		this.produtos = this.venda.getProdutos();
 		this.valorTotal = this.venda.getValorTotal();
-		
-		//		Optional<ProdutoQuantidade> prodOp = 
-//				this.produtos.stream().filter(prodF -> prodF.getProduto().getCodigo().equals(this.produtoSelecionado.getCodigo())).findFirst();
-//		if (prodOp.isPresent()) {
-//			ProdutoQuantidade prod = prodOp.get();
-//			prod.adicionar(this.quantidadeProduto);
-//		} else {
-//			ProdutoQuantidade prod = new ProdutoQuantidade();
-//			prod.setProduto(this.produtoSelecionado);
-//			prod.adicionar(this.quantidadeProduto);
-//			this.produtos.add(prod);
-//		}
-//		this.valorTotal = BigDecimal.ZERO;
-//		this.produtos.forEach(prod -> {
-//			this.valorTotal = this.valorTotal.add(prod.getValorTotal());
-//		});
 	}
 	
 	public void removerProduto() {
@@ -231,33 +182,9 @@ public class VendaController implements Serializable {
 			this.valorTotal = this.venda.getValorTotal();
 		}
 		
-//		Optional<ProdutoQuantidade> prodOp = 
-//				this.produtos.stream().filter(prodF -> prodF.getProduto().getCodigo().equals(this.produtoSelecionado.getCodigo())).findFirst();
-//		if (prodOp.isPresent()) {
-//			ProdutoQuantidade prod = prodOp.get();
-//			prod.remover(this.quantidadeProduto);
-//			if (prod.getQuantidade() == 0 || prod.getQuantidade() < 0) {
-//				this.produtos.remove(prod);
-//			}
-//			this.venda.recalcularValorTotalVenda();
-//			this.valorTotal = this.venda.getValorTotal();
-//		}
 	}
 	
 	public void removerProduto(ProdutoQuantidade produto) {
-//		Optional<ProdutoQuantidade> prodOp = 
-//				this.venda.getProdutos().stream().filter(prodF -> prodF.getProduto().getCodigo().equals(produto.getProduto().getCodigo())).findFirst();
-//		if (prodOp.isPresent()) {
-////			ProdutoQuantidade prodQ = prodOp.get();
-////			prodQ.remover(this.quantidadeProduto);
-////			if (prodQ.getQuantidade() == 0 || prodQ.getQuantidade() < 0) {
-////				this.produtos.remove(prodQ);
-////			}
-//			this.venda.getProdutos().remove(produto);
-//			this.venda.recalcularValorTotalVenda();
-//			this.produtos = this.venda.getProdutos();
-//			this.valorTotal = this.venda.getValorTotal();
-//		}
 		
 		this.venda.getProdutos().remove(produto);
 		this.venda.recalcularValorTotalVenda();
@@ -268,8 +195,6 @@ public class VendaController implements Serializable {
 	public void onRowEdit(RowEditEvent<ProdutoQuantidade> event) {
 		ProdutoQuantidade prod = (ProdutoQuantidade) event.getObject();
 		adicionarOuRemoverProduto(prod);
-//        FacesMessage msg = new FacesMessage("Product Edited", String.valueOf(event.getObject().getId()));
-//        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
     public void onRowCancel(RowEditEvent<ProdutoQuantidade> event) {
