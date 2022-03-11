@@ -16,7 +16,7 @@ import io.swagger.v3.oas.models.info.License;
  * @author rodrigo.pires
  *
  */
-@Configuration
+//@Configuration
 public class OpenAPIConfig {
 
 	@Bean
