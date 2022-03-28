@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: cliente-service
+  cloud:
+    config:
+      uri: ${CONFIGSERVER_URL:http://localhost:8888}
+      fail-fast: true
+      retry:
+        max-attempts: 20

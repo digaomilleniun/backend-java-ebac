@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: discovery-service
+
+  cloud:
+    config:
+      uri: ${CONFIGSERVER_URL:http://localhost:8888}
+      fail-fast: true
+      retry:
+        max-attempts: 20
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
