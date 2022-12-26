@@ -67,7 +67,7 @@ public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoD
 		sb.append("NOME = ?,");
 		sb.append("DESCRICAO = ?,");
 		sb.append("VALOR = ?");
-		sb.append("WHERE CODIGO = ? ");
+		sb.append(" WHERE CODIGO = ?");
 		return sb.toString();
 	}
 
