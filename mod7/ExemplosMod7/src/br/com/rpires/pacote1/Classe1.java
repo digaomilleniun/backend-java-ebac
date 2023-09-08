@@ -8,7 +8,7 @@ package br.com.rpires.pacote1;
 
 public class Classe1 {
 
-    private String prorpiedadePrivada;
+    private String propriedadePrivada;
 
     public String prorpiedadePublica;
 
@@ -19,5 +19,13 @@ public class Classe1 {
     public void testeRodrigo() {
 
     }
+
+	public String getPropriedadePrivada() {
+		return propriedadePrivada;
+	}
+
+	public void setPropriedadePrivada(String propriedadePrivada) {
+		this.propriedadePrivada = propriedadePrivada;
+	}
 
 }
