@@ -1,7 +1,7 @@
 package br.com.rpires;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class Exemplos {
 

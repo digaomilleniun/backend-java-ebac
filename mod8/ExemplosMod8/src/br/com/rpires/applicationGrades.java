@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 import entities.Grades;
 
+/*
+* Author: Steve Vaz
+*/
 public class applicationGrades {
 
 	public static void main(String[] args) {
