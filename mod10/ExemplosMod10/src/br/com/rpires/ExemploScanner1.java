@@ -3,7 +3,7 @@ package br.com.rpires;
 import java.util.Scanner;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class ExemploScanner1 {
 

@@ -3,7 +3,7 @@ package br.com.rpires.forewhile;
 import java.util.Scanner;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class TabuadaDoWhile {
 
