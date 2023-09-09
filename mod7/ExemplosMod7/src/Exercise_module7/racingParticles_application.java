@@ -42,10 +42,6 @@ public class racingParticles_application {
         } else {
     	    System.out.println("Ambos estão percorrendo a mesma distância lado a lado.");
     	}
-    	
-    	
-    		
-    	
        	
 	    sc.close();
 	}
