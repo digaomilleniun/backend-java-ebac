@@ -20,7 +20,9 @@ public class racingParticles_application {
 
 		// Informing the user to enter the particle velocity value.
 		System.out.println("Digite a velocidade da primeira partícula (em metros por segundo m/s): "); 
-		values.particleVelocity1 = sc.nextDouble();	// The user enters the value of particleVelocity1
+
+		// The user enters the value of particleVelocity1
+		values.particleVelocity1 = sc.nextDouble();	
 		
 		// Another instruction.
 		System.out.println("Digite a velocidade da segunda partícula (em metros por segundo m/s):");
@@ -33,8 +35,10 @@ public class racingParticles_application {
 
 		// The user enters the value of the time in which the velocity of particle1 travels		
        	values.time1 = sc.nextDouble();
-       	// Another instruction.
+       	
+		// Another instruction.
        	System.out.println("Informe o tempo da segunda particula em (metros por segundo m/s): ");
+
 		// The user enters the value of the time in which the velocity of particle2 travels	
        	values.time2 = sc.nextDouble();
        	
