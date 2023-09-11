@@ -3,7 +3,7 @@ package br.com.rpires.domain;
 import java.util.Objects;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class Aluno implements Comparable<Aluno>{
 

@@ -17,10 +17,10 @@ public class ExemplosArray {
     private static void novoArray() {
         System.out.println("****** novoArray ******");
         String[] nomes = new String[4];
-        nomes[0] = "Rodrigo";
-        nomes[1] = "Pires";
-        nomes[2] = "Pires2";
-        nomes[3] = "Pires3";
+        nomes[0] = "Steve";
+        nomes[1] = "Vaz1";
+        nomes[2] = "Vaz2";
+        nomes[3] = "Vaz3";
         for (String nome : nomes) {
             System.out.println(nome);
         }
