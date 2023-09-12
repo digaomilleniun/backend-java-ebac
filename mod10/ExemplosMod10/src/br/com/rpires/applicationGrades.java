@@ -32,9 +32,12 @@ public class applicationGrades {
 	    if (student.mediaOfGrades() >= 7.0) {
 	    	System.out.println();
 			System.out.println("Mission complete");
-			
+		} else if (student.mediaOfGrades() == 5.0){
+			System.out.println();
+			System.out.println("The student is recovering.");
 		} else {
-			System.out.println("Disaproved");
-		}
+			System.out.println();
+	        System.out.println("Disaproved");
+	    }
 	}
 }
