@@ -3,11 +3,12 @@ package exercise_module8;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Grades;
-
 /*
 * @author: Steve Vaz
 */
+
+import entities.Grades;
+
 public class applicationGrades {
 
 	public static void main(String[] args) {
@@ -23,15 +24,17 @@ public class applicationGrades {
 	    student.grade3 = sc.nextDouble();
 	    student.grade4 = sc.nextDouble();
 	    
+	    System.out.println();
 	    System.out.printf("Final Grade: %.2f%n", student.finalGrade());
+	    
 	    System.out.printf("Grade average: %.2f%n", student.mediaOfGrades());
 	    
-	    if (student.finalGrade() < 32.00) {
-	    	System.out.println("Disapproved");
-	    } else {
-	    	System.out.println("Mission complete");
-	    }
-	    
-	    sc.close();
+	    if (student.mediaOfGrades() >= 7.0) {
+	    	System.out.println();
+			System.out.println("Mission complete");
+			
+		} else {
+			System.out.println("Disaproved");
+		}
 	}
 }
