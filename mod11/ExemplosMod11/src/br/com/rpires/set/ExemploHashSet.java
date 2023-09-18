@@ -1,7 +1,5 @@
 package br.com.rpires.set;
 
-import br.com.rpires.domain.Aluno;
-
 import java.util.*;
 
 /**

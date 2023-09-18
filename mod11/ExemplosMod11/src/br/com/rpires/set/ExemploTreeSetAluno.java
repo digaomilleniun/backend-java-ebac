@@ -2,7 +2,6 @@ package br.com.rpires.set;
 
 import br.com.rpires.domain.Aluno;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 

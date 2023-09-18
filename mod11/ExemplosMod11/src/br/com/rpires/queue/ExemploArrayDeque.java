@@ -62,7 +62,7 @@ public class ExemploArrayDeque {
         ad.addAll(d);
         System.out.println("Elements in the ArrayDeque: " + ad);
 
-        String val = ad.remove();
+        ad.remove();
         ad.remove("Black");
 
         System.out.println("Elements in the ArrayDeque after remove: " + ad);
@@ -107,7 +107,7 @@ public class ExemploArrayDeque {
 
         System.out.println("Elements in the Deque after addAll: " + d);
 
-        boolean val = d.offer("Jaipur");
+        d.offer("Jaipur");
         d.offerFirst("Goa");
         d.offerLast("Mumbai");
 

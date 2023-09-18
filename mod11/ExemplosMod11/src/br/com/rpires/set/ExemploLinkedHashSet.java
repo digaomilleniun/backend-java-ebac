@@ -1,6 +1,5 @@
 package br.com.rpires.set;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 

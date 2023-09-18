@@ -3,7 +3,7 @@ package br.com.rpires.list;
 import br.com.rpires.domain.Aluno;
 import br.com.rpires.domain.ComparaNotaAluno;
 
-import java.util.ArrayList;
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;

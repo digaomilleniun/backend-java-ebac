@@ -10,7 +10,9 @@ import java.util.Set;
  */
 public class ExemploHashSetAluno {
 
-    public static void main(String args[]) {
+    private static Aluno e;
+
+	public static void main(String args[]) {
         exemploListaSimples();
         exemploConsultando();
         exemploRemover();
@@ -24,7 +26,7 @@ public class ExemploHashSetAluno {
         Aluno b = new Aluno("Antonio Sousa", "OpenOffice", 0);
         Aluno c = new Aluno("Lúcia Ferreira", "Internet", 0);
         Aluno d = new Aluno("Antonio Sousa", "OpenOffice", 10);
-        Aluno e = new Aluno("Teste", "OpenOffice", 10);
+        setE(new Aluno("Teste", "OpenOffice", 10));
         conjunto.add(a);
         conjunto.add(b);
         conjunto.add(c);
@@ -73,4 +75,12 @@ public class ExemploHashSetAluno {
         conjunto.add(d);
         System.out.println(conjunto);
     }
+
+	public static Aluno getE() {
+		return e;
+	}
+
+	public static void setE(Aluno e) {
+		ExemploHashSetAluno.e = e;
+	}
 }

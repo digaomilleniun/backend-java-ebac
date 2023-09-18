@@ -1,7 +1,5 @@
 package br.com.rpires.array;
 
-import java.util.Scanner;
-
 /**
  * @author Steve Vaz
  */
