@@ -55,7 +55,7 @@ public class Exercise_mod10 {
 
         List<Person> personList = new ArrayList<>();
 
-        System.out.print("How many persons will be registered? ");
+        System.out.print("How many employees will be registered? ");
         int N = sc.nextInt();
 
         for (int i = 0; i < N; i++) {
@@ -100,7 +100,7 @@ public class Exercise_mod10 {
         }
 
         System.out.println();
-        System.out.println("List of persons: ");
+        System.out.println("List of employees: ");
         System.out.println();
         
         for (Person e : personList) {
