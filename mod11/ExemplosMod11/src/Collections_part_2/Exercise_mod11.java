@@ -48,7 +48,7 @@ class Person {
     }
 }
 
-public class Exercise_mod10 {
+public class Exercise_mod11 {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
