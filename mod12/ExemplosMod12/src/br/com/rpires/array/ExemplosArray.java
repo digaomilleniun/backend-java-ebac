@@ -53,7 +53,6 @@ public class ExemplosArray {
     private static void percorrendoArray2() {
         System.out.println("****** percorrendoArray2 ******");
         int[] arrayNum = {87, 68, 52, 5, 49, 83, 45, 12, 64};
-        int total = 0;
         for (int i = 0; i < arrayNum.length; i++) {
             System.out.println(arrayNum[i]);
         }
@@ -87,17 +86,6 @@ public class ExemplosArray {
 
     private static void declaracaoArray() {
         System.out.println("****** declaracaoArray ******");
-        //[] - são inseridos em uma variável que referecia um array
-        int[] a = new int[4];
-        //OUTRA MANEIRA DE FAZER UMA DECLARAÇÃO DE ARRAY
-        int[] b;
-        b = new int[10];
-        //DECLARANDO VÁRIOS ARRAYS
-        int[] r = new int[44], k = new int[23];
-
-        //{} - inicializar valores em um array sua declaração
-        int[] iniciaValores = {12,32,54,6,8,89,64,64,6};
-
         //DECLARA UM ARRAY DE INTEIROS
         int[] meuArray;
 
