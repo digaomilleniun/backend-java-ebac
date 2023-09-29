@@ -3,7 +3,7 @@ package Exercise_mod13;
 public class pessoa_fisica extends pessoa {
 	// Propriedades da pessoa física.
     private String existenciaBiologica;
-    private String CaracterísticasHumanaseEmoções;
+    private String CaracteristicasHumanaseEmocoes;
     private double IRPF;
 
     public pessoa_fisica(String name, int aliquota, double rendaBruta, double deduçoes, double parcelaAdeduzir, double lucroTributavel) {
@@ -18,12 +18,12 @@ public class pessoa_fisica extends pessoa {
         this.existenciaBiologica = existenciaBiologica;
     }
 
-    public String getCaracterísticasHumanaseEmoções() {
-        return CaracterísticasHumanaseEmoções;
+    public String getCaracteristicasHumanaseEmocoes() {
+        return CaracteristicasHumanaseEmocoes;
     }
 
-    public void setCaracterísticasHumanaseEmoções(String característicasHumanaseEmoções) {
-        CaracterísticasHumanaseEmoções = característicasHumanaseEmoções;
+    public void setCaracterísticasHumanaseEmocoes(String caracteristicasHumanaseEmocoes) {
+        CaracteristicasHumanaseEmocoes = caracteristicasHumanaseEmocoes;
     }
 
     public double getIRPF() {

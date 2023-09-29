@@ -2,28 +2,28 @@ package Exercise_mod13;
 
 public class pessoa_juridica extends pessoa {
 	// Propriedades da pessoa jurídica.
-    private int TributaçãoDiferenciada;
-    private String ExistênciaPermanente;
+    private int TributacaoDiferenciada;
+    private String ExistenciaPermanente;
     private double IRPJ;
 
     public pessoa_juridica(String name, int aliquota, double rendaBruta, double deduçoes, double parcelaAdeduzir, double lucroTributavel) {
         super(name, aliquota, rendaBruta, deduçoes, parcelaAdeduzir, lucroTributavel);
     }
 
-    public String getExistênciaPermanente() {
-        return ExistênciaPermanente;
+    public String getExistenciaPermanente() {
+        return ExistenciaPermanente;
     }
 
-    public void setExistênciaPermanente(String existênciaPermanente) {
-        ExistênciaPermanente = existênciaPermanente;
+    public void setExistenciaPermanente(String existenciaPermanente) {
+        ExistenciaPermanente = existenciaPermanente;
     }
 
-    public int getTributaçãoDiferenciada() {
-        return TributaçãoDiferenciada;
+    public int getTributacaoDiferenciada() {
+        return TributacaoDiferenciada;
     }
 
-    public void setTributaçãoDiferenciada(int tributaçãoDiferenciada) {
-        TributaçãoDiferenciada = tributaçãoDiferenciada;
+    public void setTributacaoDiferenciada(int tributaçãoDiferenciada) {
+        TributacaoDiferenciada = tributaçãoDiferenciada;
     }
 
     public double getIRPJ() {
