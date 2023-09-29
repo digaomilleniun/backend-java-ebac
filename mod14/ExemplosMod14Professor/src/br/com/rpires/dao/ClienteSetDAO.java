@@ -7,7 +7,6 @@ package br.com.rpires.dao;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import br.com.rpires.domain.Cliente;

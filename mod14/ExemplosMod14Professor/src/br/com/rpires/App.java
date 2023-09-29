@@ -1,6 +1,5 @@
 package br.com.rpires;
 
-import br.com.rpires.dao.ClienteMapDAO;
 import br.com.rpires.dao.ClienteSetDAO;
 import br.com.rpires.dao.IClienteDAO;
 import br.com.rpires.domain.Cliente;
@@ -8,7 +7,7 @@ import br.com.rpires.domain.Cliente;
 import javax.swing.*;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class App {
 

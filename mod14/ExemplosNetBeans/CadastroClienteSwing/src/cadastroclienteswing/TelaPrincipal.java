@@ -17,7 +17,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
     
-    private DefaultTableModel modelo = new DefaultTableModel();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private DefaultTableModel modelo = new DefaultTableModel();
     private IClienteDAO clienteDAO = new ClienteMapDAO();
 
     /**

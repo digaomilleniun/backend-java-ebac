@@ -1,11 +1,10 @@
 package br.com.rpires.Composicao;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class Banco {
 

@@ -5,7 +5,6 @@
  */
 package javaapplication1;
 
-import javaapplication1.dao.ClienteMapDAO;
 import javaapplication1.dao.ClienteSetDAO;
 import javaapplication1.dao.IClienteDAO;
 import javaapplication1.domain.Cliente;
@@ -14,11 +13,16 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class TabsJFrame extends javax.swing.JFrame {
     
-    private DefaultTableModel modelo = new DefaultTableModel();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private DefaultTableModel modelo = new DefaultTableModel();
     
     private IClienteDAO clienteDAO;
 

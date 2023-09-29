@@ -6,9 +6,7 @@
 package br.com.rpires.dao;
 
 import br.com.rpires.domain.Cliente;
-
-;import java.util.Collection;
-import java.util.List;
+import java.util.Collection;
 
 /**
  *
