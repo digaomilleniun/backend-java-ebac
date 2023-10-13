@@ -1,42 +1,67 @@
-package Exercise_generics;
+class MarcaCarro {
+    private String nome;
+    private String sede;
 
-public class Generics_exercise_cars<T> {
+    public MarcaCarro(String nome, String sede) {
+        this.nome = nome;
+        this.sede = sede;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getSede() {
+        return sede;
+    }
+}
+
+class Ford extends MarcaCarro {
+    public Ford() {
+        super("Ford", "Dearborn, Michigan, EUA");
+    }
+}
+
+class Toyota extends MarcaCarro {
+    public Toyota() {
+        super("Toyota", "Toyota City, Japão");
+    }
+}
+
+class Honda extends MarcaCarro {
+    public Honda() {
+        super("Honda", "Tóquio, Japão");
+    }
+}
+
+class Carro<T extends MarcaCarro> {
     private T marca;
-    private String modelo;
 
-    public Generics_exercise_cars(T marca, String modelo) {
+    public Carro(T marca) {
         this.marca = marca;
-        this.modelo = modelo;
     }
 
     public T getMarca() {
         return marca;
     }
+}
 
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setMarca(T marca) {
-        this.marca = marca;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    @Override
-    public String toString() {
-        return "Carro [Marca=" + marca + ", Modelo=" + modelo + "]";
-    }
-
+public class Generics_exercise_cars {
     public static void main(String[] args) {
-        Generics_exercise_cars<String> carro1 = new Generics_exercise_cars<>("Toyota", "Corolla");
-        Generics_exercise_cars<String> carro2 = new Generics_exercise_cars<>("Honda", "Civic");
-        Generics_exercise_cars<String> carro3 = new Generics_exercise_cars<>("Ford", "Mustang");
+        Carro<Ford> carroFord = new Carro<>(new Ford());
+        Carro<Toyota> carroToyota = new Carro<>(new Toyota());
+        Carro<Honda> carroHonda = new Carro<>(new Honda());
 
-        System.out.println(carro1);
-        System.out.println(carro2);
-        System.out.println(carro3);
+        System.out.println("Detalhes do Carro Ford:");
+        System.out.println("Marca: " + carroFord.getMarca().getNome());
+        System.out.println("Sede: " + carroFord.getMarca().getSede());
+
+        System.out.println("\nDetalhes do Carro Toyota:");
+        System.out.println("Marca: " + carroToyota.getMarca().getNome());
+        System.out.println("Sede: " + carroToyota.getMarca().getSede());
+
+        System.out.println("\nDetalhes do Carro Honda:");
+        System.out.println("Marca: " + carroHonda.getMarca().getNome());
+        System.out.println("Sede: " + carroHonda.getMarca().getSede());
     }
 }
