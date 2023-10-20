@@ -1,0 +1,88 @@
+version: "3.7"
+
+networks:
+  vendas-online-net:
+    name: vendas-online-net
+    driver: bridge
+   
+
+services:
+
+  config-server:
+    image: vendas-online/config-server:latest
+    container_name: "vendas-online-config-server"
+    networks:
+      - vendas-online-net
+    ports:
+      - 8888:8888
+
+  discovery-service:
+    image: vendas-online/dicovery-server:latest
+    container_name: "vendas-online-discovery-server"
+    environment:
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+    networks:
+      - vendas-online-net
+    ports:
+      - 9091:9091
+    depends_on:
+      - config-server
+
+  vendas-online-mongo-database:
+    image: mongo:latest
+    container_name: "vendas-online-database"
+    networks:
+      - vendas-online-net
+    ports:
+      - 28017:27017
+
+  cliente-service:
+    image: vendas-online/cliente-service:latest
+    container_name: "vendas-online-cliente-service"
+    environment:
+      PORT: "8080"
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+      MONGODB_URL: vendas-online-mongo-database
+      DISCOVERY_HOST: discovery-service
+    networks:
+      - vendas-online-net
+    ports:
+      - 8081:8080
+    depends_on:
+      - config-server
+      - discovery-service
+      - vendas-online-mongo-database
+
+  produto-service:
+    image: vendas-online/produto-service:latest
+    container_name: "vendas-online-produto-service"
+    environment:
+      PORT: "8080"
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+      MONGODB_URL: vendas-online-mongo-database
+      DISCOVERY_HOST: discovery-service
+    networks:
+      - vendas-online-net
+    ports:
+      - 8082:8080
+    depends_on:
+      - config-server
+      - discovery-service
+      - vendas-online-mongo-database
+  
+  venda-service:
+    image: vendas-online/venda-service:latest
+    container_name: "vendas-online-venda-service"
+    environment:
+      PORT: "8080"
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+      MONGODB_URL: vendas-online-mongo-database
+      DISCOVERY_HOST: discovery-service
+    networks:
+      - vendas-online-net
+    ports:
+      - 8083:8080
+    depends_on:
+      - config-server
+      - discovery-service
+      - vendas-online-mongo-database
