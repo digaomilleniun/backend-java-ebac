@@ -1,11 +1,13 @@
 package br.com.rpires.exceptions;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ClienteNaoEncontradoException extends Exception {
 
-    public ClienteNaoEncontradoException(String msg) {
+    private static final long serialVersionUID = 7532237876687060105L;
+
+	public ClienteNaoEncontradoException(String msg) {
         super(msg);
     }
 }

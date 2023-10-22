@@ -1,7 +1,7 @@
 package br.com.rpires.anotacao;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 @PrimeiraAnotacao(value = "Rodrigo", bairros = "Teste", numeroCasa = 10)
 public class ClasseComAnotacao {

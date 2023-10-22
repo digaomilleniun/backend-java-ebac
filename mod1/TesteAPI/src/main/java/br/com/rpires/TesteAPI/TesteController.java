@@ -1,14 +1,11 @@
 package br.com.rpires.TesteAPI;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.http.HttpResponse;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 @RestController
 @RequestMapping(value = "/api/v1/teste")
