@@ -6,7 +6,7 @@ import java.util.Queue;
 /**
  * Possuí ordenação natural
  *
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemploPriorityQueue {
 

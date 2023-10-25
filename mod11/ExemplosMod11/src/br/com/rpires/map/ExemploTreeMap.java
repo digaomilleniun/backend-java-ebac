@@ -3,7 +3,7 @@ package br.com.rpires.map;
 import java.util.*;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  *
  * Garante que as chaves estarão em ordem ascendente.
  *

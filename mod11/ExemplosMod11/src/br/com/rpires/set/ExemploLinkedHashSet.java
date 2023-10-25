@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Seus elementos são iterados na ordem em que foram inseridos.
  *
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemploLinkedHashSet {
 

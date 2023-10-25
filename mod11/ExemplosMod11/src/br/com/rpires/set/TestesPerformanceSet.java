@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.TreeSet;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class TestesPerformanceSet {
 

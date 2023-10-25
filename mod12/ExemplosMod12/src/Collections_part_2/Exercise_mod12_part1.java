@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+/**
+ * @author Steve.Vaz
+ */
+
 public class Exercise_mod12_part1 implements Comparable<Exercise_mod12_part1> {
     private String name;
 

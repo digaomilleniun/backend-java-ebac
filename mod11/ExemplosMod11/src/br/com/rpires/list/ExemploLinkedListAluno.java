@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemploLinkedListAluno {
 

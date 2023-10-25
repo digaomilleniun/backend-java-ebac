@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @author Steve Vaz
+ * @author Steve.Vaz
  */
 public class ExemploIterator {
 

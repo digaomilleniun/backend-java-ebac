@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  *
  * Garante que as chaves estarão em ordem ascendente.
  *

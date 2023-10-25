@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  *
  * Permite chaves e valores null. Não existe garantia que os dados ficarão ordenados.
  *

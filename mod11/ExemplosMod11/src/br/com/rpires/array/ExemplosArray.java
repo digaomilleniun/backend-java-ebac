@@ -1,7 +1,7 @@
 package br.com.rpires.array;
 
 /**
- * @author Steve Vaz
+ * @author Steve.Vaz
  */
 public class ExemplosArray {
 

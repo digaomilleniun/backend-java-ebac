@@ -3,7 +3,7 @@ package br.com.rpires.array;
 import java.util.Scanner;
 
 /**
- * @author Steve Vaz
+ * @author Steve.Vaz
  */
 public class ExemploBubbleSortDinamico {
 

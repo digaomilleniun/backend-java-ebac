@@ -1,7 +1,7 @@
 package br.com.rpires.domain;
 
 /**
- * @author Steve Vaz
+ * @author Steve.Vaz
  */
 public class Livro {
 

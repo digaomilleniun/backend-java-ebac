@@ -1,7 +1,7 @@
 package br.com.rpires.Composicao;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ContaPoupanca {
 

@@ -3,7 +3,7 @@ package br.com.rpires.map;
 import java.util.*;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  *
  * Permite chaves e valores null. Não existe garantia que os dados ficarão ordenados.
  *

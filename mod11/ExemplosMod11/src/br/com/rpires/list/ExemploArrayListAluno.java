@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemploArrayListAluno {
 

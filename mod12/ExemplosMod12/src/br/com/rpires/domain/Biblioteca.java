@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class Biblioteca {
 

@@ -7,7 +7,7 @@ import java.util.*;
  * O acesso aos dados é mais rápido que em um TreeSet, mas nada garante que os dados estaram ordenados.
  * Não repete valores na lista
  *
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemploHashSet {
 

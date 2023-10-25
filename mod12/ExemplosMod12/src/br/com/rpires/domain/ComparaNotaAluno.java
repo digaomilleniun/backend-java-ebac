@@ -3,7 +3,7 @@ package br.com.rpires.domain;
 import java.util.Comparator;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ComparaNotaAluno implements Comparator<Aluno> {
 
