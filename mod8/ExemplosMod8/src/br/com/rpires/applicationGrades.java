@@ -6,7 +6,7 @@ import java.util.Scanner;
 import entities.Grades;
 
 /*
-* @author: Steve Vaz
+* @author: Steve.Vaz
 */
 public class applicationGrades {
 

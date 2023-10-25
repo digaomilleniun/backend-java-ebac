@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Steve Vaz
+ * @author Steve.Vaz
  */
 public class ExemploPPT1 {
 

@@ -1,7 +1,7 @@
 package br.com.rpires.ifelse;
 
 /**
- * @author Steve Vaz
+ * @author Steve.Vaz
  */
 public class ExemploPPT1 {
 

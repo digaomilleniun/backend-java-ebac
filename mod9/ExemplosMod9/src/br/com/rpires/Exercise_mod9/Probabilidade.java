@@ -1,5 +1,12 @@
 package Tests_java_bySteve;
 
+/*
+ * 
+ * @author Steve.Vaz
+ * 
+ *   
+*/
+
 public class Probabilidade {
     public static void main(String[] args) {
         int totalNumeros = Integer.valueOf(25);

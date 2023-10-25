@@ -3,7 +3,7 @@ package br.com.rpires.ifelse;
 import java.util.Scanner;
 
 /**
- * @author Steve Vaz
+ * @author Steve.Vaz
  */
 public class ExemploAnimal {
 

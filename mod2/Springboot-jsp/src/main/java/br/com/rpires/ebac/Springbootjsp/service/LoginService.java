@@ -3,7 +3,7 @@ package br.com.rpires.ebac.Springbootjsp.service;
 import org.springframework.stereotype.Service;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 @Service
 public class LoginService {

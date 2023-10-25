@@ -7,7 +7,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 @Controller
 @SessionAttributes("name")

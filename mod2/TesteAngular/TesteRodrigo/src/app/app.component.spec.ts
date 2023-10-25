@@ -33,3 +33,7 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span').textContent).toContain('TesteRodrigo app is running!');
   });
 });
+
+function expect(app: any) {
+  throw new Error('Function not implemented.');
+}

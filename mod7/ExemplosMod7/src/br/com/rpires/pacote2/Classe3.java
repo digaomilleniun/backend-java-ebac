@@ -8,7 +8,7 @@ import br.com.rpires.pacote1.Classe2;
 
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  *
  *
  */

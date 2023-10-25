@@ -1,7 +1,7 @@
 package br.com.rpires.ebac.Springbootjsp.domain;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class Usuario {
 

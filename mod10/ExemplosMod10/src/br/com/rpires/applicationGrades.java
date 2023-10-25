@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 /*
-* @author: Steve Vaz
+* @author: Steve.Vaz
 */
 
 import entities.Grades;

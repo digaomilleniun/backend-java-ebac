@@ -1,7 +1,7 @@
 package br.com.rpires;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  *
  * @class br.com.rpires.Cliente
  * @see br.com.rpires.Venda

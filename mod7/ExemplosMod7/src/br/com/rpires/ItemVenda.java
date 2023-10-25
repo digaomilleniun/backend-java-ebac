@@ -3,7 +3,7 @@ package br.com.rpires;
 /**
  * Classe responsável para controlar a quantidade de itens.
  *
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ItemVenda {
 

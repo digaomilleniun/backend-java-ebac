@@ -1,7 +1,7 @@
 package br.com.rpires.pacote1;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class Classe2 {
 
