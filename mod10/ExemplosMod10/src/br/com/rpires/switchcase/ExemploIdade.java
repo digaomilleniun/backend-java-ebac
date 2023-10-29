@@ -8,12 +8,14 @@ import java.util.Scanner;
 public class ExemploIdade {
 
     public static void main(String args[]) {
-        Scanner s = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Digite sua idade: ");
-        int idade = s.nextInt();
+        int idade = sc.nextInt();
         String idadeSt = getIdade(idade);
         System.out.println(idadeSt);
+        
+        sc.close();
     }
 
     public static String getIdade(int idade) {

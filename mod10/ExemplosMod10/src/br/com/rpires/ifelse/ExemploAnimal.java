@@ -8,13 +8,14 @@ import java.util.Scanner;
 public class ExemploAnimal {
 
     public static void main(String args[]) {
-        Scanner s = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Digite o nome de uma animal: ");
-        String texto = s.next();
+        String texto = sc.next();
         String animal = exampleOfIF(texto);
         System.out.println(animal);
 
+        sc.close();
     }
 
     public static String exampleOfIF(String animal) {

@@ -8,10 +8,10 @@ import java.util.Scanner;
 public class ExemploPPT1Console {
 
     public static void main(String args[]) {
-        Scanner s = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Digite um número: ");
 
-        int result = s.nextInt();
+        int result = sc.nextInt();
 
         if (result == 1) {
             System.out.println("Resultado igual a 1");
@@ -21,5 +21,7 @@ public class ExemploPPT1Console {
         else {
             System.out.println("Resultado menor que 1");
         }
+        
+        sc.close();
     }
 }

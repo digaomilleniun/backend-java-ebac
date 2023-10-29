@@ -21,7 +21,7 @@ import javax.swing.*;
  */
 public class App2 {
 
-    private static IClienteDAO iClienteDAO;
+    private static IProdutoDAO iClienteDAO;
     private static IProdutoDAO iProdutoDAO;
 
     public static void main(String args[]) {
@@ -164,7 +164,7 @@ public class App2 {
      * @param opcaoMenuGeral Opção selecionada no menu inicial da aaplicação - <b>1 para cliente e 2 para produto</b>
      * @return <code>IGenericDAO</code> interface genérica que contém os métodos de CRUD
      */
-    public static IGenericDAO getDAO(String opcaoMenuGeral) {
+    public static IProdutoDAO getDAO(String opcaoMenuGeral) {
         if ("1".equals(opcaoMenuGeral)) {
             return iClienteDAO;
         } else {
