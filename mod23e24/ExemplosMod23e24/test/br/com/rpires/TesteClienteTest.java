@@ -3,8 +3,6 @@ package br.com.rpires;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.com.rpires.TesteCliente;
-
 public class TesteClienteTest {
 
 	@Test
