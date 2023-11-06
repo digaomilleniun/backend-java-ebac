@@ -1,8 +1,6 @@
 package br.com.rpires.service;
 
-import br.com.rpires.dao.ClienteDao;
-import br.com.rpires.dao.ClienteDaoMock;
-import br.com.rpires.dao.IClienteDao;
+import br.com.rpires.dao.Junit.IClienteDao;
 
 /**
  * @author rodrigo.pires

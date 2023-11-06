@@ -1,14 +1,15 @@
 package br.com.rpires.dao.mocks;
 
-import br.com.rpires.dao.IContratoDao;
+import br.com.rpires.dao.Junit.IContratoDao;
 
 /**
  * @author rodrigo.pires
  */
-public class ContratoDaoMock implements IContratoDao {
+public abstract class ContratoDaoMock implements IContratoDao {
 
     @Override
-    public void salvar() {
+    public String salvar() {
+		return null;
 
     }
 }

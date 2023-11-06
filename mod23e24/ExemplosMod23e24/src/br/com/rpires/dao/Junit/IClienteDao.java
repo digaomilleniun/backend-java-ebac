@@ -1,4 +1,5 @@
-package br.com.rpires.dao;
+package br.com.rpires.dao.Junit;
+
 
 /**
  * @author rodrigo.pires

@@ -3,8 +3,9 @@ package Exercise_mod23;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import org.junit.Test;
+import org.junit.Test; // Importe do pacote correto
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 class Pessoa {
     private String nome;
@@ -34,10 +35,10 @@ class Pessoa {
     }
 }
 
+@RunWith(JUnit4.class)
 public class Genders_list {
-	@Test
-    public void main() {
-		
+    @Test
+    public void testFilterWomen() {
         List<Pessoa> pessoas = new ArrayList<>();
         pessoas.add(new Pessoa("Maria", "Feminino", "Brasileira"));
         pessoas.add(new Pessoa("João", "Masculino", "Brasileiro"));

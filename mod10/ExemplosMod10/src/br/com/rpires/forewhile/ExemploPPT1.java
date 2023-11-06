@@ -1,4 +1,4 @@
-package br.com.rpires.forewhile;
+package forewhile;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,9 +2,9 @@ package br.com.rpires;
 
 import org.junit.Test;
 
-import br.com.rpires.dao.ClienteDao;
-import br.com.rpires.dao.ClienteDaoMock;
-import br.com.rpires.dao.IClienteDao;
+import br.com.rpires.dao.Junit.ClienteDao;
+import br.com.rpires.dao.Junit.ClienteDaoMock;
+import br.com.rpires.dao.Junit.IClienteDao;
 import br.com.rpires.service.ClienteService;
 
 /**
