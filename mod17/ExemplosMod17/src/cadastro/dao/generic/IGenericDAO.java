@@ -48,4 +48,6 @@ public interface IGenericDAO <T extends Persistente> {
      * @return Registros encontrados
      */
     public Collection<T> buscarTodos();
+
+	void alterar(T entity);
 }

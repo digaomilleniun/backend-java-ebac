@@ -1,12 +1,12 @@
 package cadastro;
 
 import cadastro.dao.ClienteMapDAO;
-import cadastro.dao.IClienteDAO;
-import cadastro.dao.IProdutoDAO;
 import cadastro.dao.ProdutoDAO;
+import cadastro.dao.generic.GenericDAO;
 import cadastro.dao.generic.IGenericDAO;
 import cadastro.domain.Cliente;
 import cadastro.domain.Persistente;
+import cadastro.domain.Produto;
 import cadastro.fabrica.FabricaPersistente;
 import cadastro.fabrica.Factory;
 import cadastro.fabrica.IFactory;
@@ -21,8 +21,8 @@ import javax.swing.*;
  */
 public class App2 {
 
-    private static IProdutoDAO iClienteDAO;
-    private static IProdutoDAO iProdutoDAO;
+    private static GenericDAO<Cliente> iClienteDAO;
+    private static GenericDAO<Produto> iProdutoDAO;
 
     public static void main(String args[]) {
         inicializarDAO();
@@ -102,12 +102,13 @@ public class App2 {
      *
      * @param opcaoMenuGeral Opção selecionada no menu inicial da aaplicação - <b>1 para cliente e 2 para produto</b>
      */
-    private static void executarOpcaoExcluir(String opcaoMenuGeral) {
+    @SuppressWarnings("unchecked")
+	private static void executarOpcaoExcluir(String opcaoMenuGeral) {
         String msg = opcaoMenuGeral.equals("1") ? "Digite o CPF" : "Digite o código";
         String dados = JOptionPane.showInputDialog(null,
                 msg,
                 "Exclusão de dados", JOptionPane.INFORMATION_MESSAGE);
-        getDAO(opcaoMenuGeral).excluir(Long.parseLong(dados));
+        ((IGenericDAO<Cliente>) getDAO(opcaoMenuGeral)).excluir(Long.parseLong(dados));
         JOptionPane.showMessageDialog(null, "Dados excluídos com sucesso: ", "Sucesso",JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -164,7 +165,7 @@ public class App2 {
      * @param opcaoMenuGeral Opção selecionada no menu inicial da aaplicação - <b>1 para cliente e 2 para produto</b>
      * @return <code>IGenericDAO</code> interface genérica que contém os métodos de CRUD
      */
-    public static IProdutoDAO getDAO(String opcaoMenuGeral) {
+    public static Object getDAO(String opcaoMenuGeral) {
         if ("1".equals(opcaoMenuGeral)) {
             return iClienteDAO;
         } else {
@@ -179,8 +180,9 @@ public class App2 {
      * @param opcaoMenuGeral Opção selecionada no menu inicial da aaplicação - <b>1 para cliente e 2 para produto</b>
      * @return retorna o objeto <b>Persistente</b> que é pai de todas as entidades da aplicação
      */
-    private static Persistente consultar(String dados, String opcaoMenuGeral) {
-        return getDAO(opcaoMenuGeral).consultar(Long.valueOf(dados));
+    @SuppressWarnings("unchecked")
+	private static Persistente consultar(String dados, String opcaoMenuGeral) {
+        return ((IGenericDAO<Cliente>) getDAO(opcaoMenuGeral)).consultar(Long.valueOf(dados));
     }
 
     /**
@@ -208,8 +210,9 @@ public class App2 {
      * @param persistente objeto pai que representa todas as entidades da aplicação
      * @return
      */
-    private static Boolean cadastrarObjeto(String opcaoMenuGeral, Persistente persistente) {
-        return getDAO(opcaoMenuGeral).cadastrar(persistente);
+    @SuppressWarnings("unchecked")
+	private static Boolean cadastrarObjeto(String opcaoMenuGeral, Persistente persistente) {
+        return ((GenericDAO<Produto>) getDAO(opcaoMenuGeral)).cadastrar((Cliente) persistente);
     }
 
     /**

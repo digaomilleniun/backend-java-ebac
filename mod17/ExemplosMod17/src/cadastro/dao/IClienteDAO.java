@@ -2,6 +2,7 @@ package cadastro.dao;
 
 import cadastro.dao.generic.IGenericDAO;
 import cadastro.domain.Cliente;
+import cadastro.domain.Persistente;
 
 import java.util.Collection;
 
@@ -11,6 +12,8 @@ import java.util.Collection;
  * Interface que representa os dados de Cliente
  */
 public interface IClienteDAO extends IGenericDAO<Cliente> {
+
+	Boolean cadastrar(Persistente persistente);
 
 //    public Boolean cadastrar(Cliente cliente);
 //

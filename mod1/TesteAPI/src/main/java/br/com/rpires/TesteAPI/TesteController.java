@@ -18,11 +18,11 @@ public class TesteController {
 
     @GetMapping(value = "/teste2")
     public void teste2(HttpServletResponse response) throws IOException {
-        response.getWriter().write("<html>");
-        response.getWriter().write("    <body>");
-        response.getWriter().write("        <h1>Olá </h1>");
-        response.getWriter().write("    </body>");
-        response.getWriter().write("</html>");
+        ((Object) response.getWriter()).write("<html>");
+        ((Object) response.getWriter()).write("    <body>");
+        ((Object) response.getWriter()).write("        <h1>Olá </h1>");
+        ((Object) response.getWriter()).write("    </body>");
+        ((Object) response.getWriter()).write("</html>");
     }
 
     @GetMapping(value = "/teste3/{nome}")

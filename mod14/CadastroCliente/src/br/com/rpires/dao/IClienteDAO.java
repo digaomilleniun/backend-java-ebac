@@ -6,16 +6,17 @@ import java.util.Collection;
 
 /**
  * @author rodrigo.pires
+ *  
  */
-public interface IClienteDAO {
+public interface IClienteDAO<E> {
 
-    public Boolean cadastrar(Cliente cliente);
+    public <T> Boolean cadastrar(T entity);
 
-    public void excluir(Long cpf);
+    public void excluir(E valor);
 
-    public void alterar(Cliente cliente);
+    public <T> void alterar(T entity);
 
-    public Cliente consultar(Long cpf);
+    public Cliente consultar(E valor);
 
     public Collection<Cliente> buscarTodos();
 }

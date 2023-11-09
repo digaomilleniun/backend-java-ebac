@@ -3,19 +3,21 @@ package cadastro.dao;
 import cadastro.SingletonMap;
 import cadastro.dao.generic.GenericDAO;
 import cadastro.domain.Cliente;
+import cadastro.domain.Persistente;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * @author rodrigo.pires
  */
+
 public class ClienteMapDAO extends GenericDAO<Cliente> implements IClienteDAO {
 
     public ClienteMapDAO() {
         super();
-        Map<Long, Cliente> mapaInterno =
+        @SuppressWarnings("unchecked")
+		Map<Long, Cliente> mapaInterno =
                 (Map<Long, Cliente>) SingletonMap.getInstance().getMap().get(getTipoClasse());
         if (mapaInterno == null) {
             mapaInterno = new HashMap<>();
@@ -37,5 +39,12 @@ public class ClienteMapDAO extends GenericDAO<Cliente> implements IClienteDAO {
         entityCadastrado.setCidade(cliente.getCidade());
         entityCadastrado.setEstado(cliente.getEstado());
     }
+
+	@Override
+	public void alterar(Cliente cliente) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
