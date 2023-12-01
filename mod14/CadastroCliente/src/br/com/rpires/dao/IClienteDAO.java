@@ -19,4 +19,12 @@ public interface IClienteDAO<E> {
     public Cliente consultar(E valor);
 
     public Collection<Cliente> buscarTodos();
+
+	void excluir(Long cpf);
+
+	void alterar(Cliente cliente);
+
+	Cliente consultar(Long cpf);
+
+	Boolean cadastrar(Cliente cliente);
 }

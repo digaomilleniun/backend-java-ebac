@@ -55,7 +55,7 @@ public class ContratoServiceTest {
 
     @Test(expected = UnsupportedOperationException.class)
     public void esperadoErroNoSalvarComBancoDeDadosTest() {
-        IContratoDao dao = new ContratoDao();
+        IContratoDao dao = new ContratoDao(atualizar, atualizar, atualizar);
         IContratoService service = new ContratoService(dao) {
             @Override
             public void buscar() {
@@ -83,7 +83,8 @@ public class ContratoServiceTest {
     public void methods() {
     	IContratoDao dao;
         Object excluir = new Object();
-        dao = new ContratoDao(buscar, excluir, atualizar);
+        Object buscar = null;
+		dao = new ContratoDao(buscar, excluir, atualizar);
         IContratoService service = new ContratoService(dao) {
             @Override
             public void buscar() {

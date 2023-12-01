@@ -34,7 +34,8 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
         this.singletonMap = SingletonMap.getInstance();
     }
 
-    public E getChave(T entity) throws TipoChaveNaoEncontradaException {
+    @SuppressWarnings({ "unchecked", "unused" })
+	public E getChave(T entity) throws TipoChaveNaoEncontradaException {
         Field[] fields = entity.getClass().getDeclaredFields();
         E returnValue = null;
         for (Field field : fields) {
@@ -74,6 +75,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
     }
 
 	private Map<E, T> getMapa() {
+		@SuppressWarnings("unchecked")
 		Map<E, T> mapaInterno = (Map<E, T>) this.singletonMap.getMap().get(getTipoClasse());
 		if (mapaInterno == null) {
 			mapaInterno = new HashMap<>();

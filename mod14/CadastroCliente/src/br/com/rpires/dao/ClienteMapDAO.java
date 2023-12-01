@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * @author rodrigo.pires
  */
-public class ClienteMapDAO implements IClienteDAO {
+public class ClienteMapDAO implements IClienteDAO<Object> {
 
     private Map<Long, Cliente> map;
 
@@ -57,4 +57,28 @@ public class ClienteMapDAO implements IClienteDAO {
     public Collection<Cliente> buscarTodos() {
         return this.map.values();
     }
+
+	@Override
+	public Boolean cadastrar(Object entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void excluir(Object valor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void alterar(Object entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Cliente consultar(Object valor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

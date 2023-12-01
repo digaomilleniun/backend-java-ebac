@@ -8,7 +8,7 @@ services:
     ports:
       - "15432:5432"
     volumes:
-      - /Users/rodrigo.pires/dev/docker/volumes/PostgreSQL:/var/lib/postgresql/data
+      - C:\Users\Micro\IdeaProjects\Java_EBAC\backend-java-ebac\docker\postgresl:/var/lib/postgresql/data2
     networks:
       - postgres-ebac-network
       

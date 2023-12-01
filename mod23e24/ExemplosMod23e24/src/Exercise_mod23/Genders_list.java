@@ -2,57 +2,47 @@ package Exercise_mod23;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
-import org.junit.Test; // Importe do pacote correto
 
-class Pessoa {
-    private String nome;
-    private String sexo;
-    private String nacionalidade;
-
-    public Pessoa() {
-    	
-    }
-    
-    public Pessoa(String nome, String sexo, String nacionalidade) {
-        this.nome = nome;
-        this.sexo = sexo;
-        this.nacionalidade = nacionalidade;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public String getNacionalidade() {
-        return nacionalidade;
-    }
-}
+import org.junit.Test;
 
 public class Genders_list {
-    @Test
-    public void testFilterWomen() {
-        List<Pessoa> pessoas = new ArrayList<>();
-        pessoas.add(new Pessoa("Maria", "Feminino", "Brasileira"));
-        pessoas.add(new Pessoa("João", "Masculino", "Brasileiro"));
-        pessoas.add(new Pessoa("Sophia", "Feminino", "Espanhola"));
-        pessoas.add(new Pessoa("Lucas", "Masculino", "Espanhol"));
-        pessoas.add(new Pessoa("Isabella", "Feminino", "Italiana"));
-        pessoas.add(new Pessoa("Liam", "Masculino", "Italiano"));
 
-        // Usando Stream e Expressão Lambda para filtrar apenas as mulheres
-        List<Pessoa> mulheres = pessoas.stream()
-                .filter(pessoa -> pessoa.getSexo().equals("Feminino"))
-                .collect(Collectors.toList());
+	@Test
+	public void testFilterWomen() {
+		Scanner sc = new Scanner(System.in);
+		List<Person> pessoas = new ArrayList<>();
 
-        // Imprimir o nome, sexo e nacionalidade das mulheres
-        mulheres.forEach(pessoa -> System.out.println("Nome: " 
-             + pessoa.getNome() + ", Sexo: " + pessoa.getSexo() 
-             + ", Nacionalidade: " 
-             + pessoa.getNacionalidade()));
-    }
+		System.out.print("Enter the number of persons in the list: ");
+		int n = sc.nextInt();
+
+		for (int i = 1; i <= n; i++) {
+			System.out.println("Person #" + i + " data:");
+			System.out.print("Enter the name: ");
+			String name = sc.next();
+			System.out.print("Enter the gender of the person (F/M): ");
+			char gender = sc.next().charAt(0);
+			System.out.print("Enter the nationality: ");
+			String nationality = sc.next();
+
+			Person person = new Person(name, gender, nationality);
+			pessoas.add(person);
+		}
+
+		// Usando Stream e Expressão Lambda para filtrar apenas as mulheres
+		List<Person> mulheres = pessoas.stream().filter(pessoa -> pessoa.getGender() == 'F')
+				.collect(Collectors.toList());
+
+		// Imprimir o nome, sexo e nacionalidade das mulheres
+		mulheres.forEach(pessoa -> System.out.println(
+				"\nNome: " 
+		        + pessoa.getNome() + ", Sexo: " 
+				+ (pessoa.getGender() == 'F' 
+				? "Feminino" : "Masculino")
+				+ ", Nacionalidade: " + pessoa.getNationality()));
+
+		sc.close();
+	}
+
 }

@@ -13,8 +13,9 @@ import br.com.rpires.domain.Cliente;
 
 /**
  *
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
+@SuppressWarnings("rawtypes")
 public class ClienteSetDAO implements IClienteDAO {
     
     private Set<Cliente> set;
@@ -74,5 +75,27 @@ public class ClienteSetDAO implements IClienteDAO {
     public Collection<Cliente> buscarTodos() {
         return this.set;
     }
+
+	public Boolean cadastrar(Object entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void excluir(Object valor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void alterar(Object entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Cliente consultar(Object valor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

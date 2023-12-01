@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class TelaPrincipal extends javax.swing.JFrame {
     

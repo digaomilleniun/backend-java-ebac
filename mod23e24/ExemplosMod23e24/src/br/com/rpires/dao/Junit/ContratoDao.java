@@ -5,7 +5,11 @@ package br.com.rpires.dao.Junit;
  */
 public class ContratoDao implements IContratoDao {
 
-    @Override
+    public ContratoDao(Object buscar, Object excluir, Object atualizar) {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
     public String salvar() {
         throw new UnsupportedOperationException("Não funciona com o banco");
     }
