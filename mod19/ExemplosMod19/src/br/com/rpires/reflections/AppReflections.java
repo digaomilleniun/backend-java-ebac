@@ -11,15 +11,15 @@ import java.lang.reflect.Method;
 public class AppReflections {
 
     public static void main(String args[]) {
-        Class clazz = Produto.class;
+        Class<Produto> clazz = Produto.class;
         System.out.println(clazz);
 
         Produto prod = new Produto();
-        Class clazz1 = prod.getClass();
+        Class<? extends Produto> clazz1 = prod.getClass();
         System.out.println(clazz1);
 
         try {
-            Constructor cons = clazz.getConstructor();
+            Constructor<Produto> cons = clazz.getConstructor();
             Produto prod1 = (Produto) cons.newInstance();
             System.out.println(cons);
             System.out.println(prod1);
@@ -43,7 +43,7 @@ public class AppReflections {
                 if (m.getName().startsWith("get")) {
                     System.out.println(m.invoke(prod1));
                 } else {
-                    for (Class classesTypes : m.getParameterTypes()) {
+                    for (Class<?> classesTypes : m.getParameterTypes()) {
                         if (classesTypes.equals(String.class)) {
                             System.out.println(m.invoke(prod1, "Rodrigo"));
                         } else if (classesTypes.equals(Long.class)) {

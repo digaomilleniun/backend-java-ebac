@@ -14,14 +14,14 @@ import java.time.Instant;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.rpires.dao.ClienteDAO;
-import br.com.rpires.dao.IClienteDAO;
-import br.com.rpires.dao.IProdutoDAO;
-import br.com.rpires.dao.IVendaDAO;
-import br.com.rpires.dao.ProdutoDAO;
+import br.com.rpires.dao.ClienteDAO1;
+import br.com.rpires.dao.IClienteDAO2;
+import br.com.rpires.dao.IProdutoDAO_1;
+import br.com.rpires.dao.IVendaDAO_1;
+import br.com.rpires.dao.ProdutoDAO_3;
 import br.com.rpires.dao.VendaDAO;
-import br.com.rpires.domain.Cliente;
-import br.com.rpires.domain.Produto;
+import br.com.rpires.domain.Cliente_2;
+import br.com.rpires.domain.Produto_4;
 import br.com.rpires.domain.Venda;
 import br.com.rpires.domain.Venda.Status;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
@@ -32,26 +32,26 @@ import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  */
 public class VendaDAOTest {
 	
-	private IVendaDAO vendaDao;
+	private IVendaDAO_1 vendaDao;
 	
-	private IClienteDAO clienteDao;
+	private IClienteDAO2 clienteDao;
 	
-	private IProdutoDAO produtoDao;
+	private IProdutoDAO_1 produtoDao;
 
 	//private Venda venda;
 	
-	private Cliente cliente;
+	private Cliente_2 cliente;
 	
-	private Produto produto;
+	private Produto_4 produto;
 	
 	public VendaDAOTest() {
 		vendaDao = new VendaDAO();
-		clienteDao = new ClienteDAO();
-		produtoDao = new ProdutoDAO();
+		clienteDao = (IClienteDAO2) new ClienteDAO1();
+		produtoDao = new ProdutoDAO_3();
 	}
 	
 	@Before
-	public void init() throws TipoChaveNaoEncontradaException {
+	public void init() throws Exception {
 		this.cliente = cadastrarCliente();
 		this.produto = cadastrarProduto("A1", BigDecimal.TEN);
 	}
@@ -120,7 +120,7 @@ public class VendaDAOTest {
 		assertNotNull(venda);
 		assertEquals(codigoVenda, venda.getCodigo());
 		
-		Produto prod = cadastrarProduto(codigoVenda, BigDecimal.valueOf(50));
+		Produto_4 prod = cadastrarProduto(codigoVenda, BigDecimal.valueOf(50));
 		assertNotNull(prod);
 		assertEquals(codigoVenda, prod.getCodigo());
 		
@@ -152,7 +152,7 @@ public class VendaDAOTest {
 		assertNotNull(venda);
 		assertEquals(codigoVenda, venda.getCodigo());
 		
-		Produto prod = cadastrarProduto(codigoVenda, BigDecimal.valueOf(50));
+		Produto_4 prod = cadastrarProduto(codigoVenda, BigDecimal.valueOf(50));
 		assertNotNull(prod);
 		assertEquals(codigoVenda, prod.getCodigo());
 		
@@ -177,7 +177,7 @@ public class VendaDAOTest {
 		assertNotNull(venda);
 		assertEquals(codigoVenda, venda.getCodigo());
 		
-		Produto prod = cadastrarProduto(codigoVenda, BigDecimal.valueOf(50));
+		Produto_4 prod = cadastrarProduto(codigoVenda, BigDecimal.valueOf(50));
 		assertNotNull(prod);
 		assertEquals(codigoVenda, prod.getCodigo());
 		
@@ -202,7 +202,7 @@ public class VendaDAOTest {
 		assertNotNull(venda);
 		assertEquals(codigoVenda, venda.getCodigo());
 		
-		Produto prod = cadastrarProduto(codigoVenda, BigDecimal.valueOf(50));
+		Produto_4 prod = cadastrarProduto(codigoVenda, BigDecimal.valueOf(50));
 		assertNotNull(prod);
 		assertEquals(codigoVenda, prod.getCodigo());
 		
@@ -252,8 +252,8 @@ public class VendaDAOTest {
 		
 	}
 
-	private Produto cadastrarProduto(String codigo, BigDecimal valor) throws TipoChaveNaoEncontradaException {
-		Produto produto = new Produto();
+	private Produto_4 cadastrarProduto(String codigo, BigDecimal valor) throws TipoChaveNaoEncontradaException {
+		Produto_4 produto = new Produto_4();
 		produto.setCodigo(codigo);
 		produto.setDescricao("Produto 1");
 		produto.setNome("Produto 1");
@@ -262,8 +262,8 @@ public class VendaDAOTest {
 		return produto;
 	}
 
-	private Cliente cadastrarCliente() throws TipoChaveNaoEncontradaException {
-		Cliente cliente = new Cliente();
+	private Cliente_2 cadastrarCliente() throws Exception {
+		Cliente_2 cliente = new Cliente_2(null, null, null, null, null, null, null);
 		cliente.setCpf(12312312312L);
 		cliente.setNome("Rodrigo");
 		cliente.setCidade("São Paulo");

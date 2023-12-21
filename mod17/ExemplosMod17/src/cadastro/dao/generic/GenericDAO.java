@@ -1,10 +1,12 @@
 package cadastro.dao.generic;
 
+import java.util.Collection;
+import java.util.Map;
+
 import cadastro.SingletonMap;
 import cadastro.domain.Cliente;
 import cadastro.domain.Persistente;
-import java.util.Collection;
-import java.util.Map;
+import cadastro.domain.Produto;
 
 /**
  * @author rodrigo.pires
@@ -20,8 +22,10 @@ public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T
      */
     private SingletonMap singletonMap;
 
-    public abstract Class<T> getTipoClasse();
-
+    public Class<Cliente> getTipoClasse() {
+		return null;
+	}
+    
     public abstract void atualiarDados(T entity, T entityCadastrado);
 
     public GenericDAO() {
@@ -79,4 +83,10 @@ public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T
 	}
 
 	public abstract Boolean cadastrar(Cliente persistente);
+
+	public void atualizarDados(Produto entity, Produto entityCadastrado) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

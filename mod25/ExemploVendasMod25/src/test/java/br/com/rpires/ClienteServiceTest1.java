@@ -8,8 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.rpires.dao.ClienteDaoMock;
-import br.com.rpires.dao.IClienteDAO;
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.dao.IClienteDAO2;
+import br.com.rpires.domain.Cliente_2;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 import br.com.rpires.services.ClienteService;
 import br.com.rpires.services.IClienteService;
@@ -18,20 +18,20 @@ import br.com.rpires.services.IClienteService;
  * @author rodrigo.pires
  *
  */
-public class ClienteServiceTest {
+public class ClienteServiceTest1 {
 	
 	private IClienteService clienteService;
 	
-	private Cliente cliente;
+	private Cliente_2 cliente;
 	
-	public ClienteServiceTest() {
-		IClienteDAO dao = new ClienteDaoMock();
+	public ClienteServiceTest1() {
+		IClienteDAO2 dao = new ClienteDaoMock();
 		clienteService = new ClienteService(dao);
 	}
 	
 	@Before
 	public void init() {
-		cliente = new Cliente();
+		cliente = new Cliente_2(null, null, null, null, null, null, null);
 		cliente.setCpf(12312312312L);
 		cliente.setNome("Rodrigo");
 		cliente.setCidade("São Paulo");
@@ -44,7 +44,7 @@ public class ClienteServiceTest {
 	
 	@Test
 	public void pesquisarCliente() {
-		Cliente clienteConsultado = clienteService.buscarPorCPF(cliente.getCpf());
+		Cliente_2 clienteConsultado = clienteService.buscarPorCPF(cliente.getCpf());
 		Assert.assertNotNull(clienteConsultado);
 	}
 	

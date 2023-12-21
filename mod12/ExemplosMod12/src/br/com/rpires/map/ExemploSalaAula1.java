@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * @author Steve.Vaz
  */
-public class ExemploSalaAula {
+public class ExemploSalaAula1 {
 
     public static void main(String args[]) {
         Map<Integer, List<Aluno>> listaSala = new HashMap<>();

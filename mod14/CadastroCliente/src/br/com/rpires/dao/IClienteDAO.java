@@ -1,30 +1,28 @@
 package br.com.rpires.dao;
 
-import br.com.rpires.domain.Cliente;
-
 import java.util.Collection;
 
-/**
- * @author rodrigo.pires
- *  
- */
-public interface IClienteDAO<E> {
+import br.com.rpires.domain.Cliente_2;
 
-    public <T> Boolean cadastrar(T entity);
+public interface IClienteDAO<T> {
 
-    public void excluir(E valor);
+    int cadastrar(Cliente_2 cliente) throws Exception;
 
-    public <T> void alterar(T entity);
+    Integer excluir(Cliente_2 clienteBD) throws Exception;
 
-    public Cliente consultar(E valor);
+    void alterar(Cliente_2 cliente);
 
-    public Collection<Cliente> buscarTodos();
+    Cliente_2 consultar(Object valor);
 
-	void excluir(Long cpf);
+    Collection<Cliente_2> buscarTodos();
 
-	void alterar(Cliente cliente);
+    Class<T> getTipoClasse();
 
-	Cliente consultar(Long cpf);
+	Boolean cadastrar(Object entity);
 
-	Boolean cadastrar(Cliente cliente);
+	void excluir(long parseLong);
+
+	Cliente_2 consultar(Long cpf);
+
+	void alterar(Object entity);
 }

@@ -13,11 +13,11 @@ import javaapplication1.domain.Cliente;
  *
  * @author rodrigo.pires
  */
-public class ClienteSetDAO implements IClienteDAO {
+public class ClienteSetDAO2 implements IClienteDAO {
     
     private Set<Cliente> set;
     
-    public ClienteSetDAO() {
+    public ClienteSetDAO2() {
         this.set = new HashSet<>();
     }
 

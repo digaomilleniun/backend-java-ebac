@@ -9,17 +9,17 @@ import java.util.Scanner;
  * @author Steve.Vaz
  */
 
-enum Gender {
+enum Gender1 {
     MALE, FEMALE;
 }
 
-class Person {
+class Person1 {
     private int id;
     private String name;
     private double salary;
-    private Gender gender;
+    private Gender1 gender;
 
-    public Person(int id, String name, double salary, Gender gender) {
+    public Person1(int id, String name, double salary, Gender1 gender) {
         this.id = id;
         this.name = name;
         this.salary = salary;
@@ -38,7 +38,7 @@ class Person {
         return salary;
     }
 
-    public Gender getGender() {
+    public Gender1 getGender() {
         return gender;
     }
 
@@ -57,7 +57,7 @@ public class Exercise_mod12_part2 {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        List<Person> personList = new ArrayList<>();
+        List<Person1> personList = new ArrayList<>();
 
         System.out.print("How many employees will be registered? ");
         int N = sc.nextInt();
@@ -82,9 +82,9 @@ public class Exercise_mod12_part2 {
             
             System.out.print("Gender (M/F): ");
             char genderChar = sc.next().charAt(0);
-            Gender gender = (genderChar == 'M' || genderChar == 'm') ? Gender.MALE : Gender.FEMALE;
+            Gender1 gender = (genderChar == 'M' || genderChar == 'm') ? Gender1.MALE : Gender1.FEMALE;
 
-            Person person = new Person(id, name, salary, gender);
+            Person1 person = new Person1(id, name, salary, gender);
             personList.add(person);
         }
 
@@ -92,7 +92,7 @@ public class Exercise_mod12_part2 {
         System.out.print("Enter the employee id that will have salary increase: ");
         int idSalary = sc.nextInt();
 
-        Person emp = personList.stream().filter(x -> x.getId() == idSalary).findFirst().orElse(null);
+        Person1 emp = personList.stream().filter(x -> x.getId() == idSalary).findFirst().orElse(null);
 
         System.out.println();
         if (emp == null) {
@@ -107,15 +107,15 @@ public class Exercise_mod12_part2 {
         System.out.println("List of employees: ");
         System.out.println();
         
-        for (Person e : personList) {
+        for (Person1 e : personList) {
             System.out.println(e);
         }
 
         sc.close();
     }
 
-    public static boolean hasId(List<Person> list, int id) {
-        for (Person person : list) {
+    public static boolean hasId(List<Person1> list, int id) {
+        for (Person1 person : list) {
             if (person.getId() == id) {
                 return true;
             }

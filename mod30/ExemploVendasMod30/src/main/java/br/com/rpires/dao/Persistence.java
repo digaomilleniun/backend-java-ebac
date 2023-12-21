@@ -5,7 +5,7 @@ package br.com.rpires.dao;
  *
  * Classe que representa todas as entidades ou objetos da aplicação que seram salvas no banco de dados
  */
-public interface Persistente {
+public interface Persistence {
 
     //public Long getCodigo();
 	

@@ -3,7 +3,7 @@ package br.com.rpires.array;
 /**
  * @author Steve.Vaz
  */
-public class ExemplosArray {
+public class ExemplosArray3 {
 
     public static void main(String args[]) {
         declaracaoArray();

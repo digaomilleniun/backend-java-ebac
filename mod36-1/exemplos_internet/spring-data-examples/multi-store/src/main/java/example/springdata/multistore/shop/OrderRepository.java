@@ -15,8 +15,9 @@
  */
 package example.springdata.multistore.shop;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import javax.management.loading.ClassLoaderRepository;
+
+import net.springboot.javaguides.entity.Student;
 
 /**
  * A repository interface assembling CRUD functionality as well as the API to invoke the methods implemented manually.
@@ -25,4 +26,10 @@ import org.springframework.stereotype.Repository;
  * @author Oliver Gierke
  */
 @Repository
-public interface OrderRepository extends CrudRepository<Order, String> {}
+public interface OrderRepository extends ClassLoaderRepository {
+
+	Object findAll();
+
+	Object findById(long id);
+
+	void save(Student student);}

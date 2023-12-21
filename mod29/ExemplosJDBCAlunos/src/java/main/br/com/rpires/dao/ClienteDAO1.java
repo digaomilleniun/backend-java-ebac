@@ -8,16 +8,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import br.com.rpires.dao.jdbc.ConnectionFactory;
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.domain.Cliente_2;
 
 /**
  * @author rodrigo.pires
  *
  */
-public class ClienteDAO implements IClienteDAO {
+public abstract class ClienteDAO1 implements IClienteDAO2 {
 
-	@Override
-	public Integer cadastrar(Cliente cliente) throws Exception {
+	public int cadastrar(Cliente_2 cliente) throws Exception {
 		Connection connection = null;
 		PreparedStatement stm = null;
 		try {
@@ -39,20 +38,19 @@ public class ClienteDAO implements IClienteDAO {
 		}
 	}
 
-	@Override
-	public Cliente consultar(String codigo) throws Exception {
+	public Cliente_2 consultar(String codigo) throws Exception {
 		Connection connection = null;
 		PreparedStatement stm = null;
 		ResultSet rs = null;
-		Cliente cliente = null;
+		Cliente_2 cliente = null;
 		try {
 			connection = ConnectionFactory.getConnection();
-			String sql = "select * from tb_cliente_2 where codigo = ?";
+			String sql = "select * from vendas_online_2 where codigo = ?";
 			stm = connection.prepareStatement(sql);
 			stm.setString(1, codigo);
 			rs = stm.executeQuery();
 			if (rs.next()) {
-				cliente = new Cliente();
+				cliente = new Cliente_2();
 				cliente.setId(rs.getLong("id"));
 				cliente.setCodigo(rs.getString("codigo"));
 				cliente.setNome(rs.getString("nome"));
@@ -70,8 +68,7 @@ public class ClienteDAO implements IClienteDAO {
 		}
 	}
 
-	@Override
-	public Integer excluir(Cliente cliente) throws Exception {
+	public Integer excluir(Cliente_2 cliente) throws Exception {
 		Connection connection = null;
 		PreparedStatement stm = null;
 		try {

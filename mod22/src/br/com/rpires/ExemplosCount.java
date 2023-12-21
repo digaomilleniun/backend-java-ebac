@@ -3,7 +3,7 @@ package br.com.rpires;
 import java.util.List;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class ExemplosCount {
 

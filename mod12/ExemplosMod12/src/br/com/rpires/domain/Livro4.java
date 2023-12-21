@@ -3,7 +3,7 @@ package br.com.rpires.domain;
 /**
  * @author Steve.Vaz
  */
-public class Livro {
+public class Livro4 {
 
     private Long codigo;
 

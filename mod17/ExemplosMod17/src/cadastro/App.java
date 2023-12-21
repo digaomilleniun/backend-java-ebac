@@ -1,7 +1,7 @@
 package cadastro;
 
 
-import cadastro.dao.ClienteMapDAO;
+import cadastro.dao.ClienteMapDAO3;
 import cadastro.dao.IClienteDAO;
 import cadastro.domain.Cliente;
 
@@ -15,7 +15,7 @@ public class App {
     private static IClienteDAO iClienteDAO;
 
     public static void main(String args[]) {
-        iClienteDAO = new ClienteMapDAO();
+        iClienteDAO = new ClienteMapDAO3();
 
         String opcao = JOptionPane.showInputDialog(null,
                 "Digite 1 para cadastro, 2 para consultar, 3 para exclusão, 4 para alteração ou 5 para sair",

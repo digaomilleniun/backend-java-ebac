@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class ExemplosOPtional {
 

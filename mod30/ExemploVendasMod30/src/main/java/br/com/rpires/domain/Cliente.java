@@ -6,14 +6,14 @@ package br.com.rpires.domain;
 import anotacao.ColunaTabela;
 import anotacao.Tabela;
 import anotacao.TipoChave;
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
 
 /**
  * @author rodrigo.pires
  *
  */
 @Tabela("TB_CLIENTE")
-public class Cliente implements Persistente {
+public class Cliente implements Persistence {
 	
 	@ColunaTabela(dbName = "id", setJavaName = "setId")
 	private Long id;

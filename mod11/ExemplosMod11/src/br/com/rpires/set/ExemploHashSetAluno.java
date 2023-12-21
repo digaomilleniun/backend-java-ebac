@@ -1,6 +1,6 @@
 package br.com.rpires.set;
 
-import br.com.rpires.domain.Aluno;
+import br.com.rpires.domain.Aluno1;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public class ExemploHashSetAluno {
 
-    private static Aluno e;
+    private static Aluno1 e;
 
 	public static void main(String args[]) {
         exemploListaSimples();
@@ -20,13 +20,13 @@ public class ExemploHashSetAluno {
 
     private static void exemploRemover() {
         System.out.println("**** exemploRemover ****");
-        Set<Aluno> conjunto = new HashSet<Aluno>();
+        Set<Aluno1> conjunto = new HashSet<Aluno1>();
 
-        Aluno a = new Aluno("João da Silva", "Linux básico", 0);
-        Aluno b = new Aluno("Antonio Sousa", "OpenOffice", 0);
-        Aluno c = new Aluno("Lúcia Ferreira", "Internet", 0);
-        Aluno d = new Aluno("Antonio Sousa", "OpenOffice", 10);
-        setE(new Aluno("Teste", "OpenOffice", 10));
+        Aluno1 a = new Aluno1("João da Silva", "Linux básico", 0);
+        Aluno1 b = new Aluno1("Antonio Sousa", "OpenOffice", 0);
+        Aluno1 c = new Aluno1("Lúcia Ferreira", "Internet", 0);
+        Aluno1 d = new Aluno1("Antonio Sousa", "OpenOffice", 10);
+        setE(new Aluno1("Teste", "OpenOffice", 10));
         conjunto.add(a);
         conjunto.add(b);
         conjunto.add(c);
@@ -36,20 +36,20 @@ public class ExemploHashSetAluno {
         conjunto.remove(a);
         System.out.println(conjunto);
 
-        for (Aluno aluno : conjunto) {
+        for (Aluno1 aluno : conjunto) {
             System.out.println(aluno);
         }
     }
 
     private static void exemploConsultando() {
         System.out.println("**** exemploConsultando ****");
-        Set<Aluno> conjunto = new HashSet<Aluno>();
+        Set<Aluno1> conjunto = new HashSet<Aluno1>();
 
-        Aluno a = new Aluno("João da Silva", "Linux básico", 0);
-        Aluno b = new Aluno("Antonio Sousa", "OpenOffice", 0);
-        Aluno c = new Aluno("Lúcia Ferreira", "Internet", 0);
-        Aluno d = new Aluno("Antonio Sousa", "OpenOffice", 10);
-        Aluno e = new Aluno("Teste", "OpenOffice", 10);
+        Aluno1 a = new Aluno1("João da Silva", "Linux básico", 0);
+        Aluno1 b = new Aluno1("Antonio Sousa", "OpenOffice", 0);
+        Aluno1 c = new Aluno1("Lúcia Ferreira", "Internet", 0);
+        Aluno1 d = new Aluno1("Antonio Sousa", "OpenOffice", 10);
+        Aluno1 e = new Aluno1("Teste", "OpenOffice", 10);
         conjunto.add(a);
         conjunto.add(b);
         conjunto.add(c);
@@ -63,12 +63,12 @@ public class ExemploHashSetAluno {
      * Aluno implemente o equals e hashcode
      */
     private static void exemploListaSimples() {
-        Set<Aluno> conjunto = new HashSet<Aluno>();
+        Set<Aluno1> conjunto = new HashSet<Aluno1>();
 
-        Aluno a = new Aluno("João da Silva", "Linux básico", 0);
-        Aluno b = new Aluno("Antonio Sousa", "OpenOffice", 0);
-        Aluno c = new Aluno("Lúcia Ferreira", "Internet", 0);
-        Aluno d = new Aluno("Antonio Sousa", "OpenOffice", 10);
+        Aluno1 a = new Aluno1("João da Silva", "Linux básico", 0);
+        Aluno1 b = new Aluno1("Antonio Sousa", "OpenOffice", 0);
+        Aluno1 c = new Aluno1("Lúcia Ferreira", "Internet", 0);
+        Aluno1 d = new Aluno1("Antonio Sousa", "OpenOffice", 10);
         conjunto.add(a);
         conjunto.add(b);
         conjunto.add(c);
@@ -76,11 +76,11 @@ public class ExemploHashSetAluno {
         System.out.println(conjunto);
     }
 
-	public static Aluno getE() {
+	public static Aluno1 getE() {
 		return e;
 	}
 
-	public static void setE(Aluno e) {
+	public static void setE(Aluno1 e) {
 		ExemploHashSetAluno.e = e;
 	}
 }

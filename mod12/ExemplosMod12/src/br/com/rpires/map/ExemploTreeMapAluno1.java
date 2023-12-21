@@ -9,7 +9,7 @@ import java.util.TreeMap;
 /**
  * @author Steve.Vaz
  */
-public class ExemploTreeMapAluno {
+public class ExemploTreeMapAluno1 {
 
     public static void main(String[] args) {
         mapSimples();

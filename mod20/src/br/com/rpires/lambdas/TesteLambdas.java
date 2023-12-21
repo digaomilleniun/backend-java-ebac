@@ -6,7 +6,7 @@ import java.util.function.IntBinaryOperator;
 import java.util.function.Supplier;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class TesteLambdas {
 
@@ -50,7 +50,10 @@ public class TesteLambdas {
             return 3.1415;
         };
 
-
+        System.out.println(hello_world);
+        System.out.println(integerCallable);
+        System.out.println(doubleCallable);
+        
     }
 
     private static Long calcular(Long t, Long u, BiFunction<Long,Long,Long> function) {

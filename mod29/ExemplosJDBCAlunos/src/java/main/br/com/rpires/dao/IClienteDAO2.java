@@ -3,18 +3,22 @@
  */
 package br.com.rpires.dao;
 
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.domain.Cliente_2;
 
 /**
  * @author rodrigo.pires
  *
  */
-public interface IClienteDAO {
+public interface IClienteDAO2 {
 
 	
-	public Integer cadastrar(Cliente cliente) throws Exception;
+	public int cadastrar(Cliente_2 cliente) throws Exception;
 
-	public Cliente consultar(String codigo) throws Exception;
+	public Cliente_2 consultar(String codigo) throws Exception;
 
-	public Integer excluir(Cliente clienteBD) throws Exception;
+	public Integer excluir(Cliente_2 clienteBD) throws Exception;
+
+	void alterar(Object entity);
+
+	void excluir(Long cpf);
 }

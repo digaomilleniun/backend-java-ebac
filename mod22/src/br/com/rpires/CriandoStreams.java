@@ -6,19 +6,19 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class CriandoStreams {
 
     public static void main(String[] args) {
-        Stream<String> stream = List.of("Rodrigo", "Pires", "Teste").stream();
+        List.of("Rodrigo", "Pires", "Teste").stream();
 
-        Stream<String> set = Set.of("Rodrigo", "Pires", "Teste").stream();
+        Set.of("Rodrigo", "Pires", "Teste").stream();
 
         Map<String, String> map = Map.of("Rodrigo", "Pires");
-        Stream<String> chaves = map.keySet().stream();
-        Stream<String> valores = map.values().stream();
+        map.keySet().stream();
+        map.values().stream();
 
-        Stream<String> streamSTS = Stream.of("String", "asds");
+        Stream.of("String", "asds");
     }
 }

@@ -4,12 +4,17 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import anotacao.TipoChave;
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
+import br.com.rpires.domain.Cliente_2;
+import br.com.rpires.domain.Produto;
+import br.com.rpires.domain.Produto_4;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 
 /**
@@ -17,7 +22,7 @@ import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  *
  * Classe genérica que implementa interface genérica com os métodos de CRUD
  */
-public abstract class GenericDAO<T extends Persistente, E extends Serializable> implements IGenericDAO<T,E> {
+public abstract class GenericDAO<T extends Persistence, E extends Serializable> implements IGenericDAO<T,E> {
 
     //protected Map<Class, Map<Long, T>> map = new HashMap<>();
 
@@ -26,7 +31,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
      */
     private SingletonMap singletonMap;
 
-    public abstract Class<T> getTipoClasse();
+    public abstract Class<Produto> getTipoClasse();
 
     public abstract void atualiarDados(T entity, T entityCadastrado);
 
@@ -84,14 +89,14 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 		return mapaInterno;
 	}
 
-    @Override
-    public void excluir(E valor) {
+    public Integer excluir(E valor) {
         //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
         Map<E, T> mapaInterno = getMapa();
         T objetoCadastrado = mapaInterno.get(valor);
         if (objetoCadastrado != null) {
             mapaInterno.remove(valor, objetoCadastrado);
         }
+		return null;
     }
 
     @Override
@@ -105,10 +110,10 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
     }
 
     @Override
-    public T consultar(E valor) {
+    public Cliente_2 consultar(E valor) {
         //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
         Map<E, T> mapaInterno = getMapa();
-        return mapaInterno.get(valor);
+        return (Cliente_2) mapaInterno.get(valor);
     }
 
     @Override
@@ -116,4 +121,31 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
         Map<E, T> mapaInterno = getMapa();
         return mapaInterno.values();
     }
+
+    protected abstract String getQueryInsercao();
+
+    protected abstract void setParametrosQueryInsercao(PreparedStatement stmInsert, Produto entity) throws SQLException;
+
+    protected abstract void setParametrosQueryInsercao(PreparedStatement stmInsert, Cliente_2 entity) throws SQLException;
+
+    protected abstract String getQueryExclusao();
+
+    protected abstract void setParametrosQueryExclusao(PreparedStatement stmExclusao, String valor) throws SQLException;
+
+    protected abstract void setParametrosQueryExclusao(PreparedStatement stmExclusao, Long valor) throws SQLException;
+
+    protected abstract String getQueryAtualizacao();
+
+    protected abstract void setParametrosQueryAtualizacao(PreparedStatement stmUpdate, Produto_4 entity) throws SQLException;
+
+    protected abstract void setParametrosQuerySelect(PreparedStatement stmExclusao, String valor) throws SQLException;
+
+    protected abstract void setParametrosQueryAtualizacao(PreparedStatement stmUpdate, Cliente_2 entity) throws SQLException;
+
+    protected abstract void setParametrosQuerySelect(PreparedStatement stmSelect, Long valor) throws SQLException;
+
+	protected void setParametrosQueryAtualizacao(PreparedStatement stmUpdate, Produto entity) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
 }

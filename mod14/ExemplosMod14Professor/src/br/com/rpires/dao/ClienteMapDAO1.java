@@ -5,7 +5,7 @@
  */
 package br.com.rpires.dao;
 
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.domain.Cliente_2;
 
 import java.util.*;
 
@@ -13,16 +13,15 @@ import java.util.*;
  *
  * @author rodrigo.pires
  */
-public class ClienteMapDAO implements IClienteDAO {
+public class ClienteMapDAO1 implements IClientDAO<Object> {
     
-    private Map<Long, Cliente> map;
+    private Map<Long, Cliente_2> map;
     
-    public ClienteMapDAO() {
+    public ClienteMapDAO1() {
         map = new TreeMap<>();
     }
 
-    @Override
-    public Boolean cadastrar(Cliente cliente) {
+    public Boolean cadastrar(Cliente_2 cliente) {
         if (map.containsKey(cliente.getCpf())) {
             return false;
         }
@@ -31,15 +30,13 @@ public class ClienteMapDAO implements IClienteDAO {
         return true;
     }
 
-    @Override
     public void excluir(Long cpf) {
-        Cliente clienteCadastrado = map.get(cpf);
+        Cliente_2 clienteCadastrado = map.get(cpf);
         map.remove(clienteCadastrado.getCpf(), clienteCadastrado);
     }
 
-    @Override
-    public void alterar(Cliente cliente) {
-        Cliente clienteCadastrado = map.get(cliente.getCpf());
+    public void alterar(Cliente_2 cliente) {
+        Cliente_2 clienteCadastrado = map.get(cliente.getCpf());
         clienteCadastrado.setNome(cliente.getNome());
         clienteCadastrado.setTel(cliente.getTel());
         clienteCadastrado.setNumero(cliente.getNumero());
@@ -48,14 +45,42 @@ public class ClienteMapDAO implements IClienteDAO {
         clienteCadastrado.setEstado(cliente.getEstado());
     }
 
-    @Override
-    public Cliente consultar(Long cpf) {
+    public Cliente_2 consultar(Long cpf) {
         return this.map.get(cpf);
     }
 
-    @Override
-    public Collection<Cliente> buscarTodos() {
+    public Collection<Cliente_2> buscarTodos() {
         return this.map.values();
     }
+
+	public Boolean cadastrar(Object entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void excluir(Object valor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void alterar(Object entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Cliente_2 consultar(Object valor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Class<Object> getTipoClasse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void excluir(long parseLong) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

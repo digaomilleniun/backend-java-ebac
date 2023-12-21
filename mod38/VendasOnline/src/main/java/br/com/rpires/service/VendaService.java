@@ -6,7 +6,7 @@ package br.com.rpires.service;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import br.com.rpires.dao.IVendaDAO;
+import br.com.rpires.dao.IVendaDAO_1;
 import br.com.rpires.domain.Venda;
 import br.com.rpires.domain.Venda.Status;
 import br.com.rpires.exceptions.DAOException;
@@ -20,10 +20,10 @@ import br.com.rpires.services.generic.GenericService;
 @Stateless
 public class VendaService extends GenericService<Venda, Long> implements IVendaService {
 
-	IVendaDAO dao;
+	IVendaDAO_1 dao;
 	
 	@Inject
-	public VendaService(IVendaDAO dao) {
+	public VendaService(IVendaDAO_1 dao) {
 		super(dao);
 		this.dao = dao;
 	}

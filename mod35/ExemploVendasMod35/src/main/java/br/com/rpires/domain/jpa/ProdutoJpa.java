@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
 
 /**
  * @author rodrigo.pires
@@ -21,7 +21,7 @@ import br.com.rpires.dao.Persistente;
  */
 @Entity
 @Table(name = "TB_PRODUTO")
-public class ProdutoJpa implements Persistente {
+public class ProdutoJpa implements Persistence {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="prod_seq")

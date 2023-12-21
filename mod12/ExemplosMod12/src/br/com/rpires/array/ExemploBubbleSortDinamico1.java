@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * @author Steve.Vaz
  */
-public class ExemploBubbleSortDinamico {
+public class ExemploBubbleSortDinamico1 {
 
     public static void main(String args[]) {
         try (Scanner sc = new Scanner(System.in)) {

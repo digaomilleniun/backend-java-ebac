@@ -1,4 +1,4 @@
-package exercise_module8;
+package exercise_module10;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -39,5 +39,7 @@ public class applicationGrades {
 			System.out.println();
 	        System.out.println("Disaproved");
 	    }
+	    
+	    sc.close();
 	}
 }

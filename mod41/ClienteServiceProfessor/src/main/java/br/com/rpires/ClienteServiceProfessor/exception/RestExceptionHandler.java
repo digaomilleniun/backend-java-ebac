@@ -65,7 +65,6 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      * @param request WebRequest
      * @return the ApiError object
      */
-    @Override
     protected ResponseEntity<Object> handleHttpMediaTypeNotSupported(
             HttpMediaTypeNotSupportedException ex,
             HttpHeaders headers,

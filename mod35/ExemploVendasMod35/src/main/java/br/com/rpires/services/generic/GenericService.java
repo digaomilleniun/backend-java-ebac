@@ -6,7 +6,7 @@ package br.com.rpires.services.generic;
 import java.io.Serializable;
 import java.util.Collection;
 
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
 import br.com.rpires.dao.generic.IGenericDAO;
 import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.MaisDeUmRegistroException;
@@ -17,7 +17,7 @@ import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  * @author rodrigo.pires
  *
  */
-public abstract class GenericService<T extends Persistente, E extends Serializable> 
+public abstract class GenericService<T extends Persistence, E extends Serializable>
 	implements IGenericService<T, E> {
 	
 	protected IGenericDAO<T,E> dao;

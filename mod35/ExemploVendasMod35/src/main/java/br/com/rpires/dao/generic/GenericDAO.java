@@ -17,7 +17,7 @@ import java.util.List;
 import anotacao.ColunaTabela;
 import anotacao.Tabela;
 import anotacao.TipoChave;
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
 import br.com.rpires.dao.generic.jdbc.ConnectionFactory;
 import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.MaisDeUmRegistroException;
@@ -30,7 +30,7 @@ import br.com.rpires.exceptions.TipoElementoNaoConhecidoException;
  *
  * Classe genérica que implementa interface genérica com os métodos de CRUD
  */
-public abstract class GenericDAO<T extends Persistente, E extends Serializable> implements IGenericDAO<T,E> {
+public abstract class GenericDAO<T extends Persistence, E extends Serializable> implements IGenericDAO<T,E> {
 
 
     public abstract Class<T> getTipoClasse();
@@ -94,7 +94,7 @@ public abstract class GenericDAO<T extends Persistente, E extends Serializable> 
 			if(rowsAffected > 0) {
 				try (ResultSet rs = stm.getGeneratedKeys()){
 					if (rs.next()) {
-						Persistente per = (Persistente) entity;
+						Persistence per = (Persistence) entity;
 						per.setId(rs.getLong(1));
 					}
 				}

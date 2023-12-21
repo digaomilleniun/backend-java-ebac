@@ -35,7 +35,7 @@ public class Computador {
 	private String descricao;
 	
 	@ManyToMany(mappedBy = "computadores")
-	private List<Aluno> alunos;
+	private List<Aluno1> alunos;
 	
 	public Computador() {
 		this.alunos = new ArrayList<>();
@@ -65,15 +65,15 @@ public class Computador {
 		this.descricao = descricao;
 	}
 
-	public List<Aluno> getAlunos() {
+	public List<Aluno1> getAlunos() {
 		return alunos;
 	}
 
-	public void setAlunos(List<Aluno> alunos) {
+	public void setAlunos(List<Aluno1> alunos) {
 		this.alunos = alunos;
 	}
 	
-	public void add(Aluno aluno) {
+	public void add(Aluno1 aluno) {
 		this.alunos.add(aluno);
 	}
 	

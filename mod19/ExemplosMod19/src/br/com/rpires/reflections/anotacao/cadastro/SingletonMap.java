@@ -17,7 +17,8 @@ public class SingletonMap {
      * Contém todos os registros da aplicação.
      * Simula o banco de dados
      */
-    protected Map<Class, Map<Long, ?>> map;
+    @SuppressWarnings("rawtypes")
+	protected Map<Class, Map<Long, ?>> map;
 
     private SingletonMap() {
         map = new HashMap<>();
@@ -35,7 +36,8 @@ public class SingletonMap {
         return singletonMap;
     }
 
-    public Map<Class, Map<Long, ?>> getMap() {
+    @SuppressWarnings("rawtypes")
+	public Map<Class, Map<Long, ?>> getMap() {
         return this.map;
     }
 }

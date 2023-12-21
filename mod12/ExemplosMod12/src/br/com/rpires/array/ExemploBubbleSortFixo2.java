@@ -3,7 +3,7 @@ package br.com.rpires.array;
 /**
  * @author Steve.Vaz
  */
-public class ExemploBubbleSortFixo {
+public class ExemploBubbleSortFixo2 {
 
     public static void main(String args[]) {
         int[] vet = {8, 9, 3, 5, 1};

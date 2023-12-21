@@ -1,9 +1,9 @@
 package cadastro.dao.generic;
 
+import java.util.Collection;
+
 import cadastro.domain.Cliente;
 import cadastro.domain.Persistente;
-
-import java.util.Collection;
 
 /**
  * @author rodrigo.pires
@@ -50,4 +50,6 @@ public interface IGenericDAO <T extends Persistente> {
     public Collection<T> buscarTodos();
 
 	void alterar(T entity);
+
+	Class<Cliente> getTipoClasse();
 }

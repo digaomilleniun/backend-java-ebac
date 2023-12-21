@@ -1,6 +1,6 @@
 package br.com.rpires.dao;
 
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.domain.Cliente_2;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -9,16 +9,16 @@ import java.util.Map;
 /**
  * @author rodrigo.pires
  */
-public class ClienteMapDAO implements IClienteDAO<Object> {
+public class ClienteMapDAO implements IClientDAO<Object> {
 
-    private Map<Long, Cliente> map;
+    private Map<Long, Cliente_2> map;
 
     public ClienteMapDAO() {
         this.map = new HashMap<>();
     }
 
     @Override
-    public Boolean cadastrar(Cliente cliente) {
+    public Boolean cadastrar(Cliente_2 cliente) {
         if (this.map.containsKey(cliente.getCpf())) {
             return false;
         }
@@ -26,9 +26,8 @@ public class ClienteMapDAO implements IClienteDAO<Object> {
         return true;
     }
 
-    @Override
     public void excluir(Long cpf) {
-        Cliente clienteCadastrado = this.map.get(cpf);
+        Cliente_2 clienteCadastrado = this.map.get(cpf);
 
         if (clienteCadastrado != null) {
             this.map.remove(clienteCadastrado.getCpf(), clienteCadastrado);
@@ -36,8 +35,8 @@ public class ClienteMapDAO implements IClienteDAO<Object> {
     }
 
     @Override
-    public void alterar(Cliente cliente) {
-        Cliente clienteCadastrado = this.map.get(cliente.getCpf());
+    public void alterar(Cliente_2 cliente) {
+        Cliente_2 clienteCadastrado = this.map.get(cliente.getCpf());
         if (clienteCadastrado != null) {
             clienteCadastrado.setNome(cliente.getNome());
             clienteCadastrado.setTel(cliente.getTel());
@@ -48,37 +47,42 @@ public class ClienteMapDAO implements IClienteDAO<Object> {
         }
     }
 
-    @Override
-    public Cliente consultar(Long cpf) {
+    public Cliente_2 consultar(Long cpf) {
         return this.map.get(cpf);
     }
 
-    @Override
-    public Collection<Cliente> buscarTodos() {
+    public Collection<Cliente_2> buscarTodos() {
         return this.map.values();
     }
 
-	@Override
 	public Boolean cadastrar(Object entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public void excluir(Object valor) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void alterar(Object entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public Cliente consultar(Object valor) {
+	public Cliente_2 consultar(Object valor) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public Class<Object> getTipoClasse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void excluir(long parseLong) {
+		// TODO Auto-generated method stub
+		
 	}
 }

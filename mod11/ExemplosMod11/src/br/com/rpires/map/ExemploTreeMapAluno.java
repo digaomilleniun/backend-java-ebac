@@ -1,6 +1,6 @@
 package br.com.rpires.map;
 
-import br.com.rpires.domain.Aluno;
+import br.com.rpires.domain.Aluno1;
 
 import java.util.Collection;
 import java.util.Map;
@@ -20,12 +20,12 @@ public class ExemploTreeMapAluno {
 
     private static void verificaSeExiste() {
         System.out.println("****** verificaSeExiste ******");
-        Map<String, Aluno> mapa = new TreeMap<String, Aluno>();
+        Map<String, Aluno1> mapa = new TreeMap<String, Aluno1>();
 
-        Aluno a = new Aluno("João da Silva", "Linux básico", 0);
-        Aluno b = new Aluno("Antonio Sousa", "OpenOffice", 0);
-        Aluno c = new Aluno("Lúcia Ferreira", "Internet", 0);
-        Aluno d = new Aluno("Benedito Silva", "OpenOffice", 0);
+        Aluno1 a = new Aluno1("João da Silva", "Linux básico", 0);
+        Aluno1 b = new Aluno1("Antonio Sousa", "OpenOffice", 0);
+        Aluno1 c = new Aluno1("Lúcia Ferreira", "Internet", 0);
+        Aluno1 d = new Aluno1("Benedito Silva", "OpenOffice", 0);
         mapa.put("João da Silva", a);
         mapa.put("Antonio Sousa", b);
         mapa.put("Lúcia Ferreira", c);
@@ -40,7 +40,7 @@ public class ExemploTreeMapAluno {
             System.out.println("containsValue Aluno b = " + true);
         }
 
-        Aluno e = new Aluno("Novo Aluno", "OpenOffice", 0);
+        Aluno1 e = new Aluno1("Novo Aluno", "OpenOffice", 0);
         System.out.println("containsValue Novo Aluno = " + mapa.containsValue(e));
         System.out.println("");
     }
@@ -48,12 +48,12 @@ public class ExemploTreeMapAluno {
 
     private static void addSeNaoExistir() {
         System.out.println("****** addSeNaoExistir ******");
-        Map<String, Aluno> mapa = new TreeMap<String, Aluno>();
+        Map<String, Aluno1> mapa = new TreeMap<String, Aluno1>();
 
-        Aluno a = new Aluno("João da Silva", "Linux básico", 0);
-        Aluno b = new Aluno("Antonio Sousa", "OpenOffice", 0);
-        Aluno c = new Aluno("Lúcia Ferreira", "Internet", 0);
-        Aluno d = new Aluno("Benedito Silva", "OpenOffice", 0);
+        Aluno1 a = new Aluno1("João da Silva", "Linux básico", 0);
+        Aluno1 b = new Aluno1("Antonio Sousa", "OpenOffice", 0);
+        Aluno1 c = new Aluno1("Lúcia Ferreira", "Internet", 0);
+        Aluno1 d = new Aluno1("Benedito Silva", "OpenOffice", 0);
         mapa.put("João da Silva", a);
         mapa.put("Antonio Sousa", b);
         mapa.put("Lúcia Ferreira", c);
@@ -65,12 +65,12 @@ public class ExemploTreeMapAluno {
 
     private static void removendoDoMap() {
         System.out.println("****** removendoDoMap ******");
-        Map<String, Aluno> mapa = new TreeMap<String, Aluno>();
+        Map<String, Aluno1> mapa = new TreeMap<String, Aluno1>();
 
-        Aluno a = new Aluno("João da Silva", "Linux básico", 0);
-        Aluno b = new Aluno("Antonio Sousa", "OpenOffice", 0);
-        Aluno c = new Aluno("Lúcia Ferreira", "Internet", 0);
-        Aluno d = new Aluno("Benedito Silva", "OpenOffice", 0);
+        Aluno1 a = new Aluno1("João da Silva", "Linux básico", 0);
+        Aluno1 b = new Aluno1("Antonio Sousa", "OpenOffice", 0);
+        Aluno1 c = new Aluno1("Lúcia Ferreira", "Internet", 0);
+        Aluno1 d = new Aluno1("Benedito Silva", "OpenOffice", 0);
         mapa.put("João da Silva", a);
         mapa.put("Antonio Sousa", b);
         mapa.put("Lúcia Ferreira", c);
@@ -85,12 +85,12 @@ public class ExemploTreeMapAluno {
 
     private static void mapSimples() {
         System.out.println("****** mapSimples ******");
-        Map<String, Aluno> mapa = new TreeMap<String, Aluno>();
+        Map<String, Aluno1> mapa = new TreeMap<String, Aluno1>();
 
-        Aluno a = new Aluno("João da Silva", "Linux básico", 0);
-        Aluno b = new Aluno("Antonio Sousa", "OpenOffice", 0);
-        Aluno c = new Aluno("Lúcia Ferreira", "Internet", 0);
-        Aluno d = new Aluno("Benedito Silva", "OpenOffice", 0);
+        Aluno1 a = new Aluno1("João da Silva", "Linux básico", 0);
+        Aluno1 b = new Aluno1("Antonio Sousa", "OpenOffice", 0);
+        Aluno1 c = new Aluno1("Lúcia Ferreira", "Internet", 0);
+        Aluno1 d = new Aluno1("Benedito Silva", "OpenOffice", 0);
         mapa.put("João da Silva", a);
         mapa.put("Antonio Sousa", b);
         mapa.put("Lúcia Ferreira", c);
@@ -98,8 +98,8 @@ public class ExemploTreeMapAluno {
         System.out.println(mapa);
         System.out.println(mapa.get("Lúcia Ferreira"));
 
-        Collection<Aluno> alunos = mapa.values();
-        for (Aluno e : alunos) {
+        Collection<Aluno1> alunos = mapa.values();
+        for (Aluno1 e : alunos) {
             System.out.println(e);
         }
         System.out.println("");

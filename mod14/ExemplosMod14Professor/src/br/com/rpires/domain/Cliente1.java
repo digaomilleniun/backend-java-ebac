@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author rodrigo.pires
  */
-public class Cliente {
+public class Cliente1 {
     
     private String nome;
     private Long cpf;
@@ -21,7 +21,7 @@ public class Cliente {
     private String cidade;
     private String estado;
 
-    public Cliente(String nome, String cpf, String tel, String end, String num, String cidade, String estado) {
+    public Cliente1(String nome, String cpf, String tel, String end, String num, String cidade, String estado) {
         this.nome = nome;
         this.cpf = Long.valueOf(cpf.trim());
         this.tel = Long.valueOf(tel.trim());
@@ -106,8 +106,8 @@ public class Cliente {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Cliente other = (Cliente) obj;
-        if (!Objects.equals(this.cpf, other.cpf)) {
+        final Cliente_2 other = (Cliente_2) obj;
+        if (!Objects.equals(this.cpf, other.getCpf())) {
             return false;
         }
         return true;

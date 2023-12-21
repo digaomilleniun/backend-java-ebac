@@ -177,7 +177,8 @@ public class App2 {
      * @param opcaoMenuGeral Opção selecionada no menu inicial da aaplicação - <b>1 para cliente e 2 para produto</b>
      * @return <code>IGenericDAO</code> interface genérica que contém os métodos de CRUD
      */
-    public static IGenericDAO getDAO(String opcaoMenuGeral) {
+    @SuppressWarnings("rawtypes")
+	public static IGenericDAO getDAO(String opcaoMenuGeral) {
         if ("1".equals(opcaoMenuGeral)) {
             return iClienteDAO;
         } else {
@@ -228,7 +229,8 @@ public class App2 {
      * @param persistente objeto pai que representa todas as entidades da aplicação
      * @return
      */
-    private static Boolean cadastrarObjeto(String opcaoMenuGeral, Persistente persistente) throws TipoChaveNaoEncontradaException {
+    @SuppressWarnings("unchecked")
+	private static Boolean cadastrarObjeto(String opcaoMenuGeral, Persistente persistente) throws TipoChaveNaoEncontradaException {
         return getDAO(opcaoMenuGeral).cadastrar(persistente);
     }
 

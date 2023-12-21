@@ -8,14 +8,14 @@ import java.math.BigDecimal;
 import anotacao.ColunaTabela;
 import anotacao.Tabela;
 import anotacao.TipoChave;
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
 
 /**
  * @author rodrigo.pires
  *
  */
 @Tabela("TB_PRODUTO")
-public class Produto implements Persistente {
+public abstract class Produto_4 implements Persistence {
 	
 	@ColunaTabela(dbName = "id", setJavaName = "setId")
 	private Long id;
@@ -32,6 +32,9 @@ public class Produto implements Persistente {
 	
 	@ColunaTabela(dbName = "valor", setJavaName = "setValor")
 	private BigDecimal valor;
+
+	public Produto_4(int ignoredCodigo, String ignoredNome, int ignoredEstoque, float ignoredValor) {
+	}
 
 	public String getCodigo() {
 		return codigo;
@@ -72,5 +75,11 @@ public class Produto implements Persistente {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
+	public int getEstoque() {
+        return 0;
+	}
+
+	public void saidaEstoque(int ignoredQtdeItem) {
+	}
 }

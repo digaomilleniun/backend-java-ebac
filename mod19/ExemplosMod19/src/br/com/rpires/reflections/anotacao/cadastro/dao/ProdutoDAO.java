@@ -10,9 +10,10 @@ import java.util.Map;
 /**
  * @author rodrigo.pires
  */
-public class ProdutoDAO extends GenericDAO<Produto> implements IProdutoDAO {
+public abstract class ProdutoDAO extends GenericDAO<Produto> implements IProdutoDAO {
 
-    public ProdutoDAO() {
+    @SuppressWarnings("unchecked")
+	public ProdutoDAO() {
         super();
         Map<Long, Produto> mapaInterno =
                 (Map<Long, Produto>) SingletonMap.getInstance().getMap().get(getTipoClasse());

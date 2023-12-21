@@ -8,8 +8,8 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import br.com.rpires.dao.IProdutoDAO;
-import br.com.rpires.domain.Produto;
+import br.com.rpires.dao.IProdutoDAO_1;
+import br.com.rpires.domain.Produto_4;
 import br.com.rpires.services.generic.GenericService;
 
 /**
@@ -17,18 +17,18 @@ import br.com.rpires.services.generic.GenericService;
  *
  */
 @Stateless
-public class ProdutoService extends GenericService<Produto, String> implements IProdutoService {
+public class ProdutoService extends GenericService<Produto_4, String> implements IProdutoService {
 	
-	private IProdutoDAO produtoDao;
+	private IProdutoDAO_1 produtoDao;
 
 	@Inject
-	public ProdutoService(IProdutoDAO produtoDao) {
+	public ProdutoService(IProdutoDAO_1 produtoDao) {
 		super(produtoDao);
 		this.produtoDao = produtoDao;
 	}
 
 	@Override
-	public List<Produto> filtrarProdutos(String query) {
+	public List<Produto_4> filtrarProdutos(String query) {
 		return produtoDao.filtrarProdutos(query);
 	}
 

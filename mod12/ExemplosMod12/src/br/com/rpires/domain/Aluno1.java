@@ -5,20 +5,20 @@ import java.util.Objects;
 /**
  * @author Steve.Vaz
  */
-public class Aluno implements Comparable<Aluno>{
+public class Aluno1 implements Comparable<Aluno>{
 
     private String nome;
     private String curso;
     private double nota;
     private String sala;
 
-    public Aluno(String nome, String curso, double nota) {
+    public Aluno1(String nome, String curso, double nota) {
         this.nome = nome;
         this.curso = curso;
         this.nota = nota;
     }
 
-    public Aluno(String nome, String curso, double nota, String sala) {
+    public Aluno1(String nome, String curso, double nota, String sala) {
         this(nome, curso, nota);
         this.sala = sala;
     }
@@ -90,7 +90,7 @@ public class Aluno implements Comparable<Aluno>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Aluno aluno = (Aluno) o;
-        return Objects.equals(nome, aluno.nome);
+        return Objects.equals(nome, aluno.getNome());
     }
 
     @Override

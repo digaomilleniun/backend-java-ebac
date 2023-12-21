@@ -1,6 +1,6 @@
 package br.com.rpires.set;
 
-import br.com.rpires.domain.Aluno;
+import br.com.rpires.domain.Aluno1;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -15,16 +15,16 @@ public class TestesPerformanceSet {
     public static void main(String args[]) {
         Random r = new Random();
 
-        HashSet<Aluno> hashSet = new HashSet<Aluno>();
-        TreeSet<Aluno> treeSet = new TreeSet<Aluno>();
-        LinkedHashSet<Aluno> linkedSet = new LinkedHashSet<Aluno>();
+        HashSet<Aluno1> hashSet = new HashSet<Aluno1>();
+        TreeSet<Aluno1> treeSet = new TreeSet<Aluno1>();
+        LinkedHashSet<Aluno1> linkedSet = new LinkedHashSet<Aluno1>();
 
         // start time
         long startTime = System.currentTimeMillis();
 
         for (int i = 0; i < 1000; i++) {
             int x = r.nextInt(1000 - 10) + 10;
-            hashSet.add(new Aluno("João da Silva", "Linux básico", x));
+            hashSet.add(new Aluno1("João da Silva", "Linux básico", x));
         }
         // end time
         long endTime = System.currentTimeMillis();
@@ -39,7 +39,7 @@ public class TestesPerformanceSet {
 
         for (int i = 0; i < 1000; i++) {
             int x = r.nextInt(1000 - 10) + 10;
-            treeSet.add(new Aluno("João da Silva", "Linux básico", x));
+            treeSet.add(new Aluno1("João da Silva", "Linux básico", x));
         }
         // end time
         endTime = System.currentTimeMillis();
@@ -54,7 +54,7 @@ public class TestesPerformanceSet {
 
         for (int i = 0; i < 1000; i++) {
             int x = r.nextInt(1000 - 10) + 10;
-            linkedSet.add(new Aluno("João da Silva", "Linux básico", x));
+            linkedSet.add(new Aluno1("João da Silva", "Linux básico", x));
         }
         // end time
         endTime = System.currentTimeMillis();

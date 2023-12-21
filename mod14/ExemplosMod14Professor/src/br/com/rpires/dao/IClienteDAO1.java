@@ -5,22 +5,22 @@
  */
 package br.com.rpires.dao;
 
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.domain.Cliente_2;
 import java.util.Collection;
 
 /**
  *
  * @author rodrigo.pires
  */
-public interface IClienteDAO {
+public interface IClienteDAO1 {
     
-    public Boolean cadastrar(Cliente cliente);
+    public Boolean cadastrar(Cliente_2 cliente);
     
     public void excluir(Long cpf);
     
-    public void alterar(Cliente cliente);
+    public void alterar(Cliente_2 cliente);
     
-    public Cliente consultar(Long cpf);
+    public Cliente_2 consultar(Long cpf);
 
-    public Collection<Cliente> buscarTodos();
+    public Collection<Cliente_2> buscarTodos();
 }

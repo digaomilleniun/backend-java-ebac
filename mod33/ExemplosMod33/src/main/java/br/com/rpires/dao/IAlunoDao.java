@@ -3,7 +3,7 @@
  */
 package br.com.rpires.dao;
 
-import br.com.rpires.domain.Aluno;
+import br.com.rpires.domain.Aluno1;
 
 /**
  * @author rodrigo.pires
@@ -11,5 +11,5 @@ import br.com.rpires.domain.Aluno;
  */
 public interface IAlunoDao {
 
-	public Aluno cadastrar(Aluno aluno);
+	public Aluno1 cadastrar(Aluno1 aluno);
 }

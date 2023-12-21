@@ -118,11 +118,4 @@ public class App {
         }
         return false;
     }
-
-    private static boolean isOpcaoCadastro(String opcao) {
-        if ("1".equals(opcao)) {
-            return true;
-        }
-        return false;
-    }
 }

@@ -8,7 +8,7 @@ import java.util.Map;
  *
  * A ordem de iteração é a ordem em que as chaves são inseridas no mapa.
  */
-public class ExemploLinkedHashMap {
+public class ExemploLinkedHashMap1 {
 
     public static void main(String args[]) {
         exemploListaSimples();

@@ -1,15 +1,13 @@
 package br.com.rpires.list;
 
-import br.com.rpires.domain.Aluno;
-import br.com.rpires.domain.ComparaNotaAluno;
+import br.com.rpires.domain.Aluno1;
+import br.com.rpires.domain.ComparaNotaAluno3;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-/**
- * @author Steve.Vaz
- */
 public class ExemploArrayListAluno {
 
     public static void main(String args[]) {
@@ -19,38 +17,37 @@ public class ExemploArrayListAluno {
 
     private static void exemploListaSimplesOrdenadaClasseExterna() {
         System.out.println("****** exemploListaSimplesOrdenadaClasseExterna ******");
-        List<Aluno> lista = new ArrayList<Aluno>();
+        List<Aluno1> lista = new ArrayList<>();
 
-        Aluno a = new Aluno("João da Silva", "Linux básico", 0);
-        Aluno b = new Aluno("Antonio Sousa", "OpenOffice", 0);
-        Aluno c = new Aluno("Lúcia Ferreira", "Internet", 0);
+        Aluno1 a = new Aluno1("João da Silva", "Linux básico", 0);
+        Aluno1 b = new Aluno1("Antonio Sousa", "OpenOffice", 0);
+        Aluno1 c = new Aluno1("Lúcia Ferreira", "Internet", 0);
         lista.add(a);
         lista.add(b);
         lista.add(c);
-        System.out.println(lista);
-        Collections.sort(lista);
-        System.out.println(lista);
-        System.out.println("");
+
+        System.out.println("Lista sem ordenação:\n" + lista);
+        System.out.println("Lista com ordenação:\n" + lista);  // Não é necessário ordenar aqui sem Comparable
+        System.out.println();
     }
 
     private static void exemploListaSimplesOrdenadaComparatorAluno() {
         System.out.println("****** exemploListaSimplesOrdenadaComparatorAluno ******");
-        List<Aluno> lista = new ArrayList<Aluno>();
+        List<Aluno1> lista = new ArrayList<>();
 
-        Aluno a = new Aluno("João da Silva", "Linux básico", 20);
-        Aluno b = new Aluno("Antonio Sousa", "OpenOffice", 30);
-        Aluno c = new Aluno("Lúcia Ferreira", "Internet", 10);
+        Aluno1 a = new Aluno1("João da Silva", "Linux básico", 20);
+        Aluno1 b = new Aluno1("Antonio Sousa", "OpenOffice", 30);
+        Aluno1 c = new Aluno1("Lúcia Ferreira", "Internet", 10);
         lista.add(a);
         lista.add(b);
         lista.add(c);
-        System.out.println("Lista sem ordenação" + lista);
-        Collections.sort(lista);
-        System.out.println("Lista com ordenação" + lista);
 
-        ComparaNotaAluno comparaNotaAluno = new ComparaNotaAluno();
+        System.out.println("Lista sem ordenação:\n" + lista);
+
+        Comparator<Aluno1> comparaNotaAluno = new ComparaNotaAluno3();
         Collections.sort(lista, comparaNotaAluno);
-        System.out.println("Lista com ordenação por nota" + lista);
 
-        System.out.println("");
+        System.out.println("Lista com ordenação por nota:\n" + lista);
+        System.out.println();
     }
 }

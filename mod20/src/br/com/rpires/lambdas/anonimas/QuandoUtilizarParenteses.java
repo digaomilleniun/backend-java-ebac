@@ -1,7 +1,7 @@
 package br.com.rpires.lambdas.anonimas;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class QuandoUtilizarParenteses {
 
@@ -9,17 +9,23 @@ public class QuandoUtilizarParenteses {
         MyEventConsumer myEvent = (Object s) -> {
             System.out.println(s);
         };
-
+        
+        System.out.println(myEvent);
+        
         MyEventConsumer myEvent1 = (s) -> {
             System.out.println(s);
         };
 
+        System.out.println(myEvent1);
+        
         MyEventConsumer myEvent2 = s -> System.out.println(s);
 
         MyEventConsumer myEvent3 = s -> {
             System.out.println(s);
             System.out.println(s);
         };
+        
+        System.out.println(myEvent3);
         myEvent2.consumer("as");
 
         MyEventConsumerReturn<Integer> ret = s -> {
@@ -34,6 +40,8 @@ public class QuandoUtilizarParenteses {
             System.out.println(s);
             return "Ola";
         };
+        
+        System.out.println(retS);
         ret.consumer(1);
 
         MyEventConsumer myEvent4 = s -> imprimir(s);

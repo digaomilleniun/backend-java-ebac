@@ -6,8 +6,7 @@ package br.com.rpires.services.generic.jpa;
 import java.io.Serializable;
 import java.util.Collection;
 
-import br.com.rpires.dao.Persistente;
-import br.com.rpires.dao.generic.IGenericDAO;
+import br.com.rpires.dao.Persistence;
 import br.com.rpires.dao.generic.jpa.IGenericJapDAO;
 import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.MaisDeUmRegistroException;
@@ -18,7 +17,7 @@ import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  * @author rodrigo.pires
  *
  */
-public abstract class GenericJpaService<T extends Persistente, E extends Serializable> 
+public abstract class GenericJpaService<T extends Persistence, E extends Serializable>
 	implements IGenericJpaService<T, E> {
 	
 	protected IGenericJapDAO<T, E> dao;

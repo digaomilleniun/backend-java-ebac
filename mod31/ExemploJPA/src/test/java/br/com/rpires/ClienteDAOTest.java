@@ -12,8 +12,8 @@ import org.junit.After;
 import org.junit.Test;
 
 import br.com.rpires.dao.ClienteDAO;
-import br.com.rpires.dao.IClienteDAO;
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.dao.IClientDAO;
+import br.com.rpires.domain.Cliente_2;
 
 /**
  * @author rodrigo.pires
@@ -21,7 +21,7 @@ import br.com.rpires.domain.Cliente;
  */
 public class ClienteDAOTest {
 	
-	IClienteDAO clienteDAO;
+	IClientDAO clienteDAO;
 	
 	public ClienteDAOTest() {
 		clienteDAO = new ClienteDAO();
@@ -29,16 +29,16 @@ public class ClienteDAOTest {
 	
 	@After
 	public void end() {
-		List<Cliente> list = clienteDAO.buscarTodos();
+		List<Cliente_2> list = clienteDAO.buscarTodos();
 		list.forEach(cli -> clienteDAO.excluir(cli));
 	}
 
 	@Test
 	public void cadastrar() {
-		Cliente cliente = criarCliente();
+		Cliente_2 cliente = criarCliente();
 		assertNotNull(cliente);
 		
-		Cliente clienteDB = clienteDAO.buscarPorID(cliente.getId());
+		Cliente_2 clienteDB = clienteDAO.buscarPorID(cliente.getId());
 		assertNotNull(clienteDB);
 		assertEquals(cliente.getId(), clienteDB.getId());
 		assertEquals(cliente.getNome(), clienteDB.getNome());
@@ -50,16 +50,16 @@ public class ClienteDAOTest {
 
 	@Test
 	public void alterar() {
-		Cliente cliente = criarCliente();
+		Cliente_2 cliente = criarCliente();
 		assertNotNull(cliente);
 		
-		Cliente clienteDB = clienteDAO.buscarPorID(cliente.getId());
+		Cliente_2 clienteDB = clienteDAO.buscarPorID(cliente.getId());
 		assertNotNull(clienteDB);
 		assertEquals(cliente.getId(), clienteDB.getId());
 		assertEquals(cliente.getNome(), clienteDB.getNome());
 		
 		clienteDB.setNome("Rodrigo Pires");
-		Cliente clienteUp = clienteDAO.alterar(clienteDB);
+		Cliente_2 clienteUp = clienteDAO.alterar(clienteDB);
 		assertEquals("Rodrigo Pires", clienteUp.getNome());
 		
 //		clienteDAO.excluir(cliente);
@@ -68,8 +68,8 @@ public class ClienteDAOTest {
 		
 	}
 	
-	private Cliente criarCliente() {
-		Cliente cliente = new Cliente();
+	private Cliente_2 criarCliente() {
+		Cliente_2 cliente = new Cliente_2();
 		cliente.setCpf(12312312312L);
 		cliente.setNome("Rodrigo");
 		cliente.setCidade("São Paulo");

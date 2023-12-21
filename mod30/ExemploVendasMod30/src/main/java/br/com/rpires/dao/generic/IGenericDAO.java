@@ -1,6 +1,6 @@
 package br.com.rpires.dao.generic;
 
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
 import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.MaisDeUmRegistroException;
 import br.com.rpires.exceptions.TableException;
@@ -14,7 +14,7 @@ import java.util.Collection;
  *
  * Interface genérica para métodos de CRUD(Create, Read, Update and Delete)
  */
-public interface IGenericDAO <T extends Persistente, E extends Serializable> {
+public interface IGenericDAO <T extends Persistence, E extends Serializable> {
 
     /**
      * Método para cadastrar novos registro no banco de dados

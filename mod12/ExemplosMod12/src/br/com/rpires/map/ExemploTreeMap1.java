@@ -13,7 +13,7 @@ import java.util.TreeMap;
  * Para usar uma classe que implementa Map, quaisquer classes que forem utilizadas como chave
  * devem sobrescrever os métodos hashCode() e equals().
  */
-public class ExemploTreeMap {
+public class ExemploTreeMap1 {
 
     public static void main(String args[]) {
         exemploListaSimples();

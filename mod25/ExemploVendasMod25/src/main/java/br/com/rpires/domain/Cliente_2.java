@@ -4,13 +4,13 @@
 package br.com.rpires.domain;
 
 import anotacao.TipoChave;
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
 
 /**
  * @author rodrigo.pires
  *
  */
-public class Cliente implements Persistente {
+public class Cliente_2 implements Persistence {
 	
 	private String nome;
 	
@@ -26,8 +26,14 @@ public class Cliente implements Persistente {
     private String cidade;
     
     private String estado;
-    
-	public String getNome() {
+
+    public Cliente_2(int ignoredCodigo, String ignoredNome, String ignoredEndereco) {
+    }
+
+    public Cliente_2() {
+    }
+
+    public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
@@ -70,6 +76,13 @@ public class Cliente implements Persistente {
 		this.estado = estado;
 	}
 
-	
+	public <E> E getCodigo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	public void setCodigo(String string) {
+		// TODO Auto-generated method stub
+		return;
+	}
 }

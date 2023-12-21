@@ -13,7 +13,7 @@ import java.util.Set;
  * Para usar uma classe que implementa Map, quaisquer classes que forem utilizadas como chave
  * devem sobrescrever os métodos hashCode() e equals().
  */
-public class ExemploHashMap {
+public class ExemploHashMap1 {
 
     public static void main(String args[]) {
         exemploListaSimples();

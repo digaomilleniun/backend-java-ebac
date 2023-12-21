@@ -3,20 +3,19 @@
  */
 package br.com.rpires.services;
 
-import br.com.rpires.dao.IClienteDAO;
-import br.com.rpires.domain.Cliente;
-import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
+import br.com.rpires.dao.IClienteDAO2;
+import br.com.rpires.domain.Cliente_2;
 import br.com.rpires.services.generic.GenericService;
 
 /**
  * @author rodrigo.pires
  *
  */
-public class ClienteService extends GenericService<Cliente, Long> implements IClienteService {
+public class ClienteService extends GenericService<Cliente_2, Long> implements IClienteService {
 	
 	//private IClienteDAO clienteDAO;
 	
-	public ClienteService(IClienteDAO clienteDAO) {
+	public ClienteService(IClienteDAO2 clienteDAO) {
 		super(clienteDAO);
 		//this.clienteDAO = clienteDAO;
 	}
@@ -27,7 +26,7 @@ public class ClienteService extends GenericService<Cliente, Long> implements ICl
 //	}
 
 	@Override
-	public Cliente buscarPorCPF(Long cpf) {
+	public Cliente_2 buscarPorCPF(Long cpf) {
 		return this.dao.consultar(cpf);
 	}
 

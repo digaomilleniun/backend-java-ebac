@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
 
 /**
  * @author rodrigo.pires
@@ -19,7 +19,7 @@ import br.com.rpires.dao.Persistente;
  */
 @Entity
 @Table(name = "TB_CLIENTE")
-public class ClienteJpa implements Persistente {
+public class ClienteJpa implements Persistence {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="cliente_seq")

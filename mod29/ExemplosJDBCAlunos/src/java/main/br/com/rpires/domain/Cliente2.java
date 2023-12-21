@@ -7,7 +7,7 @@ package br.com.rpires.domain;
  * @author rodrigo.pires
  *
  */
-public class Cliente {
+public class Cliente2 {
 
 	private Long id;
 	

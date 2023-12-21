@@ -6,26 +6,26 @@ package br.com.rpires.services.generic;
 import java.io.Serializable;
 import java.util.Collection;
 
-import br.com.rpires.dao.IClienteDAO;
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.IClienteDAO2;
+import br.com.rpires.dao.Persistence;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 
 /**
  * @author rodrigo.pires
  *
  */
-public abstract class GenericService<T extends Persistente, E extends Serializable> 
+public abstract class GenericService<T extends Persistence, E extends Serializable>
 	implements IGenericService<T, E> {
 	
 	@SuppressWarnings("rawtypes")
-	protected IClienteDAO dao;
+	protected IClienteDAO2 dao;
 	
-	public GenericService(@SuppressWarnings("rawtypes") IClienteDAO clienteDAO) {
+	public GenericService(@SuppressWarnings("rawtypes") IClienteDAO2 clienteDAO) {
 		this.dao = clienteDAO;
 	}
 
 	@SuppressWarnings("rawtypes")
-	public void GenericService11(IClienteDAO clienteDAO) {
+	public void GenericService11(IClienteDAO2 clienteDAO) {
 		// TODO Auto-generated constructor stub
 	}
 

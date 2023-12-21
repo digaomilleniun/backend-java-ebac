@@ -5,21 +5,19 @@
  */
 package javaapplication1.dao;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import javaapplication1.domain.Cliente;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author rodrigo.pires
  */
-public class ClienteMapDAO implements IClienteDAO {
+public class ClienteMapDAO2 implements IClienteDAO {
     
     private Map<Long, Cliente> map;
     
-    public ClienteMapDAO() {
+    public ClienteMapDAO2() {
         map = new TreeMap<>();
     }
 

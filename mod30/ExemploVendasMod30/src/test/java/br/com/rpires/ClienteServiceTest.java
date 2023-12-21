@@ -8,8 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.rpires.dao.ClienteDaoMock;
-import br.com.rpires.dao.IClienteDAO;
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.dao.IClientDAO;
+import br.com.rpires.domain.Cliente_2;
 import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 import br.com.rpires.services.ClienteService;
@@ -23,16 +23,16 @@ public class ClienteServiceTest {
 	
 	private IClienteService clienteService;
 	
-	private Cliente cliente;
+	private Cliente_2 cliente;
 	
 	public ClienteServiceTest() {
-		IClienteDAO dao = new ClienteDaoMock();
+		IClientDAO dao = new ClienteDaoMock();
 		clienteService = new ClienteService(dao);
 	}
 	
 	@Before
 	public void init() {
-		cliente = new Cliente();
+		cliente = new Cliente_2();
 		cliente.setCpf(12312312312L);
 		cliente.setNome("Rodrigo");
 		cliente.setCidade("São Paulo");
@@ -45,7 +45,7 @@ public class ClienteServiceTest {
 	
 	@Test
 	public void pesquisarCliente() throws DAOException {
-		Cliente clienteConsultado = clienteService.buscarPorCPF(cliente.getCpf());
+		Cliente_2 clienteConsultado = clienteService.buscarPorCPF(cliente.getCpf());
 		Assert.assertNotNull(clienteConsultado);
 	}
 	

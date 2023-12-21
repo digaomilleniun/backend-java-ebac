@@ -9,16 +9,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.domain.Cliente_2;
 
 /**
  * @author rodrigo.pires
  *
  */
-public class ClienteDAO implements IClienteDAO {
+public class ClienteDAO implements IClientDAO {
 	
 	@Override
-	public Cliente cadastrar(Cliente cliente) {
+	public Cliente_2 cadastrar(Cliente_2 cliente) {
 		EntityManagerFactory entityManagerFactory = 
 				Persistence.createEntityManagerFactory("ExemploJPA");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -34,13 +34,13 @@ public class ClienteDAO implements IClienteDAO {
 	}
 
 	@Override
-	public Cliente buscarPorID(Long id) {
+	public Cliente_2 buscarPorID(Long id) {
 		EntityManagerFactory entityManagerFactory = 
 				Persistence.createEntityManagerFactory("ExemploJPA");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
 		entityManager.getTransaction().begin();
-		Cliente cliente = entityManager.find(Cliente.class, id);
+		Cliente_2 cliente = entityManager.find(Cliente_2.class, id);
 		entityManager.getTransaction().commit();
 		
 		entityManager.close();
@@ -50,7 +50,7 @@ public class ClienteDAO implements IClienteDAO {
 	}
 
 	@Override
-	public void excluir(Cliente cliente) {
+	public void excluir(Cliente_2 cliente) {
 		EntityManagerFactory entityManagerFactory = 
 				Persistence.createEntityManagerFactory("ExemploJPA");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -65,7 +65,7 @@ public class ClienteDAO implements IClienteDAO {
 	}
 
 	@Override
-	public Cliente alterar(Cliente cliente) {
+	public Cliente_2 alterar(Cliente_2 cliente) {
 		EntityManagerFactory entityManagerFactory = 
 				Persistence.createEntityManagerFactory("ExemploJPA");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -80,14 +80,14 @@ public class ClienteDAO implements IClienteDAO {
 	}
 
 	@Override
-	public List<Cliente> buscarTodos() {
+	public List<Cliente_2> buscarTodos() {
 		EntityManagerFactory entityManagerFactory = 
 				Persistence.createEntityManagerFactory("ExemploJPA");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
 		entityManager.getTransaction().begin();
-		List<Cliente> list = 
-				entityManager.createQuery("SELECT c FROM Cliente c", Cliente.class).getResultList();      
+		List<Cliente_2> list =
+				entityManager.createQuery("SELECT c FROM Cliente c", Cliente_2.class).getResultList();
 		entityManager.getTransaction().commit();
 		
 		entityManager.close();

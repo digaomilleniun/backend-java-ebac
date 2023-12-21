@@ -11,7 +11,7 @@ import javaapplication1.domain.Cliente;
  *
  * @author rodrigo.pires
  */
-public interface IClienteDAO {
+public interface IClienteDAO2 {
     
     public Boolean cadastrar(Cliente cliente);
     
