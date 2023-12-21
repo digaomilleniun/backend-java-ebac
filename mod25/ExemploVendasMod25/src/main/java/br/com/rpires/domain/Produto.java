@@ -3,16 +3,16 @@
  */
 package br.com.rpires.domain;
 
-import java.math.BigDecimal;
-
 import anotacao.TipoChave;
 import br.com.rpires.dao.Persistente;
+
+import java.math.BigDecimal;
 
 /**
  * @author rodrigo.pires
  *
  */
-public class Produto implements Persistente {
+public class Produto_5 implements Persistente {
 
 	@TipoChave("getCodigo")
 	private String codigo;
@@ -54,5 +54,9 @@ public class Produto implements Persistente {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-	
+
+	@Override
+	public String getEndereco() {
+		return null;
+	}
 }

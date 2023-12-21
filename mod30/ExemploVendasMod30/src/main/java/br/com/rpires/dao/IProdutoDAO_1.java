@@ -4,13 +4,12 @@
 package br.com.rpires.dao;
 
 import br.com.rpires.dao.generic.IGenericDAO;
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.domain.Produto_4;
 
 /**
  * @author rodrigo.pires
  *
  */
-public interface IClienteDAO extends IGenericDAO<Cliente, Long> {
-
+public interface IProdutoDAO extends IGenericDAO<Produto_4, String>{
 
 }

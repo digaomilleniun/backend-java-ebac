@@ -7,25 +7,25 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import br.com.rpires.dao.generic.GenericDAO;
-import br.com.rpires.domain.Produto;
+import br.com.rpires.domain.Produto_4;
 
 /**
  * @author rodrigo.pires
  *
  */
-public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoDAO {
+public abstract class ProdutoDAO extends GenericDAO<Produto_4, String> implements IProdutoDAO_1 {
 	
 	public ProdutoDAO() {
 		super();
 	}
 
 	@Override
-	public Class<Produto> getTipoClasse() {
-		return Produto.class;
+	public Class<Produto_4> getTipoClasse() {
+		return Produto_4.class;
 	}
 
 	@Override
-	public void atualiarDados(Produto entity, Produto entityCadastrado) {
+	public void atualiarDados(Produto_4 entity, Produto_4 entityCadastrado) {
 		entityCadastrado.setCodigo(entity.getCodigo());
 		entityCadastrado.setDescricao(entity.getDescricao());
 		entityCadastrado.setNome(entity.getNome());
@@ -34,15 +34,11 @@ public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoD
 
 	@Override
 	protected String getQueryInsercao() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("INSERT INTO TB_PRODUTO ");
-		sb.append("(ID, CODIGO, NOME, DESCRICAO, VALOR)");
-		sb.append("VALUES (nextval('sq_produto'),?,?,?,?)");
-		return sb.toString();
+        return "INSERT INTO TB_PRODUTO " +
+                "(ID, CODIGO, NOME, DESCRICAO, VALOR)" +
+                "VALUES (nextval('sq_produto'),?,?,?,?)";
 	}
-
-	@Override
-	protected void setParametrosQueryInsercao(PreparedStatement stmInsert, Produto entity) throws SQLException {
+	protected void setParametrosQueryInsercao(PreparedStatement stmInsert, Produto_4 entity) throws SQLException {
 		stmInsert.setString(1, entity.getCodigo());
 		stmInsert.setString(2, entity.getNome());
 		stmInsert.setString(3, entity.getDescricao());
@@ -61,18 +57,17 @@ public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoD
 
 	@Override
 	protected String getQueryAtualizacao() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("UPDATE TB_PRODUTO ");
-		sb.append("SET CODIGO = ?,");
-		sb.append("NOME = ?,");
-		sb.append("DESCRICAO = ?,");
-		sb.append("VALOR = ?");
-		sb.append(" WHERE CODIGO = ?");
-		return sb.toString();
+        String sb = "UPDATE TB_PRODUTO " +
+                "SET CODIGO = ?," +
+                "NOME = ?," +
+                "DESCRICAO = ?," +
+                "VALOR = ?" +
+                " WHERE CODIGO = ?";
+		return sb;
 	}
 
 	@Override
-	protected void setParametrosQueryAtualizacao(PreparedStatement stmUpdate, Produto entity) throws SQLException {
+	protected void setParametrosQueryAtualizacao(PreparedStatement stmUpdate, Produto_4 entity) throws SQLException {
 		stmUpdate.setString(1, entity.getCodigo());
 		stmUpdate.setString(2, entity.getNome());
 		stmUpdate.setString(3, entity.getDescricao());
