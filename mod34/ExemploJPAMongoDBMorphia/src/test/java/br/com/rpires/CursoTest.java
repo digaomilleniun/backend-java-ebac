@@ -7,7 +7,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.time.Instant;
 
-import org.bson.types.ObjectId;
 import org.junit.Test;
 
 import br.com.rpires.dao.CursoDao;
