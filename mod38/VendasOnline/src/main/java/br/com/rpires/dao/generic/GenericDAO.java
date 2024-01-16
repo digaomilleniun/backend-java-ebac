@@ -52,7 +52,6 @@ public class GenericDAO <T extends Persistente, E extends Serializable> implemen
                 entityManager.remove(managedCustomer);
             }
         }
-		
 	}
 
 	@Override
@@ -83,6 +82,4 @@ public class GenericDAO <T extends Persistente, E extends Serializable> implemen
 		sb.append(" obj");
 		return sb.toString();
 	}
-
-
 }

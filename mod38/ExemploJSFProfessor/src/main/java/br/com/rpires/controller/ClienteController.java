@@ -122,7 +122,4 @@ public class ClienteController implements Serializable {
 	public void setIsUpdate(Boolean isUpdate) {
 		this.isUpdate = isUpdate;
 	}
-	
-	
-
 }
