@@ -108,4 +108,9 @@ public class App {
         }
         return false;
     }
+
+	public Object getGreeting() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
