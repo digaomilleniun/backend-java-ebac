@@ -13,6 +13,8 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.graalvm.compiler.lir.asm.FrameContext;
+
 import br.com.rpires.domain.Cliente_2;
 import br.com.rpires.service.IClienteService;
 
@@ -71,7 +73,7 @@ public class ClienteController implements Serializable {
 			clienteService.excluir(cliente);
 			clientes.remove(cliente);
 		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar excluir o cliente"));
+			FrameContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar excluir o cliente"));
 		}
 		
     } 
@@ -82,7 +84,7 @@ public class ClienteController implements Serializable {
 			this.clientes = clienteService.buscarTodos();
 			this.cliente = new Cliente_2();
 		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar criar o cliente"));
+			FrameContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar criar o cliente"));
 		}
 		
         
@@ -92,9 +94,9 @@ public class ClienteController implements Serializable {
     	try {
 			clienteService.alterar(this.cliente);
 			cancel();
-			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Cliente Atualiado com sucesso"));
+			FrameContext.getCurrentInstance().addMessage("growl", new FacesMessage("Cliente Atualiado com sucesso"));
 		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar atualizar o cliente"));
+			FrameContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar atualizar o cliente"));
 		}
         
     }
