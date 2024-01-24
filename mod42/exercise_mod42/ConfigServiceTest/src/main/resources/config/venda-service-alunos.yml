@@ -1,0 +1,22 @@
+server:
+  port: 8083
+  wait-time-in-ms-when-sync-empty: 3000
+
+spring:
+  spring:
+    profiles:
+      active: native
+  data:
+      mongodb:
+        uri: mongodb://admin:admin@127.0.0.1:27017/ebac?authSource=admin&retryWrites=true&w=majority
+        database: venda
+        auto-index-creation: true
+
+application:
+  produtoService:
+    url: http://localhost:8082
+    endpointConsultarProduto: ${application.produtoService.url}/produto
+  clienteService:
+    url: http://localhost:8081
+    endpointConsultarCliente: ${application.clienteService.url}/cliente/isCadastrado/{id}
+application-version: 2.0

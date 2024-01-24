@@ -1,11 +1,9 @@
-package br.com.rpires.vendas.online.errorhandling;
+package online.errorhandling;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-import javax.validation.ConstraintViolation;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
@@ -13,6 +11,7 @@ import org.springframework.validation.ObjectError;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import jakarta.validation.ConstraintViolation;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,10 +19,8 @@ import lombok.Setter;
 @Setter
 public class ApiError {
 
-    private HttpStatus status;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private LocalDateTime timestamp;
-    private String message;
     private String debugMessage;
     private List<ApiSubError> subErrors;
 
@@ -33,21 +30,16 @@ public class ApiError {
 
     public ApiError(HttpStatus status) {
         this();
-        this.status = status;
     }
 
     public ApiError(HttpStatus status, Throwable ex) {
         this();
-        this.status = status;
-        this.message = "Unexpected error";
-        this.debugMessage = ex.getLocalizedMessage();
+        this.setDebugMessage(ex.getLocalizedMessage());
     }
 
     public ApiError(HttpStatus status, String message, Throwable ex) {
         this();
-        this.status = status;
-        this.message = message;
-        this.debugMessage = ex.getLocalizedMessage();
+        this.setDebugMessage(ex.getLocalizedMessage());
     }
 
     private void addSubError(ApiSubError subError) {
@@ -57,7 +49,7 @@ public class ApiError {
         subErrors.add(subError);
     }
 
-    private void addValidationError(String object, String field, Object rejectedValue, String message) {
+    private void addValidationError1(String object, String field) {
         addSubError(new ApiValidationError(object, field));
     }
 
@@ -66,11 +58,9 @@ public class ApiError {
     }
 
     private void addValidationError(FieldError fieldError) {
-        this.addValidationError(
+        this.addValidationError1(
                 fieldError.getObjectName(),
-                fieldError.getField(),
-                fieldError.getRejectedValue(),
-                fieldError.getDefaultMessage());
+                fieldError.getField());
     }
 
     public void addValidationErrors(List<FieldError> fieldErrors) {
@@ -93,14 +83,25 @@ public class ApiError {
      * @param cv the ConstraintViolation
      */
     private void addValidationError(ConstraintViolation<?> cv) {
-        this.addValidationError(
+        this.addValidationError1(
                 cv.getRootBeanClass().getSimpleName(),
-                "",
-                cv.getInvalidValue(),
-                cv.getMessage());
+                "");
     }
 
     public void addValidationErrors(Set<ConstraintViolation<?>> constraintViolations) {
         constraintViolations.forEach(this::addValidationError);
     }
+
+	public String getDebugMessage() {
+		return debugMessage;
+	}
+
+	public void setDebugMessage(String debugMessage) {
+		this.debugMessage = debugMessage;
+	}
+
+	public Object getStatus() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
