@@ -1,7 +1,7 @@
 package br.com.rpires.lambdas;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class TesteLambdasThreads {
 

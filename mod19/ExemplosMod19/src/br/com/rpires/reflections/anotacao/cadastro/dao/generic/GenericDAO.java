@@ -2,7 +2,9 @@ package br.com.rpires.reflections.anotacao.cadastro.dao.generic;
 
 import br.com.rpires.reflections.anotacao.cadastro.SingletonMap;
 import br.com.rpires.reflections.anotacao.cadastro.anotacao.TipoChave;
+import br.com.rpires.reflections.anotacao.cadastro.dao.IClienteDAO;
 import br.com.rpires.reflections.anotacao.cadastro.domain.Persistente;
+import br.com.rpires.reflections.anotacao.cadastro.domain.Produto;
 import br.com.rpires.reflections.anotacao.cadastro.exception.TipoChaveNaoEncontradaException;
 
 import java.lang.reflect.Field;
@@ -16,7 +18,7 @@ import java.util.Map;
  *
  * Classe genérica que implementa interface genérica com os métodos de CRUD
  */
-public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T> {
+public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T>, IClienteDAO {
 
     //protected Map<Class, Map<Long, T>> map = new HashMap<>();
 
@@ -25,7 +27,7 @@ public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T
      */
     private SingletonMap singletonMap;
 
-    public abstract Class<T> getTipoClasse();
+    public abstract Class<Produto> getTipoClasse();
 
     public abstract void atualiarDados(T entity, T entityCadastrado);
 
@@ -59,10 +61,10 @@ public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T
         return null;
     }
 
-    @Override
     public Boolean cadastrar(T entity) throws TipoChaveNaoEncontradaException {
         //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
-        Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
+        @SuppressWarnings("unchecked")
+		Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
         Long chave = getChave(entity);
         if (mapaInterno.containsKey(chave)) {
             return false;
@@ -72,20 +74,20 @@ public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T
         return true;
     }
 
-    @Override
     public void excluir(Long valor) {
         //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
-        Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
+        @SuppressWarnings({ "unchecked" })
+		Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
         T objetoCadastrado = mapaInterno.get(valor);
         if (objetoCadastrado != null) {
             mapaInterno.remove(valor, objetoCadastrado);
         }
     }
 
-    @Override
     public void alterar(T entity) throws TipoChaveNaoEncontradaException {
         //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
-        Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
+        @SuppressWarnings("unchecked")
+		Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
         Long chave = getChave(entity);
         T objetoCadastrado = mapaInterno.get(chave);
         if (objetoCadastrado != null) {
@@ -93,17 +95,17 @@ public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T
         }
     }
 
-    @Override
     public T consultar(Long valor) {
         //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
-        Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
+        @SuppressWarnings("unchecked")
+		Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
         return mapaInterno.get(valor);
     }
 
-    @Override
     public Collection<T> buscarTodos() {
         //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
-        Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
+        @SuppressWarnings("unchecked")
+		Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
         return mapaInterno.values();
     }
 }

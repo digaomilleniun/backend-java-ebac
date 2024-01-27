@@ -1,13 +1,12 @@
 package cadastro.dao.generic;
 
+import java.util.Collection;
+import java.util.Map;
+
 import cadastro.SingletonMap;
 import cadastro.domain.Cliente;
 import cadastro.domain.Persistente;
 import cadastro.domain.Produto;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author rodrigo.pires
@@ -23,8 +22,10 @@ public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T
      */
     private SingletonMap singletonMap;
 
-    public abstract Class<T> getTipoClasse();
-
+    public Class<Cliente> getTipoClasse() {
+		return null;
+	}
+    
     public abstract void atualiarDados(T entity, T entityCadastrado);
 
     public GenericDAO() {
@@ -34,7 +35,7 @@ public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T
     @Override
     public Boolean cadastrar(T entity) {
         //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
-        Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
+        Map<Long, T> mapaInterno = extracted();
         if (mapaInterno.containsKey(entity.getCodigo())) {
             return false;
         }
@@ -45,7 +46,7 @@ public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T
     @Override
     public void excluir(Long valor) {
         //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
-        Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
+        Map<Long, T> mapaInterno = extracted();
         T objetoCadastrado = mapaInterno.get(valor);
         if (objetoCadastrado != null) {
             mapaInterno.remove(valor, objetoCadastrado);
@@ -55,7 +56,7 @@ public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T
     @Override
     public void alterar(T entity) {
         //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
-        Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
+        Map<Long, T> mapaInterno = extracted();
         T objetoCadastrado = mapaInterno.get(entity.getCodigo());
         if (objetoCadastrado != null) {
             atualiarDados(entity, objetoCadastrado);
@@ -65,14 +66,27 @@ public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T
     @Override
     public T consultar(Long valor) {
         //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
-        Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
+        Map<Long, T> mapaInterno = extracted();
         return mapaInterno.get(valor);
     }
 
     @Override
     public Collection<T> buscarTodos() {
         //Map<Long, T> mapaInterno = this.map.get(getTipoClasse());
-        Map<Long, T> mapaInterno = (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
+        Map<Long, T> mapaInterno = extracted();
         return mapaInterno.values();
     }
+
+	@SuppressWarnings("unchecked")
+	private Map<Long, T> extracted() {
+		return (Map<Long, T>) this.singletonMap.getMap().get(getTipoClasse());
+	}
+
+	public abstract Boolean cadastrar(Cliente persistente);
+
+	public void atualizarDados(Produto entity, Produto entityCadastrado) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

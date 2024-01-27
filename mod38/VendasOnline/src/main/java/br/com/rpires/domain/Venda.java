@@ -58,7 +58,7 @@ public class Venda implements Persistente {
 		foreignKey = @ForeignKey(name = "fk_venda_cliente"), 
 		referencedColumnName = "id", nullable = false
 	)
-	private Cliente cliente;
+	private Cliente_2 cliente;
 	
 	/*
 	 * OBS: Não é uma boa prática utiliar FetchType.EAGER pois ele sempre irá trazer todos os objetos da collection
@@ -91,11 +91,11 @@ public class Venda implements Persistente {
 		this.codigo = codigo;
 	}
 
-	public Cliente getCliente() {
+	public Cliente_2 getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(Cliente_2 cliente) {
 		this.cliente = cliente;
 	}
 
@@ -103,7 +103,7 @@ public class Venda implements Persistente {
 		return produtos;
 	}
 
-	public void adicionarProduto(Produto produto, Integer quantidade) {
+	public void adicionarProduto(Produto_4 produto, Integer quantidade) {
 		validarStatus();
 		Optional<ProdutoQuantidade> op = 
 				produtos.stream().filter(filter -> filter.getProduto().getCodigo().equals(produto.getCodigo())).findAny();
@@ -127,7 +127,7 @@ public class Venda implements Persistente {
 		}
 	}
 	
-	public void removerProduto(Produto produto, Integer quantidade) {
+	public void removerProduto(Produto_4 produto, Integer quantidade) {
 		validarStatus();
 		Optional<ProdutoQuantidade> op = 
 				produtos.stream().filter(filter -> filter.getProduto().getCodigo().equals(produto.getCodigo())).findAny();

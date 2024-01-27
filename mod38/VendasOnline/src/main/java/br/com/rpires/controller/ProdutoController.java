@@ -13,7 +13,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.rpires.domain.Produto;
+import br.com.rpires.domain.Produto_4;
 import br.com.rpires.service.IProdutoService;
 
 /**
@@ -26,9 +26,9 @@ public class ProdutoController implements Serializable {
 
 	private static final long serialVersionUID = 367088063926303823L;
 	
-	private Produto produto;
+	private Produto_4 produto;
 	
-	private Collection<Produto> produtos;
+	private Collection<Produto_4> produtos;
 	
 	@Inject
 	private IProdutoService produtoService;
@@ -39,7 +39,7 @@ public class ProdutoController implements Serializable {
     public void init() {
 		try {
 			this.isUpdate = false;
-			this.produto = new Produto();
+			this.produto = new Produto_4();
 			this.produtos = produtoService.buscarTodos();
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar listar os produtos"));
@@ -49,14 +49,14 @@ public class ProdutoController implements Serializable {
 	public void cancel() {
 		try {
 			this.isUpdate = false;
-			this.produto = new Produto();
+			this.produto = new Produto_4();
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar cancelar ação"));
 		}
 		
     } 
 	
-	public void edit(Produto produto) {
+	public void edit(Produto_4 produto) {
 		try {
 			this.isUpdate = true;
 			this.produto = produto;
@@ -66,7 +66,7 @@ public class ProdutoController implements Serializable {
 		
     } 
 	
-	public void delete(Produto produto) {
+	public void delete(Produto_4 produto) {
 		try {
 			produtoService.excluir(produto);
 			produtos.remove(produto);
@@ -80,7 +80,7 @@ public class ProdutoController implements Serializable {
 		try {
 			produtoService.cadastrar(produto);
 			this.produtos = produtoService.buscarTodos();
-			this.produto = new Produto();
+			this.produto = new Produto_4();
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar criar o produto"));
 		}
@@ -103,19 +103,19 @@ public class ProdutoController implements Serializable {
 		return "/index.xhtml"; 
 	}
 
-	public Produto getProduto() {
+	public Produto_4 getProduto() {
 		return produto;
 	}
 
-	public void setProduto(Produto produto) {
+	public void setProduto(Produto_4 produto) {
 		this.produto = produto;
 	}
 
-	public Collection<Produto> getProdutos() {
+	public Collection<Produto_4> getProdutos() {
 		return produtos;
 	}
 
-	public void setProdutos(Collection<Produto> produtos) {
+	public void setProdutos(Collection<Produto_4> produtos) {
 		this.produtos = produtos;
 	}
 

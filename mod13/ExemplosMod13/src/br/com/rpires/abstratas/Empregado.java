@@ -1,7 +1,7 @@
 package br.com.rpires.abstratas;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public abstract class Empregado {
     

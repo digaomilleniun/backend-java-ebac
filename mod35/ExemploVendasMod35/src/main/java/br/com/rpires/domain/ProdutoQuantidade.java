@@ -19,7 +19,7 @@ public class ProdutoQuantidade {
 	private Long id;
 
 	//@ColunaTabela(dbName = "id", setJavaName = "setId")
-	private Produto produto;
+	private Produto_4 produto;
 	
 	@ColunaTabela(dbName = "quantidade", setJavaName = "setQuantidade")
 	private Integer quantidade;
@@ -32,11 +32,11 @@ public class ProdutoQuantidade {
 		this.valorTotal = BigDecimal.ZERO;
 	}
 
-	public Produto getProduto() {
+	public Produto_4 getProduto() {
 		return produto;
 	}
 
-	public void setProduto(Produto produto) {
+	public void setProduto(Produto_4 produto) {
 		this.produto = produto;
 	}
 

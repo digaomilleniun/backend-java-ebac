@@ -3,7 +3,7 @@ package br.com.rpires.anotacao;
 import java.lang.annotation.*;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

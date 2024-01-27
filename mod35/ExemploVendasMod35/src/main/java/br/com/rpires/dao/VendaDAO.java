@@ -18,6 +18,7 @@ import java.util.Set;
 import br.com.rpires.dao.factory.ProdutoQuantidadeFactory;
 import br.com.rpires.dao.factory.VendaFactory;
 import br.com.rpires.dao.generic.GenericDAO;
+import br.com.rpires.domain.Cliente_2;
 import br.com.rpires.domain.ProdutoQuantidade;
 import br.com.rpires.domain.Venda;
 import br.com.rpires.domain.Venda.Status;
@@ -30,11 +31,11 @@ import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  * @author rodrigo.pires
  *
  */
-public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
+public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO_1 {
 	
 
 	@Override
-	public Class<Venda> getTipoClasse() {
+	public Class<Cliente_2> getTipoClasse() {
 		return Venda.class;
 	}
 

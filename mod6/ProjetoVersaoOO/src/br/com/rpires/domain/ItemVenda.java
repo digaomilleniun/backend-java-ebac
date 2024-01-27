@@ -6,9 +6,9 @@ package br.com.rpires.domain;
 public class ItemVenda {
 
     private int quantidade;
-    private Produto produto;
+    private Produto_4 produto;
 
-    public ItemVenda(int quantidade, Produto produto) {
+    public ItemVenda(int quantidade, Produto_4 produto) {
         this.quantidade = quantidade;
         this.produto = produto;
     }
@@ -21,11 +21,11 @@ public class ItemVenda {
         this.quantidade = quantidade;
     }
 
-    public Produto getProduto() {
+    public Produto_4 getProduto() {
         return produto;
     }
 
-    public void setProduto(Produto produto) {
+    public void setProduto(Produto_4 produto) {
         this.produto = produto;
     }
 

@@ -1,17 +1,16 @@
 package br.com.rpires;
 
-import br.com.rpires.dao.ClienteMapDAO;
-import br.com.rpires.dao.IClienteDAO;
-import br.com.rpires.domain.Cliente;
+import javax.swing.JOptionPane;
 
-import javax.swing.*;
+import br.com.rpires.dao.ClienteMapDAO;
+import br.com.rpires.domain.Cliente_2;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class App {
 
-    private static IClienteDAO iClienteDAO;
+    private static ClienteMapDAO iClienteDAO;
 
     public static void main(String args[]) {
         iClienteDAO = new ClienteMapDAO();
@@ -53,7 +52,7 @@ public class App {
 
     private static void consultar(String dados) {
         //Validar se foi passado somente o cpf
-        Cliente cliente = iClienteDAO.consultar(Long.parseLong(dados));
+        Cliente_2 cliente = iClienteDAO.consultar(Long.parseLong(dados));
         if (cliente != null) {
             JOptionPane.showMessageDialog(null, "Cliente encontrado: " + cliente.toString(), "Sucesso",JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -74,7 +73,7 @@ public class App {
         //Tentar validar se todos os campos estão preenchidos.
         //Se não tiver, passr null no construtor onde o valor é nulo
         //Cliente cliente = new Cliente(dadosSeparados[0],dadosSeparados[1],null,dadosSeparados[3],dadosSeparados[4],dadosSeparados[5],dadosSeparados[6])
-        Cliente cliente = new Cliente(dadosSeparados[0],dadosSeparados[1],dadosSeparados[2],dadosSeparados[3],dadosSeparados[4],dadosSeparados[5],dadosSeparados[6]);
+        Cliente_2 cliente = new Cliente_2(dadosSeparados[0],dadosSeparados[1],dadosSeparados[2],dadosSeparados[3],dadosSeparados[4],dadosSeparados[5],dadosSeparados[6]);
         Boolean isCadastrado = iClienteDAO.cadastrar(cliente);
         if (isCadastrado) {
             JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso ", "Sucesso",JOptionPane.INFORMATION_MESSAGE);
@@ -110,10 +109,8 @@ public class App {
         return false;
     }
 
-    private static boolean isOpcaoCadastro(String opcao) {
-        if ("1".equals(opcao)) {
-            return true;
-        }
-        return false;
-    }
+	public Object getGreeting() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

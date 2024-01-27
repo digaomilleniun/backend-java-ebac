@@ -7,7 +7,7 @@
 		
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
-		<class>br.com.rpires.domain.Cliente</class>
+		<class>br.com.rpires.domain.Cliente_2</class>
 		<class>br.com.rpires.domain.Pessoa</class>
 		<class>br.com.rpires.domain.Endereco</class>
 		<class>br.com.rpires.domain.Curso</class>

@@ -51,7 +51,7 @@ public class Matricula {
 		foreignKey = @ForeignKey(name = "fk_aluno_matricula"), 
 		referencedColumnName = "id", nullable = false
 	)	
-	private Aluno aluno;
+	private Aluno1 aluno;
 	
 	public Long getId() {
 		return id;
@@ -101,11 +101,11 @@ public class Matricula {
 		this.curso = curso;
 	}
 
-	public Aluno getAluno() {
+	public Aluno1 getAluno() {
 		return aluno;
 	}
 
-	public void setAluno(Aluno aluno) {
+	public void setAluno(Aluno1 aluno) {
 		this.aluno = aluno;
 	}
 	

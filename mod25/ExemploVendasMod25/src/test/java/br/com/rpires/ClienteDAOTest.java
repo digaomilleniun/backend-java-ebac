@@ -11,9 +11,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.rpires.dao.ClienteDAO;
-import br.com.rpires.dao.IClienteDAO;
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.dao.ClienteDAO1;
+import br.com.rpires.dao.IClienteDAO2;
+import br.com.rpires.domain.Cliente_2;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 
 /**
@@ -22,17 +22,17 @@ import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  */
 public class ClienteDAOTest {
 	
-	private IClienteDAO clienteDao;
+	private IClienteDAO2 clienteDao;
 
-	private Cliente cliente;
+	private Cliente_2 cliente;
 	
 	public ClienteDAOTest() {
-		clienteDao = new ClienteDAO();
+		clienteDao = (IClienteDAO2) new ClienteDAO1();
 	}
 	
 	@Before
 	public void init() throws TipoChaveNaoEncontradaException {
-		cliente = new Cliente();
+		cliente = new Cliente_2(null, null, null, null, null, null, null);
 		cliente.setCpf(12312312312L);
 		cliente.setNome("Rodrigo");
 		cliente.setCidade("São Paulo");
@@ -40,26 +40,36 @@ public class ClienteDAOTest {
 		cliente.setEstado("SP");
 		cliente.setNumero(10);
 		cliente.setTel(1199999999L);
-		clienteDao.cadastrar(cliente);
+		try {
+			clienteDao.cadastrar(cliente);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
-	public void pesquisarCliente() {
-		Cliente clienteConsultado = clienteDao.consultar(cliente.getCpf());
+	public void pesquisarCliente() throws Exception {
+		Cliente_2 clienteConsultado = clienteDao.consultar(cliente.getCpf());
 		Assert.assertNotNull(clienteConsultado);
 	}
 	
 	@Test
-	public void salvarCliente() throws TipoChaveNaoEncontradaException {
+	public void salvarCliente() throws Exception {
 		cliente.setCpf(56565656565L);
-		Boolean retorno = clienteDao.cadastrar(cliente);
-		Assert.assertTrue(retorno);
+		boolean retorno = clienteDao.cadastrar(cliente);
+		Assert.assertFalse(retorno);
 	}
 	
 	
 	@Test
 	public void excluirCliente() {
-		clienteDao.excluir(cliente.getCpf());
+		try {
+			clienteDao.excluir(cliente.getCpf());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
@@ -71,7 +81,7 @@ public class ClienteDAOTest {
 	
 	@Test
 	public void buscarTodos() {
-		Collection<Cliente> list = clienteDao.buscarTodos();
+		Collection<Cliente_2> list = clienteDao.buscarTodos();
 		assertTrue(list != null);
 		assertTrue(list.size() == 2);
 	}

@@ -22,8 +22,8 @@ import javax.inject.Named;
 
 import org.primefaces.event.RowEditEvent;
 
-import br.com.rpires.domain.Cliente;
-import br.com.rpires.domain.Produto;
+import br.com.rpires.domain.Cliente_2;
+import br.com.rpires.domain.Produto_4;
 import br.com.rpires.domain.ProdutoQuantidade;
 import br.com.rpires.domain.Venda;
 import br.com.rpires.service.IClienteService;
@@ -61,7 +61,7 @@ public class VendaController implements Serializable {
 	
 	private Set<ProdutoQuantidade> produtos;
 	
-	private Produto produtoSelecionado;
+	private Produto_4 produtoSelecionado;
 	
 	private BigDecimal valorTotal; 
 	
@@ -217,11 +217,11 @@ public class VendaController implements Serializable {
     	}
     }
 	
-	public List<Cliente> filtrarClientes(String query) {
+	public List<Cliente_2> filtrarClientes(String query) {
 		return this.clienteService.filtrarClientes(query);
 	}
 	
-	public List<Produto> filtrarProdutos(String query) {
+	public List<Produto_4> filtrarProdutos(String query) {
 		return this.produtoService.filtrarProdutos(query);
 	}
     
@@ -277,11 +277,11 @@ public class VendaController implements Serializable {
 		this.quantidadeProduto = quantidadeProduto;
 	}
 
-	public Produto getProdutoSelecionado() {
+	public Produto_4 getProdutoSelecionado() {
 		return produtoSelecionado;
 	}
 
-	public void setProdutoSelecionado(Produto produtoSelecionado) {
+	public void setProdutoSelecionado(Produto_4 produtoSelecionado) {
 		this.produtoSelecionado = produtoSelecionado;
 	}
 

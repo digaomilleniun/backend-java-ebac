@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class Venda {
 

@@ -1,14 +1,13 @@
 package br.com.rpires.TesteAPI;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.http.HttpResponse;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 @RestController
 @RequestMapping(value = "/api/v1/teste")
@@ -19,13 +18,16 @@ public class TesteController {
         return ResponseEntity.ok("Teste");
     }
 
-    @GetMapping(value = "/teste2")
-    public void teste2(HttpServletResponse response) throws IOException {
-        response.getWriter().write("<html>");
-        response.getWriter().write("    <body>");
-        response.getWriter().write("        <h1>Olá </h1>");
-        response.getWriter().write("    </body>");
-        response.getWriter().write("</html>");
+    @GetMapping(value = "/api/v1/teste/teste2")
+    @ResponseBody
+    public String teste2(HttpResponse<?> response) throws IOException {
+        StringBuilder html = new StringBuilder();
+        html.append("<html>");
+        html.append("    <body>");
+        html.append("        <h1>Olá </h1>");
+        html.append("    </body>");
+        html.append("</html>");
+        return html.toString();
     }
 
     @GetMapping(value = "/teste3/{nome}")

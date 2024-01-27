@@ -13,7 +13,9 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.rpires.domain.Cliente;
+import org.graalvm.compiler.lir.asm.FrameContext;
+
+import br.com.rpires.domain.Cliente_2;
 import br.com.rpires.service.IClienteService;
 
 /**
@@ -26,9 +28,9 @@ public class ClienteController implements Serializable {
 
 	private static final long serialVersionUID = 8030245985235567808L;
 	
-	private Cliente cliente;
+	private Cliente_2 cliente;
 	
-	private Collection<Cliente> clientes;
+	private Collection<Cliente_2> clientes;
 	
 	@Inject
 	private IClienteService clienteService;
@@ -39,7 +41,7 @@ public class ClienteController implements Serializable {
     public void init() {
 		try {
 			this.isUpdate = false;
-			this.cliente = new Cliente();
+			this.cliente = new Cliente_2();
 			this.clientes = clienteService.buscarTodos();
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar listar os clientes"));
@@ -49,14 +51,14 @@ public class ClienteController implements Serializable {
 	public void cancel() {
 		try {
 			this.isUpdate = false;
-			this.cliente = new Cliente();
+			this.cliente = new Cliente_2();
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar cancelar ação"));
 		}
 		
     } 
 	
-	public void edit(Cliente cliente) {
+	public void edit(Cliente_2 cliente) {
 		try {
 			this.isUpdate = true;
 			this.cliente = cliente;
@@ -66,12 +68,12 @@ public class ClienteController implements Serializable {
 		
     } 
 	
-	public void delete(Cliente cliente) {
+	public void delete(Cliente_2 cliente) {
 		try {
 			clienteService.excluir(cliente);
 			clientes.remove(cliente);
 		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar excluir o cliente"));
+			FrameContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar excluir o cliente"));
 		}
 		
     } 
@@ -80,9 +82,9 @@ public class ClienteController implements Serializable {
 		try {
 			clienteService.cadastrar(cliente);
 			this.clientes = clienteService.buscarTodos();
-			this.cliente = new Cliente();
+			this.cliente = new Cliente_2();
 		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar criar o cliente"));
+			FrameContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar criar o cliente"));
 		}
 		
         
@@ -92,26 +94,26 @@ public class ClienteController implements Serializable {
     	try {
 			clienteService.alterar(this.cliente);
 			cancel();
-			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Cliente Atualiado com sucesso"));
+			FrameContext.getCurrentInstance().addMessage("growl", new FacesMessage("Cliente Atualiado com sucesso"));
 		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar atualizar o cliente"));
+			FrameContext.getCurrentInstance().addMessage("growl", new FacesMessage("Erro ao tentar atualizar o cliente"));
 		}
         
     }
 
-	public Collection<Cliente> getClientes() {
+	public Collection<Cliente_2> getClientes() {
 		return clientes;
 	}
 
-	public void setClientes(Collection<Cliente> clientes) {
+	public void setClientes(Collection<Cliente_2> clientes) {
 		this.clientes = clientes;
 	}
 
-	public Cliente getCliente() {
+	public Cliente_2 getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(Cliente_2 cliente) {
 		this.cliente = cliente;
 	}
 
@@ -122,7 +124,4 @@ public class ClienteController implements Serializable {
 	public void setIsUpdate(Boolean isUpdate) {
 		this.isUpdate = isUpdate;
 	}
-	
-	
-
 }

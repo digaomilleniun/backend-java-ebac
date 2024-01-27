@@ -71,6 +71,7 @@ public class Pessoa {
         Pessoa pessoa4 = new Pessoa("p4" , "Neymar Junior", "Brasil", 22);
         return List.of(pessoa1,pessoa2,pessoa3,pessoa4);
     }
+    
 
     @Override
     public boolean equals(Object o) {

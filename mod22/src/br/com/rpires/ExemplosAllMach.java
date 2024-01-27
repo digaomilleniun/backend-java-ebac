@@ -3,7 +3,7 @@ package br.com.rpires;
 import java.util.List;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class ExemplosAllMach {
 
@@ -21,6 +21,8 @@ public class ExemplosAllMach {
                 re=false;
                 break;
             }
+            
+            System.out.println(re);
         }
     }
 }

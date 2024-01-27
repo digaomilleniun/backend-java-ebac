@@ -58,7 +58,7 @@ public class ApiError {
     }
 
     private void addValidationError(String object, String field, Object rejectedValue, String message) {
-        addSubError(new ApiValidationError(object, field, rejectedValue, message));
+        addSubError(new ApiValidationError(object, field));
     }
 
     private void addValidationError(String object, String message) {

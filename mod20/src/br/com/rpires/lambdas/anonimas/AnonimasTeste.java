@@ -1,9 +1,7 @@
 package br.com.rpires.lambdas.anonimas;
 
-import br.com.rpires.lambdas.TesteLambdasThreads;
-
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class AnonimasTeste {
 

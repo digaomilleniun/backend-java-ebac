@@ -1,7 +1,7 @@
-package br.com.rpires.forewhile;
+package forewhile;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemploPPT4 {
 

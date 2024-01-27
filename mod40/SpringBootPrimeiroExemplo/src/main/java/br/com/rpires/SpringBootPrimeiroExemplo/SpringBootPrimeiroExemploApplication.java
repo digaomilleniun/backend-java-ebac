@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.domain.Cliente_2;
 import br.com.rpires.repository.IClienteRepository;
 
 @SpringBootApplication
@@ -33,12 +33,12 @@ public class SpringBootPrimeiroExemploApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		log.info("StartApplication...");
-		Cliente cliente = createCliente();
+		Cliente_2 cliente = createCliente();
 		repository.save(cliente);
 	}
 	
-	private Cliente createCliente() {
-		return Cliente.builder()
+	private Cliente_2 createCliente() {
+		return Cliente_2.builder()
 				.cidade("SP")
 				.cpf(12312312310L)
 				.email("Teste@teste.com")

@@ -3,6 +3,7 @@ package br.com.rpires.reflections.anotacao.cadastro.dao;
 import br.com.rpires.reflections.anotacao.cadastro.SingletonMap;
 import br.com.rpires.reflections.anotacao.cadastro.dao.generic.GenericDAO;
 import br.com.rpires.reflections.anotacao.cadastro.domain.Cliente;
+import br.com.rpires.reflections.anotacao.cadastro.exception.TipoChaveNaoEncontradaException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,5 +37,17 @@ public class ClienteMapDAO extends GenericDAO<Cliente> implements IClienteDAO {
         entityCadastrado.setCidade(cliente.getCidade());
         entityCadastrado.setEstado(cliente.getEstado());
     }
+
+	@Override
+	public Boolean cadastrar1(Cliente entity) throws TipoChaveNaoEncontradaException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <T> Boolean cadastrar(T entity) throws TipoChaveNaoEncontradaException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

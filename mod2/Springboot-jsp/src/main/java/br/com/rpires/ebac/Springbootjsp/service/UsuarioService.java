@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 @Service
 public class UsuarioService {

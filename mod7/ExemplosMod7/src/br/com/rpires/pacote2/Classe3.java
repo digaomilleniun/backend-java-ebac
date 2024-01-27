@@ -1,14 +1,14 @@
 package br.com.rpires.pacote2;
 
+
 import br.com.rpires.Cliente;
 import br.com.rpires.ItemVenda;
 import br.com.rpires.pacote1.Classe1;
 import br.com.rpires.pacote1.Classe2;
 
-import java.util.Iterator;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  *
  *
  */
@@ -19,13 +19,14 @@ public class Classe3 extends Classe2 {
      *
      * @param args  asdsada
      */
-    public static void main(String args[]) {
-        Classe1 class1 = new Classe1();
+    @SuppressWarnings("deprecation")
+	public static void main(String args[]) {
+        new Classe1();
         Cliente cliente = new Cliente();
         cliente.retornarNomeCliente();
         cliente.getValorTotal();
 
-        ItemVenda item = new ItemVenda();
+        new ItemVenda();
 
 
     }

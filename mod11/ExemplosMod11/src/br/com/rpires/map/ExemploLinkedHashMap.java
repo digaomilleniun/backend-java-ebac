@@ -1,11 +1,10 @@
 package br.com.rpires.map;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  *
  * A ordem de iteração é a ordem em que as chaves são inseridas no mapa.
  */

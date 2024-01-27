@@ -1,6 +1,7 @@
 package br.com.rpires.reflections.anotacao.cadastro.dao.generic;
 
 import br.com.rpires.reflections.anotacao.cadastro.domain.Persistente;
+import br.com.rpires.reflections.anotacao.cadastro.domain.Produto;
 import br.com.rpires.reflections.anotacao.cadastro.exception.TipoChaveNaoEncontradaException;
 
 import java.util.Collection;
@@ -48,4 +49,9 @@ public interface IGenericDAO <T extends Persistente> {
      * @return Registros encontrados
      */
     public Collection<T> buscarTodos();
+
+	Boolean cadastrar1(T entity) throws TipoChaveNaoEncontradaException;
+
+	Class<Produto> getTipoClasse();
+
 }

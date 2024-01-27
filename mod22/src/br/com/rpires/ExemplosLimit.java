@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class ExemplosLimit {
 
@@ -12,5 +12,7 @@ public class ExemplosLimit {
         List<Pessoa> lista = new Pessoa().populaPessoas();
 
         Stream<Pessoa> stream = lista.stream().limit(2);
+        
+        System.out.println(stream);
     }
 }

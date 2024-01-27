@@ -9,8 +9,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import br.com.rpires.dao.generic.GenericDAO;
-import br.com.rpires.domain.Cliente;
-import br.com.rpires.domain.Produto;
+import br.com.rpires.domain.Cliente_2;
+import br.com.rpires.domain.Produto_4;
 import br.com.rpires.domain.Venda;
 import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
@@ -19,7 +19,7 @@ import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  * @author rodrigo.pires
  *
  */
-public class VendaDAO extends GenericDAO<Venda, Long> implements IVendaDAO {
+public class VendaDAO extends GenericDAO<Venda, Long> implements IVendaDAO_1 {
 
 	public VendaDAO() {
 		super(Venda.class);
@@ -44,10 +44,10 @@ public class VendaDAO extends GenericDAO<Venda, Long> implements IVendaDAO {
 	public Venda cadastrar(Venda entity) throws TipoChaveNaoEncontradaException, DAOException {
 		try {
 			entity.getProdutos().forEach(prod -> {
-				Produto prodJpa = entityManager.merge(prod.getProduto());
+				Produto_4 prodJpa = entityManager.merge(prod.getProduto());
 				prod.setProduto(prodJpa);
 			});
-			Cliente cliente = entityManager.merge(entity.getCliente());
+			Cliente_2 cliente = entityManager.merge(entity.getCliente());
 			entity.setCliente(cliente);
 			entityManager.persist(entity);
 //			entityManager.getTransaction().commit();

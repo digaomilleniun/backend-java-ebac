@@ -1,9 +1,9 @@
 package cadastro.dao.generic;
 
-import cadastro.domain.Persistente;
-import cadastro.domain.Produto;
-
 import java.util.Collection;
+
+import cadastro.domain.Cliente;
+import cadastro.domain.Persistente;
 
 /**
  * @author rodrigo.pires
@@ -30,9 +30,9 @@ public interface IGenericDAO <T extends Persistente> {
     /**
      *Método para alterar um registro no bando de dados.
      *
-     * @param entity a ser atualizado
+     * @param cliente a ser atualizado
      */
-    public void alterar(T entity);
+    public void alterar(Cliente cliente);
 
     /**
      * Método para consultar um registro no banco de dados
@@ -48,4 +48,8 @@ public interface IGenericDAO <T extends Persistente> {
      * @return Registros encontrados
      */
     public Collection<T> buscarTodos();
+
+	void alterar(T entity);
+
+	Class<Cliente> getTipoClasse();
 }

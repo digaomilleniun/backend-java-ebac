@@ -1,10 +1,9 @@
 package br.com.rpires.exceptions;
 
 import javax.swing.*;
-import java.util.Scanner;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class APPCliente {
 

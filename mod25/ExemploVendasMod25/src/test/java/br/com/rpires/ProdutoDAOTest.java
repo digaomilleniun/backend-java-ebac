@@ -12,9 +12,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.rpires.dao.IProdutoDAO;
-import br.com.rpires.dao.ProdutoDAO;
-import br.com.rpires.domain.Produto;
+import br.com.rpires.dao.IProdutoDAO_1;
+import br.com.rpires.dao.ProdutoDAO_3;
+import br.com.rpires.domain.Produto_4;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 
 /**
@@ -23,17 +23,17 @@ import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  */
 public class ProdutoDAOTest {
 	
-	private IProdutoDAO produtoDao;
+	private IProdutoDAO_1 produtoDao;
 
-	private Produto produto;
+	private Produto_4 produto;
 	
 	public ProdutoDAOTest() {
-		produtoDao = new ProdutoDAO();
+		produtoDao = new ProdutoDAO_3();
 	}
 	
 	@Before
 	public void init() throws TipoChaveNaoEncontradaException {
-		produto = new Produto();
+		produto = new Produto_4();
 		produto.setCodigo("A1");
 		produto.setDescricao("Produto 1");
 		produto.setNome("Produto 1");
@@ -43,7 +43,7 @@ public class ProdutoDAOTest {
 	
 	@Test
 	public void pesquisar() {
-		Produto produto = this.produtoDao.consultar(this.produto.getCodigo());
+		Produto_4 produto = this.produtoDao.consultar(this.produto.getCodigo());
 		Assert.assertNotNull(produto);
 	}
 	
@@ -69,7 +69,7 @@ public class ProdutoDAOTest {
 	
 	@Test
 	public void buscarTodos() {
-		Collection<Produto> list = produtoDao.buscarTodos();
+		Collection<Produto_4> list = produtoDao.buscarTodos();
 		assertTrue(list != null);
 		assertTrue(list.size() == 2);
 	}

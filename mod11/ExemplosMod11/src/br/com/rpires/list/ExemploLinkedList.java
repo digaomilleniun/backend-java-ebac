@@ -1,6 +1,6 @@
 package br.com.rpires.list;
 
-import java.util.ArrayList;
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Ao contrário do ArrayList, as buscas são lentas e inserções e exclusões são rápidas.
  *
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemploLinkedList {
 

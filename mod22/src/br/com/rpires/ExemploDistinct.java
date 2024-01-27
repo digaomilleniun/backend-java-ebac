@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class ExemploDistinct {
 
@@ -12,5 +12,7 @@ public class ExemploDistinct {
         List<Pessoa> lista = new Pessoa().populaPessoas();
 
         Stream<Pessoa> stream = lista.stream().distinct();
+        
+        System.out.println(stream);
     }
 }

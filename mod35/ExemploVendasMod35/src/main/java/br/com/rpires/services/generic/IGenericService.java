@@ -6,7 +6,7 @@ package br.com.rpires.services.generic;
 import java.io.Serializable;
 import java.util.Collection;
 
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
 import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 
@@ -14,7 +14,7 @@ import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  * @author rodrigo.pires
  *
  */
-public interface IGenericService <T extends Persistente, E extends Serializable> {
+public interface IGenericService <T extends Persistence, E extends Serializable> {
 	
 	/**
      * Método para cadastrar novos registro no banco de dados

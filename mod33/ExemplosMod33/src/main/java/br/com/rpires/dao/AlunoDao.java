@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import br.com.rpires.domain.Aluno;
+import br.com.rpires.domain.Aluno1;
 
 /**
  * @author rodrigo.pires
@@ -16,7 +16,7 @@ import br.com.rpires.domain.Aluno;
 public class AlunoDao implements IAlunoDao{
 
 	@Override
-	public Aluno cadastrar(Aluno aluno) {
+	public Aluno1 cadastrar(Aluno1 aluno) {
 		EntityManagerFactory entityManagerFactory = 
 				Persistence.createEntityManagerFactory("ExemploJPA");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();

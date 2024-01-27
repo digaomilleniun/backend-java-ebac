@@ -3,11 +3,11 @@ package br.com.rpires.domain;
 import java.util.Objects;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
-public class Aluno implements Comparable<Aluno>{
+public class Aluno implements Comparable<Aluno1>{
 
-    private String nome;
+    String nome;
     private String curso;
     private double nota;
     private String sala;
@@ -81,7 +81,7 @@ public class Aluno implements Comparable<Aluno>{
      * @return
      */
     @Override
-    public int compareTo(Aluno aluno) {
+    public int compareTo(Aluno1 aluno) {
         return this.nome.compareTo(aluno.getNome());
     }
 
@@ -89,8 +89,8 @@ public class Aluno implements Comparable<Aluno>{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Aluno aluno = (Aluno) o;
-        return Objects.equals(nome, aluno.nome);
+        Aluno1 aluno = (Aluno1) o;
+        return Objects.equals(nome, aluno.getNome());
     }
 
     @Override

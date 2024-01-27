@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 @Controller
 @SessionAttributes("name")

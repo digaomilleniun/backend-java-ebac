@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 public class ExemplosCollect {
 

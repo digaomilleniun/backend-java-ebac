@@ -3,7 +3,7 @@
  */
 package br.com.rpires.services;
 
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.domain.Cliente_2;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 
 /**
@@ -12,12 +12,12 @@ import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  */
 public interface IClienteService {
 
-	Boolean cadastrar(Cliente cliente) throws TipoChaveNaoEncontradaException;
+	Boolean cadastrar(Cliente_2 cliente) throws TipoChaveNaoEncontradaException;
 
-	Cliente buscarPorCPF(Long cpf);
+	Cliente_2 buscarPorCPF(Long cpf);
 
 	void excluir(Long cpf);
 
-	void alterar(Cliente cliente) throws TipoChaveNaoEncontradaException;
+	void alterar(Cliente_2 cliente) throws TipoChaveNaoEncontradaException;
 
 }

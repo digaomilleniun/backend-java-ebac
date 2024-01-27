@@ -6,10 +6,10 @@ import java.util.List;
 
 /**
  *
- * É como um array cujo tamanho pode crescer.
- * A busca de um elemento é rápida, mas inserções e exclusões não são.
+ * It's like an array whose size can grow.
+ * Searching for an element is fast, but insertions and deletions are not..
  *
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemploArrayList {
 

@@ -31,7 +31,7 @@ public class ProdutoQuantidade {
 	private Long id;
 
 	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	private Produto produto;
+	private Produto_4 produto;
 	
 	@Column(name = "quantidade", nullable = false)
 	private Integer quantidade;
@@ -51,11 +51,11 @@ public class ProdutoQuantidade {
 		this.valorTotal = BigDecimal.ZERO;
 	}
 
-	public Produto getProduto() {
+	public Produto_4 getProduto() {
 		return produto;
 	}
 
-	public void setProduto(Produto produto) {
+	public void setProduto(Produto_4 produto) {
 		this.produto = produto;
 	}
 

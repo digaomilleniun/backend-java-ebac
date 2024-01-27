@@ -1,6 +1,5 @@
 package br.com.rpires.set;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -9,7 +8,7 @@ import java.util.TreeSet;
  * Os dados são classificados, mas o acesso é mais lento que em um HashSet.
  * Não repete valores na lista
  *
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemploTreeSet {
 

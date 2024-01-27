@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * @author rodrigo.pires
  */
-public class Cliente {
+public class Cliente extends Cliente_2 {
 
     private String nome;
     private Long cpf;
@@ -26,7 +26,11 @@ public class Cliente {
 
     }
 
-    public String getNome() {
+    public Cliente() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getNome() {
         return nome;
     }
 
@@ -86,8 +90,8 @@ public class Cliente {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Cliente cliente = (Cliente) o;
-        return Objects.equals(cpf, cliente.cpf);
+        Cliente_2 cliente = (Cliente) o;
+        return Objects.equals(cpf, ((Cliente) cliente).cpf);
     }
 
     @Override
@@ -102,4 +106,24 @@ public class Cliente {
                 ", cpf=" + cpf +
                 '}';
     }
+
+	public String getCodigo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public void setCodigo(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setId(long long1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Object getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -1,11 +1,11 @@
 package br.com.rpires.service;
 
-import br.com.rpires.dao.IContratoDao;
+import br.com.rpires.dao.Junit.IContratoDao;
 
 /**
  * @author rodrigo.pires
  */
-public class ContratoService implements IContratoService {
+public abstract class ContratoService implements IContratoService {
 
     private IContratoDao contratoDao;
 

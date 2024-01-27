@@ -6,7 +6,7 @@ package br.com.rpires.dao.factory;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.domain.Cliente_2;
 import br.com.rpires.domain.Venda;
 import br.com.rpires.domain.Venda.Status;
 
@@ -17,7 +17,7 @@ import br.com.rpires.domain.Venda.Status;
 public class VendaFactory {
 
 	public static Venda convert(ResultSet rs) throws SQLException {
-		Cliente cliente = ClienteFactory.convert(rs);
+		Cliente_2 cliente = ClienteFactory.convert(rs);
 		Venda venda = new Venda();
 		venda.setCliente(cliente);
 		venda.setId(rs.getLong("ID_VENDA"));

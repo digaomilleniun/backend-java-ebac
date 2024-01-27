@@ -1,10 +1,10 @@
-package br.com.rpires.forewhile;
+package forewhile;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemploPPT1 {
 

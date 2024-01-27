@@ -6,22 +6,24 @@ package br.com.rpires.services.generic;
 import java.io.Serializable;
 import java.util.Collection;
 
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
+import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 
 /**
  * @author rodrigo.pires
  *
  */
-public interface IGenericService <T extends Persistente, E extends Serializable> {
+public interface IGenericService <T extends Persistence, E extends Serializable> {
 	
 	/**
      * Método para cadastrar novos registro no banco de dados
      *
      * @param entity a ser cadastrado
      * @return retorna verdadeiro para cadastrado e falso para não cadastrado
+	 * @throws DAOException 
      */
-    public Boolean cadastrar(T entity) throws TipoChaveNaoEncontradaException;
+    public Boolean cadastrar(T entity) throws TipoChaveNaoEncontradaException, DAOException;
 
     /**
      * Método para excluir um registro do banco de dados
@@ -42,8 +44,9 @@ public interface IGenericService <T extends Persistente, E extends Serializable>
      *
      * @param valor chave única do dado a ser consultado
      * @return
+     * @throws DAOException 
      */
-    public T consultar(E valor);
+    public T consultar(E valor) throws DAOException;
 
     /**
      * Método que irá retornar todos os registros do banco de dados de uma determinado dado ou tabela

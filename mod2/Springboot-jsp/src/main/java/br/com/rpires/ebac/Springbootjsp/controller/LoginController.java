@@ -1,15 +1,16 @@
 package br.com.rpires.ebac.Springbootjsp.controller;
 
 import br.com.rpires.ebac.Springbootjsp.service.LoginService;
+
+import javax.management.modelmbean.ModelMBean;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
-@Controller
+@ControllerAdvice
 @SessionAttributes("name")
 public class LoginController {
 
@@ -17,12 +18,12 @@ public class LoginController {
     LoginService service;
 
     @RequestMapping(value="/", method = RequestMethod.GET)
-    public String showLoginPage(ModelMap model){
+    public String showLoginPage(ModelMBean model){
         return "login";
     }
 
     @RequestMapping(value="/login", method = RequestMethod.POST)
-    public String showWelcomePage(ModelMap model, @RequestParam String name, @RequestParam String password){
+    public String showWelcomePage(ModelMBean model, @RequestParam String name, @RequestParam String password){
 
         boolean isValidUser = service.validateUser(name, password);
 

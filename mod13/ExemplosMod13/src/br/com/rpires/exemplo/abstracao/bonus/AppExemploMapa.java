@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class AppExemploMapa {
 

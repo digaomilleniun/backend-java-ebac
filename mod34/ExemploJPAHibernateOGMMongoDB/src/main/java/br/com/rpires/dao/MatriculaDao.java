@@ -15,8 +15,6 @@ import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Root;
 
-import org.hibernate.Criteria;
-
 import br.com.rpires.domain.Curso;
 import br.com.rpires.domain.Matricula;
 

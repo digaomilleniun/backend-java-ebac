@@ -1,11 +1,7 @@
 package br.com.rpires.interfaces;
 
-import br.com.rpires.interfaces.*;
-
-import java.util.List;
-
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ClasseTeste {
 
@@ -16,12 +12,12 @@ public class ClasseTeste {
         System.out.println(caneta.getCor());
 
         ICaneta giz = new Giz();
-        giz.escrever("Olá Rodrigo");
+        giz.escrever("Olá Steve");
         giz.escreverComumATodas();
         System.out.println(giz.getCor());
 
         Lapis lapis = new Lapis();
-        lapis.escrever("Olá Rodrigo");
+        lapis.escrever("Olá Steve");
         lapis.escreverComumATodas();
         System.out.println(lapis.getCor());
 

@@ -24,7 +24,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
 
 /**
  * @author rodrigo.pires
@@ -32,7 +32,7 @@ import br.com.rpires.dao.Persistente;
  */
 @Entity
 @Table(name = "TB_VENDA")
-public class VendaJpa implements Persistente {
+public class VendaJpa implements Persistence {
 	
 	public enum Status {
 		INICIADA, CONCLUIDA, CANCELADA;

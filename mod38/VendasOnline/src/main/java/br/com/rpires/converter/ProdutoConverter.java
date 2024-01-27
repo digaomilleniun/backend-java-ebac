@@ -12,14 +12,14 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Named;
 
-import br.com.rpires.domain.Produto;
+import br.com.rpires.domain.Produto_4;
 
 /**
  * @author rodrigo.pires
  *
  */
 @Named
-@FacesConverter(value = "produtoConverter", forClass = Produto.class)
+@FacesConverter(value = "produtoConverter", forClass = Produto_4.class)
 public class ProdutoConverter implements Converter {
 	
 	private static final String key = "br.com.rpires.converter.ProdutoConverter";
@@ -34,7 +34,7 @@ public class ProdutoConverter implements Converter {
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object produto) {
-		String id = ((Produto)produto).getId().toString();
+		String id = ((Produto_4)produto).getId().toString();
 		getViewMap(context).put(id, produto);
 	    return id;
 	}

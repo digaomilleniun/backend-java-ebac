@@ -18,7 +18,7 @@ import br.com.rpires.dao.IComputadorDao;
 import br.com.rpires.dao.ICursoDao;
 import br.com.rpires.dao.IMatriculaDao;
 import br.com.rpires.dao.MatriculaDao;
-import br.com.rpires.domain.Aluno;
+import br.com.rpires.domain.Aluno1;
 import br.com.rpires.domain.Computador;
 import br.com.rpires.domain.Curso;
 import br.com.rpires.domain.Matricula;
@@ -47,7 +47,7 @@ public class MatriculaTest {
 	@Test
 	public void cadastrar() {
 		Curso curso = criarCurso("A1");
-		Aluno aluno = criarAluno("A1");
+		Aluno1 aluno = criarAluno("A1");
 		
 		Matricula mat = new Matricula();
 		mat.setCodigo("A1");
@@ -80,10 +80,10 @@ public class MatriculaTest {
 		//return computadorDao.cadastrar(comp);
 	}
 
-	private Aluno criarAluno(String codigo) {
+	private Aluno1 criarAluno(String codigo) {
 		Computador comp = criarComputador("A1");
 		Computador comp2 = criarComputador("A2");
-		Aluno aluno = new Aluno();
+		Aluno1 aluno = new Aluno1();
 		aluno.setCodigo(codigo);
 		aluno.setNome("Rodrigo");
 		aluno.add(comp);

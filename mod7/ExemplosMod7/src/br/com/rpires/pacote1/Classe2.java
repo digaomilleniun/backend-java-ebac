@@ -1,11 +1,11 @@
 package br.com.rpires.pacote1;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class Classe2 {
 
-    private String prorpiedadePrivada;
+    private String propriedadePrivada;
 
     public String propriedadePublica;
 
@@ -13,8 +13,17 @@ public class Classe2 {
 
     protected String propriedadeProtected;
 
+    public String getPropriedadePrivada() {
+		return propriedadePrivada;
+	}
+
+	public void setPropriedadePrivada(String propriedadePrivada) {
+		this.propriedadePrivada = propriedadePrivada;
+	}
+    
     public static void main(String args[]) {
-        Classe1 classe1 = new Classe1();
+        @SuppressWarnings("unused")
+		Classe1 classe1 = new Classe1();
         //classe1.propriedadeDefaul
     }
 

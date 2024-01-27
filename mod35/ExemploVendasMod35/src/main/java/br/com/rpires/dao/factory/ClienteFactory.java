@@ -6,7 +6,7 @@ package br.com.rpires.dao.factory;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.domain.Cliente_2;
 
 /**
  * @author rodrigo.pires
@@ -14,8 +14,8 @@ import br.com.rpires.domain.Cliente;
  */
 public class ClienteFactory {
 
-	public static Cliente convert(ResultSet rs) throws SQLException {
-		Cliente cliente = new Cliente();
+	public static Cliente_2 convert(ResultSet rs) throws SQLException {
+		Cliente_2 cliente = new Cliente_2();
 		cliente.setId(rs.getLong("ID_CLIENTE"));
 		cliente.setNome(rs.getString(("NOME")));
 		cliente.setCpf(rs.getLong(("CPF")));

@@ -10,13 +10,13 @@ import java.util.Optional;
 import java.util.Set;
 
 import anotacao.TipoChave;
-import br.com.rpires.dao.Persistente;
+import br.com.rpires.dao.Persistence;
 
 /**
  * @author rodrigo.pires
  *
  */
-public class Venda implements Persistente {
+public class Venda implements Persistence {
 	
 	public enum Status {
 		INICIADA, CONCLUIDA, CANCELADA;
@@ -25,7 +25,7 @@ public class Venda implements Persistente {
 	@TipoChave("getCodigo")
 	private String codigo;
 	
-	private Cliente cliente;
+	private Cliente_2 cliente;
 	
 	private Set<ProdutoQuantidade> produtos;
 	
@@ -47,11 +47,11 @@ public class Venda implements Persistente {
 		this.codigo = codigo;
 	}
 
-	public Cliente getCliente() {
+	public Cliente_2 getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(Cliente_2 cliente) {
 		this.cliente = cliente;
 	}
 
@@ -59,7 +59,7 @@ public class Venda implements Persistente {
 		return produtos;
 	}
 
-	public void adicionarProduto(Produto produto, Integer quantidade) {
+	public void adicionarProduto(Produto_4 produto, Integer quantidade) {
 		validarStatus();
 		Optional<ProdutoQuantidade> op = 
 				produtos.stream().filter(filter -> filter.getProduto().getCodigo().equals(produto.getCodigo())).findAny();
@@ -82,7 +82,7 @@ public class Venda implements Persistente {
 		}
 	}
 	
-	public void removerProduto(Produto produto, Integer quantidade) {
+	public void removerProduto(Produto_4 produto, Integer quantidade) {
 		validarStatus();
 		Optional<ProdutoQuantidade> op = 
 				produtos.stream().filter(filter -> filter.getProduto().getCodigo().equals(produto.getCodigo())).findAny();

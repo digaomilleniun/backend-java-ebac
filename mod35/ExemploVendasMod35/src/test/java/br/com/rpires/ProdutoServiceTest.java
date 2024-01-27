@@ -9,9 +9,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.rpires.dao.IProdutoDAO;
+import br.com.rpires.dao.IProdutoDAO_1;
 import br.com.rpires.dao.ProdutoDaoMock;
-import br.com.rpires.domain.Produto;
+import br.com.rpires.domain.Produto_4;
 import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 import br.com.rpires.services.IProdutoService;
@@ -25,16 +25,16 @@ public class ProdutoServiceTest {
 
 	private IProdutoService produtoService;
 	
-	private Produto produto;
+	private Produto_4 produto;
 	
 	public ProdutoServiceTest() {
-		IProdutoDAO dao = new ProdutoDaoMock();
+		IProdutoDAO_1 dao = new ProdutoDaoMock();
 		produtoService = new ProdutoService(dao);
 	}
 	
 	@Before
 	public void init() {
-		produto = new Produto();
+		produto = new Produto_4();
 		produto.setCodigo("A1");
 		produto.setDescricao("Produto 1");
 		produto.setNome("Produto 1");
@@ -43,7 +43,7 @@ public class ProdutoServiceTest {
 	
 	@Test
 	public void pesquisar() throws DAOException {
-		Produto produtor = this.produtoService.consultar(produto.getCodigo());
+		Produto_4 produtor = this.produtoService.consultar(produto.getCodigo());
 		Assert.assertNotNull(produtor);
 	}
 	

@@ -1,13 +1,12 @@
 package br.com.rpires.set;
 
-import br.com.rpires.domain.Aluno;
+import br.com.rpires.domain.Aluno1;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemploTreeSetAluno {
 
@@ -21,12 +20,12 @@ public class ExemploTreeSetAluno {
      * Tem ordem natural dos objetos
      */
     private static void exemploListaSimples() {
-        Set<Aluno> conjunto = new TreeSet<>();
+        Set<Aluno1> conjunto = new TreeSet<>();
 
-        Aluno a = new Aluno("João da Silva", "Linux básico", 0);
-        Aluno b = new Aluno("Antonio Sousa", "OpenOffice", 0);
-        Aluno c = new Aluno("Lúcia Ferreira", "Internet", 0);
-        Aluno d = new Aluno("Antonio Sousa", "OpenOffice", 0);
+        Aluno1 a = new Aluno1("João da Silva", "Linux básico", 0);
+        Aluno1 b = new Aluno1("Antonio Sousa", "OpenOffice", 0);
+        Aluno1 c = new Aluno1("Lúcia Ferreira", "Internet", 0);
+        Aluno1 d = new Aluno1("Antonio Sousa", "OpenOffice", 0);
         conjunto.add(a);
         conjunto.add(b);
         conjunto.add(c);

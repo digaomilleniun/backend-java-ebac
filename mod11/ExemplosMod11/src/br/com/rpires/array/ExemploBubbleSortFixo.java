@@ -1,9 +1,7 @@
 package br.com.rpires.array;
 
-import java.util.Scanner;
-
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemploBubbleSortFixo {
 

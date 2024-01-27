@@ -1,11 +1,10 @@
 package br.com.rpires.domain;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class Biblioteca {
 
@@ -15,7 +14,7 @@ public class Biblioteca {
 
     private String endereco;
 
-    private Set<Livro> livros;
+    private Set<Livro4> livros;
 
     public Biblioteca() {
         this.livros = new HashSet<>();
@@ -45,7 +44,7 @@ public class Biblioteca {
         this.endereco = endereco;
     }
 
-    public Set<Livro> getLivros() {
+    public Set<Livro4> getLivros() {
         return livros;
     }
 
@@ -53,11 +52,11 @@ public class Biblioteca {
 //        this.livros = livros;
 //    }
 
-    public boolean addLivro(Livro livro) {
+    public boolean addLivro(Livro4 livro) {
         return this.livros.add(livro);
     }
 
-    public boolean removeLivro(Livro livro) {
+    public boolean removeLivro(Livro4 livro) {
         return this.livros.remove(livro);
     }
 }

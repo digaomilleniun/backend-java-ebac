@@ -1,7 +1,7 @@
 package br.com.rpires.lambdas.anonimas;
 
 /**
- * @author rodrigo.pires
+ * @author Steve Vaz
  */
 @FunctionalInterface
 public interface MyEventConsumerReturn<T> {

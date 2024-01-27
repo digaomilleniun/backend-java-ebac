@@ -6,7 +6,7 @@ package br.com.rpires.dao.factory;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.rpires.domain.Produto;
+import br.com.rpires.domain.Produto_4;
 
 /**
  * @author rodrigo.pires
@@ -15,8 +15,8 @@ import br.com.rpires.domain.Produto;
 public class ProdutoFactory {
 
 	
-	public static Produto convert(ResultSet rs) throws SQLException {
-		Produto prod = new Produto();
+	public static Produto_4 convert(ResultSet rs) throws SQLException {
+		Produto_4 prod = new Produto_4();
 		prod.setId(rs.getLong("ID_PRODUTO"));
 		prod.setCodigo(rs.getString("CODIGO"));
 		prod.setNome(rs.getString("NOME"));

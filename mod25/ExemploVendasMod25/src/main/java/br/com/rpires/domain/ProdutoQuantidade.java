@@ -11,7 +11,7 @@ import java.math.BigDecimal;
  */
 public class ProdutoQuantidade {
 
-	private Produto produto;
+	private Produto_4 produto;
 	
 	private Integer quantidade;
 	
@@ -22,11 +22,11 @@ public class ProdutoQuantidade {
 		this.valorTotal = BigDecimal.ZERO;
 	}
 
-	public Produto getProduto() {
+	public Produto_4 getProduto() {
 		return produto;
 	}
 
-	public void setProduto(Produto produto) {
+	public void setProduto(Produto_4 produto) {
 		this.produto = produto;
 	}
 

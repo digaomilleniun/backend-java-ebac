@@ -7,25 +7,25 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import br.com.rpires.dao.generic.GenericDAO;
-import br.com.rpires.domain.Cliente;
+import br.com.rpires.domain.Cliente_2;
 
 /**
  * @author rodrigo.pires
  *
  */
-public class ClienteDAO extends GenericDAO<Cliente, Long> implements IClienteDAO {
+public abstract class ClienteDAO extends GenericDAO<Cliente_2, Long> implements IClientDAO {
 
 	public ClienteDAO() {
 		super();
 	}
 
 	@Override
-	public Class<Cliente> getTipoClasse() {
-		return Cliente.class;
+	public Class<Cliente_2> getTipoClasse() {
+		return Cliente_2.class;
 	}
 
 	@Override
-	public void atualiarDados(Cliente entity, Cliente entityCadastrado) {
+	public void atualiarDados(Cliente_2 entity, Cliente_2 entityCadastrado) {
 		entityCadastrado.setCidade(entity.getCidade());
 		entityCadastrado.setCpf(entity.getCpf());
 		entityCadastrado.setEnd(entity.getEnd());
@@ -46,7 +46,7 @@ public class ClienteDAO extends GenericDAO<Cliente, Long> implements IClienteDAO
 	}
 
 	@Override
-	protected void setParametrosQueryInsercao(PreparedStatement stmInsert, Cliente entity) throws SQLException {
+	protected void setParametrosQueryInsercao(PreparedStatement stmInsert, Cliente_2 entity) throws SQLException {
 		stmInsert.setString(1, entity.getNome());
 		stmInsert.setLong(2, entity.getCpf());
 		stmInsert.setLong(3, entity.getTel());
@@ -82,7 +82,7 @@ public class ClienteDAO extends GenericDAO<Cliente, Long> implements IClienteDAO
 	}
 
 	@Override
-	protected void setParametrosQueryAtualizacao(PreparedStatement stmUpdate, Cliente entity) throws SQLException {
+	protected void setParametrosQueryAtualizacao(PreparedStatement stmUpdate, Cliente_2 entity) throws SQLException {
 		stmUpdate.setString(1, entity.getNome());
 		stmUpdate.setLong(2, entity.getTel());
 		stmUpdate.setString(3, entity.getEnd());

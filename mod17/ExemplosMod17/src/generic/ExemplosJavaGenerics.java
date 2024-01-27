@@ -13,12 +13,12 @@ import java.util.List;
 public class ExemplosJavaGenerics {
 
     public static void main(String args[]) {
-        List<String> lista = new ArrayList();
+        List<String> lista = new ArrayList<String>();
         lista.add("Rodrigo");
         lista.add("1");
         imprimir(lista);
 
-        List<Long> listaLong = new ArrayList();
+        List<Long> listaLong = new ArrayList<Long>();
         listaLong.add(1l);
         listaLong.add(2l);
         imprimir(listaLong);

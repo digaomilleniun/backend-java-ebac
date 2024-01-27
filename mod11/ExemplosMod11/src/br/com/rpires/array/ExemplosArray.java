@@ -1,7 +1,7 @@
 package br.com.rpires.array;
 
 /**
- * @author rodrigo.pires
+ * @author Steve.Vaz
  */
 public class ExemplosArray {
 
@@ -17,10 +17,10 @@ public class ExemplosArray {
     private static void novoArray() {
         System.out.println("****** novoArray ******");
         String[] nomes = new String[4];
-        nomes[0] = "Rodrigo";
-        nomes[1] = "Pires";
-        nomes[2] = "Pires2";
-        nomes[3] = "Pires3";
+        nomes[0] = "Steve";
+        nomes[1] = "Vaz1";
+        nomes[2] = "Vaz2";
+        nomes[3] = "Vaz3";
         for (String nome : nomes) {
             System.out.println(nome);
         }
@@ -53,7 +53,6 @@ public class ExemplosArray {
     private static void percorrendoArray2() {
         System.out.println("****** percorrendoArray2 ******");
         int[] arrayNum = {87, 68, 52, 5, 49, 83, 45, 12, 64};
-        int total = 0;
         for (int i = 0; i < arrayNum.length; i++) {
             System.out.println(arrayNum[i]);
         }
@@ -87,17 +86,6 @@ public class ExemplosArray {
 
     private static void declaracaoArray() {
         System.out.println("****** declaracaoArray ******");
-        //[] - são inseridos em uma variável que referecia um array
-        int[] a = new int[4];
-        //OUTRA MANEIRA DE FAZER UMA DECLARAÇÃO DE ARRAY
-        int[] b;
-        b = new int[10];
-        //DECLARANDO VÁRIOS ARRAYS
-        int[] r = new int[44], k = new int[23];
-
-        //{} - inicializar valores em um array sua declaração
-        int[] iniciaValores = {12,32,54,6,8,89,64,64,6};
-
         //DECLARA UM ARRAY DE INTEIROS
         int[] meuArray;
 

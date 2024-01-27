@@ -1,25 +1,27 @@
 package br.com.rpires.domain;
 
+import java.math.BigDecimal;
+
 /**
  * @author rodrigo.pires
  */
 public class Pedido {
 
-    private Cliente cliente;
-    private Vendedor vendedor;
-    private ItemVenda[] itens;
+    private Cliente_2 cliente;
+    private final Vendedor vendedor;
+    private final ItemVenda[] itens;
 
-    public Pedido(Cliente cliente, Vendedor vendedor, ItemVenda[] itens) {
+    public Pedido(Cliente_2 cliente, Vendedor vendedor, ItemVenda[] itens) {
         this.cliente = cliente;
         this.vendedor = vendedor;
         this.itens = itens;
     }
 
-    public Cliente getCliente() {
+    public Cliente_2 getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(Cliente_2 cliente) {
         this.cliente = cliente;
     }
 
@@ -27,16 +29,8 @@ public class Pedido {
         return vendedor;
     }
 
-    public void setVendedor(Vendedor vendedor) {
-        this.vendedor = vendedor;
-    }
-
     public ItemVenda[] getItens() {
         return itens;
-    }
-
-    public void setItens(ItemVenda[] itens) {
-        this.itens = itens;
     }
 
     public float calcularValorTotalPedido() {
@@ -55,9 +49,9 @@ public class Pedido {
 
         // Remove os produtos vendidos do estoque:
         for (ItemVenda itemVenda : getItens()) {
-            Produto produto = itemVenda.getProduto();
+            Produto_4 produto = itemVenda.getProduto();
             String nomeProduto = produto.getNome();
-            float valorProduto = produto.getValor();
+            BigDecimal valorProduto = produto.getValor();
             int estoqueProduto = produto.getEstoque();
             int qtdeItem = itemVenda.getQuantidade();
             float totalItem = itemVenda.calcularValorTotalItem();
